@@ -1,0 +1,94 @@
+// COPYRIGHT © ProgBit AS 2017
+// This file has been generated using ProgBit autoreg tools
+
+#include "stdint.h"
+
+typedef struct{
+   uint32_t             addr;
+   uint8_t              width;
+   uint8_t              bitPos;
+   uint16_t             val;
+} autoreg_register_property;
+
+typedef enum{
+   Ram,
+   RamAddr,
+} mem;
+
+const autoreg_register_property i0jtag.i0demo.i0core.i0rb_mem.mem [] = {
+  //    Addr   Width  BitPos     Val          Name           Type    Format  Info
+   {   1032,     36,      0,       0   },  // Ram            RAMIFRW U       "Ram data"                                          
+   {   1024,      8,      0,       0   },  // RamAddr        RAMIFADDRU       "Ram address register"                              
+};
+
+typedef enum{
+   branchesrev,
+   day,
+   hour,
+   latch,
+   minute,
+   month,
+   rctest,
+   rtest,
+   rwtest,
+   trunkrev,
+   year,
+} revision;
+
+const autoreg_register_property i0jtag.i0demo.i0core.i0rb_revision.revision [] = {
+  //    Addr   Width  BitPos     Val          Name           Type    Format  Info
+   {      0,      8,      8,       0   },  // branchesrev    RC      U       "Branches revision."                                
+   {      3,     16,      0,      21   },  // day            RC      U       "Day of build"                                      
+   {      4,     16,      0,      17   },  // hour           RC      U       "Hour of build"                                     
+   {      9,      1,      0,       0   },  // latch          WI      U       "Global latch"                                      
+   {      5,     16,      0,      16   },  // minute         RC      U       "Minute of build"                                   
+   {      2,     16,      0,      02   },  // month          RC      U       "Month of build"                                    
+   {     12,     40,      0,   0xabc   },  // rctest         RC      U       "Test register"                                     
+   {      9,     40,      3,       0   },  // rtest          R       U       "Test register"                                     
+   {      6,     40,      1,       0   },  // rwtest         RW      U       "Test register"                                     
+   {      0,      8,      0,       6   },  // trunkrev       RC      U       "Trunk revision."                                   
+   {      1,     16,      0,      17   },  // year           RC      U       "Year of build"                                     
+};
+
+typedef enum{
+   led0,
+   led1,
+   led2,
+   led3,
+} led;
+
+const autoreg_register_property i0jtag.i0demo.i0core.i0rb_led.led [] = {
+  //    Addr   Width  BitPos     Val          Name           Type    Format  Info
+   {     63,      1,      0,       0   },  // led0           RW      U       "led 0 control, 1 ~ light"                          
+   {     63,      1,      1,       1   },  // led1           RW      U       "led 1 control, 1 ~ light"                          
+   {     63,      1,      2,       0   },  // led2           RW      U       "led 2 control, 1 ~ light"                          
+   {     63,      1,      3,       0   },  // led3           RW      U       "led 3 control, 1 ~ light"                          
+};
+
+typedef enum{
+   down,
+   max,
+   prescale,
+   preset,
+   readcnt,
+   revision,
+   setcnt,
+   stepdown,
+   stepup,
+   up,
+} counter;
+
+const autoreg_register_property i0jtag.i0demo.i0core.i0count.i0rb_counter.counter [] = {
+  //    Addr   Width  BitPos     Val          Name           Type    Format  Info
+   {    257,      1,      1,       0   },  // down           RW      U       "Count down continuously"                           
+   {    260,     16,      0,   65535   },  // max            RW      U       "Max value before wrap to 0"                        
+   {    257,     12,      2,    1024   },  // prescale       RW      U       "Max value for prescale counter"                    
+   {    258,      1,      2,       0   },  // preset         WI      U       "Preset to SetCnt value"                            
+   {    261,     16,      0,       0   },  // readcnt        R       U       "Read value of counter"                             
+   {    256,      8,      0,       5   },  // revision       RC      U       "Trunk revision."                                   
+   {    259,     16,      0,       0   },  // setcnt         RW      U       "Value to be set by Preset"                         
+   {    258,      1,      1,       0   },  // stepdown       WI      U       "Step down one value"                               
+   {    258,      1,      0,       0   },  // stepup         WI      U       "Step up one value"                                 
+   {    257,      1,      0,       1   },  // up             RW      U       "Count up continuously"                             
+};
+
