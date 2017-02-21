@@ -1,0 +1,3 @@
+group -n revision -t bank -i {trunkrev branchesrev}
+reg -n trunkrev   -gui  Fun
+reg -n branchesrev -other "Nice to have!"

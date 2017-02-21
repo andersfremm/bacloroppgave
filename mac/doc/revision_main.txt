@@ -1,0 +1,17 @@
+# *******************************
+# Definition file for revision 
+# *******************************
+# Defining registers. Values are defined in revision_values.txt
+
+group -n revision -t bank -i {trunkrev branchesrev year month day hour minute rwtest latch rtest rctest}
+reg -n trunkrev    -t RC -f U -a 0 -w 8  -p 0 -c "Trunk revision."
+reg -n branchesrev -t RC -f U -a 0 -w 8  -p 8 -c "Branches revision."
+reg -n year        -t RC -f U -a 1 -w 16 -p 0 -c "Year of build"
+reg -n month       -t RC -f U -a 2 -w 16 -p 0 -c "Month of build"
+reg -n day         -t RC -f U -a 3 -w 16 -p 0 -c "Day of build"
+reg -n hour        -t RC -f U -a 4 -w 16 -p 0 -c "Hour of build"
+reg -n minute      -t RC -f U -a 5 -w 16 -p 0 -c "Minute of build"
+reg -n rwtest      -t RW -f U -a 6 -w 40 -p 1 -c "Test register"
+reg -n latch       -t WI -f U -a 9 -w 1  -p 0 -c "Global latch"
+reg -n rtest       -t R  -f U -a 9 -w 40 -p 3 -c "Test register"
+reg -n rctest      -t RC -f U -a 12 -w 40 -p 0 -v 0xabc -c "Test register"

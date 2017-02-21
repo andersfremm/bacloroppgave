@@ -1,0 +1,18 @@
+# *******************************
+# Definition file for memory (RAM) module
+# *******************************
+#
+# This file is prepared for either "port-mapped" or "memory-mapped" interface.
+# Comment and uncomment lines for group and reg definition to select interface
+#
+
+# port-mapped RAM
+# comment the three following lines to modify to memory mapped RAM
+group -n mem -t bank -i {Ram RamAddr}
+reg -n RamAddr -t RAMIFADDR -f U -a 0 -w 8 -p 0 -v 0 -r Ram -c "Ram address register"
+reg -n Ram -t RAMIFRW -f U -a 8 -w 36 -p 0 -v 0 -c "Ram data"
+
+# memory-mapped RAM
+# uncomment the two following lines to modify to memory mapped RAM
+#group -n mem -t bank -i {Ram}
+#reg -n Ram -t RAMRW -f U -a 0 -w 36 -i0 256 -o0 4 -p 0 -rl 1 -v 0 -c "Test ram"

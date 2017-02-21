@@ -1,0 +1,10 @@
+# Defining top level of system
+group -n demo_project -i i0jtag
+inst -n i0jtag -sg jtag -ba 0x0000
+# Defining JTAG interface
+group -n jtag -i {i0demo i0jtag_conf}
+inst -n i0jtag_conf -sg jtag_conf -ba 0x0000 -f ::autojtag_doc/jtag_conf.txt -c "JTAG config and status"
+# Instantiating the FPGA design (group demo). Described in a seperate file
+inst -n i0demo -sg demo -ba 0x0000 -f ./demo.txt
+inst -n i0demo -aw 16 -dw 16 -en big -cpu0 jtag -cpu1 serial -vendor Altera -tool quartus
+inst -n i0demo -constantList {gClkFreq 50_000_000 gStretchSize 5_000_000 gBaudRate 115_200 gActivity_invert true}
