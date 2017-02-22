@@ -60,7 +60,7 @@ if {$make_assignments} {
    source [file normalize ../autoreg/filelist_autoreg_jtag.tcl]
    source [file normalize ../autoreg/filelist_autoreg_serial.tcl]
    source [file normalize ../filelist_technology.tcl]
-   source [file normalize ../counter_ip/filelist.tcl]
+   source [file normalize ../mac/filelist.tcl]
    # Top level files
    source [file normalize ../filelist.tcl]
    # Autoreg generated files
