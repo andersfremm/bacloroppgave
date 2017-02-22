@@ -7,4 +7,4 @@
 ##
 ##########################################################################
 # Design files
-set_global_assignment -name VHDL_FILE C:/autoreg_work_civ/counter_ip/src/counter_ip.vhd
+set_global_assignment -name VHDL_FILE ../counter_ip/src/counter_ip.vhd

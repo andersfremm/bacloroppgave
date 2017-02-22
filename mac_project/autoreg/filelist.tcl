@@ -4,11 +4,11 @@
 
 
 
-set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac/autoreg/hdl/counter_ip_addressdecoder.vhd
-set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac/autoreg/hdl/core_addressdecoder.vhd
-set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac/autoreg/hdl/counter_regbank.vhd
-set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac/autoreg/hdl/led_regbank.vhd
-set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac/autoreg/hdl/mem_regbank.vhd
-set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac/autoreg/hdl/revision_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/counter_ip_addressdecoder.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/core_addressdecoder.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/counter_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/led_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/mem_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/revision_regbank.vhd
 
 
