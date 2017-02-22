@@ -28,15 +28,15 @@ architecture RTL of mac_ip is
 
 component mac_ip_addressdecoder is
    generic (
-      gAddSz                         : integer   := 16;
-      gDatSz                         : integer   := 16
+      gAddSz                             : integer   := 16;
+      gDatSz                             : integer   := 16
    );
    port (
-      ClkCpu                         : in  std_logic;
-      CmdBI                          : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      RdBBO                          : out std_logic_vector(gDatSz+1 downto 0);
-      i0rb_counterCmdBO              : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      i0rb_counterRdBBI              : in  std_logic_vector(gDatSz+1 downto 0)
+      ClkCpu                             : in  std_logic;
+      CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
+      i0rb_macCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      i0rb_macRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0)
    );
 end component;
 
@@ -71,8 +71,8 @@ end component;
    signal i0rb_counterstepdown               : std_logic;
    signal i0rb_counterstepup                 : std_logic;
    signal i0rb_counterup                     : std_logic;
-   signal i0rb_counterCmdB                   : std_logic_vector(gAddSz+gDatSz+2 downto 0);
-   signal i0rb_counterRdBB                   : std_logic_vector(gDatSz+1 downto 0); 
+   signal i0rb_macCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
+   signal i0rb_macRdBB                       : std_logic_vector(gDatSz+1 downto 0);
    -- ********************************************
    -- Signals manually added to the template from AutoReg
    -- ********************************************
@@ -92,8 +92,8 @@ begin
          ClkCpu                         => ClkCpu,
          CmdBI                          => CmdBI,
          RdBBO                          => RdBBO,
-         i0rb_counterCmdBO              => i0rb_counterCmdB,
-         i0rb_counterRdBBI              => i0rb_counterRdBB
+         i0rb_macCmdBO                  => i0rb_macCmdB,
+         i0rb_macRdBBI                  => i0rb_macRdBB
       );
 
    i0rb_mac : mac_regbank
@@ -104,8 +104,8 @@ begin
       port map (
          Clk                                => Clk,                            -- in std_logic
          Rst                                => Rst,                            -- in std_logic
-         CmdBI                              => i0rb_counterCmdB,              -- in std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBO                              => i0rb_counterRdBB,              -- out std_logic_vector(gDatSz+1 downto 0)
+         CmdBI                              => i0rb_macCmdB,                   -- in std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBO                              => i0rb_macRdBB,                   -- out std_logic_vector(gDatSz+1 downto 0)
          downO                              => i0rb_counterdown,              -- out std_logic
          maxO                               => i0rb_countermax,               -- out std_logic_vector(15 downto 0)
          prescaleO                          => i0rb_counterprescale,          -- out std_logic_vector(11 downto 0)
