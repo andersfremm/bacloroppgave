@@ -62,6 +62,26 @@ component mac_regbank is
    );
 end component;
 
+component mdio_regbank is
+   generic (
+      gAddSz                             : integer   := 16;
+      gDatSz                             : integer   := 16
+   );
+   port (
+      Clk                                : in  std_logic;
+      Rst                                : in  std_logic;
+      CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
+      AckI                               : in  std_logic;
+      DataII                             : in  std_logic_vector(15 downto 0);
+      DataOO                             : out std_logic_vector(15 downto 0);
+      PhyAddrO                           : out std_logic_vector(4 downto 0);
+      RdO                                : out std_logic;
+      RegAddrO                           : out std_logic_vector(4 downto 0);
+      WrO                                : out std_logic
+   );
+end component;
+
    signal i0rb_counterdown                   : std_logic;
    signal i0rb_countermax                    : std_logic_vector(15 downto 0);
    signal i0rb_counterprescale               : std_logic_vector(11 downto 0);
@@ -71,8 +91,19 @@ end component;
    signal i0rb_counterstepdown               : std_logic;
    signal i0rb_counterstepup                 : std_logic;
    signal i0rb_counterup                     : std_logic;
+
+   signal i0rb_mdioAck                       : std_logic := '0';
+   signal i0rb_mdioDataI                     : std_logic_vector(15 downto 0) := x"0000";
+   signal i0rb_mdioDataO                     : std_logic_vector(15 downto 0);
+   signal i0rb_mdioPhyAddr                   : std_logic_vector(4 downto 0);
+   signal i0rb_mdioRd                        : std_logic;
+   signal i0rb_mdioRegAddr                   : std_logic_vector(4 downto 0);
+   signal i0rb_mdioWr                        : std_logic;
+
    signal i0rb_macCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
    signal i0rb_macRdBB                       : std_logic_vector(gDatSz+1 downto 0);
+   signal i0rb_mdioCmdB                      : std_logic_vector(gAddSz+gDatSz+2 downto 0);
+   signal i0rb_mdioRdBB                      : std_logic_vector(gDatSz+1 downto 0);
    -- ********************************************
    -- Signals manually added to the template from AutoReg
    -- ********************************************
@@ -94,6 +125,25 @@ begin
          RdBBO                          => RdBBO,
          i0rb_macCmdBO                  => i0rb_macCmdB,
          i0rb_macRdBBI                  => i0rb_macRdBB
+      );
+
+   i0rb_mdio : mdio_regbank
+      generic map (
+         gAddSz                             => gAddSz,                         -- integer
+         gDatSz                             => gDatSz                          -- integer
+      )
+      port map (
+         Clk                                => Clk,                            -- in   std_logic
+         Rst                                => Rst,                            -- in   std_logic
+         CmdBI                              => i0rb_mdioCmdB,                  -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBO                              => i0rb_mdioRdBB,                  -- out  std_logic_vector(gDatSz+1 downto 0)
+         AckI                               => i0rb_mdioAck,                   -- in   std_logic
+         DataII                             => i0rb_mdioDataI,                 -- in   std_logic_vector(15 downto 0)
+         DataOO                             => i0rb_mdioDataO,                 -- out  std_logic_vector(15 downto 0)
+         PhyAddrO                           => i0rb_mdioPhyAddr,               -- out  std_logic_vector(4 downto 0)
+         RdO                                => i0rb_mdioRd,                    -- out  std_logic
+         RegAddrO                           => i0rb_mdioRegAddr,               -- out  std_logic_vector(4 downto 0)
+         WrO                                => i0rb_mdioWr                     -- out  std_logic
       );
 
    i0rb_mac : mac_regbank

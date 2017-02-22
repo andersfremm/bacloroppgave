@@ -10,5 +10,6 @@ set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/
 set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/mem_regbank.vhd
 set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/revision_regbank.vhd
 set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/mac_regbank.vhd
+set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/mdio_regbank.vhd
 
 

@@ -15,7 +15,7 @@ set ::autoreg::vMuxArray(core.-o) {group}
 set ::autoreg::vMuxArray(core.-path) {/i0jtag/i0demo/i0core}
 set ::autoreg::vMuxArray(core.-t) {mux}
 set ::autoreg::vMuxArray(core.i0mac.-ba) {256}
-set ::autoreg::vMuxArray(core.i0mac.-bh) {261}
+set ::autoreg::vMuxArray(core.i0mac.-bh) {265}
 set ::autoreg::vMuxArray(core.i0mac.-l) {::autoreg::myTree9}
 set ::autoreg::vMuxArray(core.i0mac.-n) {i0mac}
 set ::autoreg::vMuxArray(core.i0mac.-o) {inst}
@@ -52,18 +52,27 @@ set ::autoreg::vMuxArray(mac_ip.-clkcpu) {ClkCpu}
 set ::autoreg::vMuxArray(mac_ip.-clkpl) {Clk}
 set ::autoreg::vMuxArray(mac_ip.-dw) {16}
 set ::autoreg::vMuxArray(mac_ip.-en) {big}
-set ::autoreg::vMuxArray(mac_ip.-i) {i0rb_mac}
+set ::autoreg::vMuxArray(mac_ip.-i) {i0rb_mac i0rb_mdio}
 set ::autoreg::vMuxArray(mac_ip.-n) {mac_ip}
 set ::autoreg::vMuxArray(mac_ip.-o) {group}
 set ::autoreg::vMuxArray(mac_ip.-path) {/i0jtag/i0demo/i0core/i0mac}
 set ::autoreg::vMuxArray(mac_ip.-t) {mux}
-set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-ba) {0}
-set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-bh) {5}
-set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-l) {::autoreg::myTree14 ::autoreg::myTree15}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-ba) {4}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-bh) {9}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-l) {::autoreg::myTree15 ::autoreg::myTree16}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-n) {i0rb_mac}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-o) {inst}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-rtb) {0}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-rtc) {0}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-sg) {mac}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-sy) {0}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-ba) {0}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-bh) {3}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-l) {::autoreg::myTree14}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-n) {i0rb_mdio}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-o) {inst}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-rtb) {0}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-rtc) {0}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-sg) {mdio}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-sy) {0}
 

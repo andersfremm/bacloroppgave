@@ -36,7 +36,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core.-o) {inst}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core.-sg) {core}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-ba) {256}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-ch) {i0rb_mac}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-ch) {i0rb_mac i0rb_mdio}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-dw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-en) {big}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-l) {::autoreg::myTree9}
@@ -44,18 +44,18 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-n) {i0mac}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-o) {inst}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac.-sg) {mac_ip}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-aw) {16}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-ba) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-ba) {4}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-ch) {down max prescale preset readcnt revision setcnt stepdown stepup up}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-dw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-en) {big}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-l) {::autoreg::myTree14 ::autoreg::myTree15}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-l) {::autoreg::myTree15 ::autoreg::myTree16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-n) {i0rb_mac}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-o) {inst}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-rtb) {0}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-rtc) {0}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-sg) {mac}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac.-sy) {0}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-a) {257}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-a) {261}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-c) {Count down continuously}
@@ -74,7 +74,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-p) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-t) {RW}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/down.-w) {1}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-a) {260}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-a) {264}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-c) {Max value before wrap to 0}
@@ -94,7 +94,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-t) {RW}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-v) {65535}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/max.-w) {16}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-a) {257}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-a) {261}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-c) {Max value for prescale counter}
@@ -114,7 +114,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-t) {RW}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-v) {1024}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/prescale.-w) {12}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-a) {258}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-a) {262}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-c) {Preset to SetCnt value}
@@ -133,7 +133,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-p) {2}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-t) {WI}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/preset.-w) {1}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-a) {261}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-a) {265}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-c) {Read value of counter}
@@ -152,7 +152,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-p) {0}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-t) {R}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/readcnt.-w) {16}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-a) {256}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-a) {260}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-c) {Trunk revision.}
@@ -172,7 +172,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-t) {RC}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-v) {5}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/revision.-w) {8}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-a) {259}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-a) {263}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-c) {Value to be set by Preset}
@@ -191,7 +191,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-p) {0}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-t) {RW}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/setcnt.-w) {16}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-a) {258}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-a) {262}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-c) {Step down one value}
@@ -210,7 +210,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-p) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-t) {WI}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepdown.-w) {1}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-a) {258}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-a) {262}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-c) {Step up one value}
@@ -229,7 +229,7 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-p) {0}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-t) {WI}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/stepup.-w) {1}
-set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-a) {257}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-a) {261}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-as) {user}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-c) {Count up continuously}
@@ -249,6 +249,137 @@ set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-rmw) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-t) {RW}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-v) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mac/up.-w) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-ba) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-ch) {Ack DataI DataO PhyAddr Rd RegAddr Wr}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-l) {::autoreg::myTree14}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-n) {i0rb_mdio}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-o) {inst}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-rtb) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-rtc) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-sg) {mdio}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio.-sy) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-a) {256}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-as) {user}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-c) {Ack when done}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-ex) {2}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-f) {U}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-hi) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-i) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-lo) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-n) {Ack}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-o) {reg}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-p) {7}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-rmw) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-t) {R}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Ack.-w) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-a) {259}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-as) {user}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-c) {Data in from phy}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-ex) {65536}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-f) {U}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-hi) {65535}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-i) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-lo) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-n) {DataI}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-o) {reg}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-p) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-rmw) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-t) {R}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataI.-w) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-a) {258}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-as) {user}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-c) {Data out to phy}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-ex) {65536}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-f) {U}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-hi) {65535}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-i) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-lo) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-n) {DataO}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-o) {reg}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-p) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-rmw) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-t) {RW}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/DataO.-w) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-a) {256}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-as) {user}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-c) {Phy address}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-ex) {32}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-f) {U}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-hi) {31}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-i) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-lo) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-n) {PhyAddr}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-o) {reg}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-p) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-rmw) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-t) {RW}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/PhyAddr.-w) {5}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-a) {256}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-as) {user}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-c) {Read}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-ex) {2}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-f) {U}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-hi) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-i) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-lo) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-n) {Rd}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-o) {reg}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-p) {6}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-rmw) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-t) {WI}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Rd.-w) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-a) {257}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-as) {user}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-c) {Register address}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-ex) {32}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-f) {U}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-hi) {31}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-i) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-lo) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-n) {RegAddr}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-o) {reg}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-p) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-rmw) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-t) {RW}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/RegAddr.-w) {5}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-a) {256}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-as) {user}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-aw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-c) {Write}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-dw) {16}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-en) {big}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-ex) {2}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-f) {U}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-hi) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-i) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-lo) {0}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-n) {Wr}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-o) {reg}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-p) {5}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-rmw) {1}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-t) {WI}
+set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0mac/i0rb_mdio/Wr.-w) {1}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0rb_led.-aw) {16}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0rb_led.-ba) {63}
 set ::autoreg::vRegArray(/i0jtag/i0demo/i0core/i0rb_led.-ch) {led0 led1 led2 led3}

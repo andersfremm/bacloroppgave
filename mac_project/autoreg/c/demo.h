@@ -51,6 +51,27 @@ const autoreg_register_property i0jtag.i0demo.i0core.i0rb_revision.revision [] =
 };
 
 typedef enum{
+   Ack,
+   DataI,
+   DataO,
+   PhyAddr,
+   Rd,
+   RegAddr,
+   Wr,
+} mdio;
+
+const autoreg_register_property i0jtag.i0demo.i0core.i0mac.i0rb_mdio.mdio [] = {
+  //    Addr   Width  BitPos     Val          Name           Type    Format  Info
+   {    256,      1,      7,       0   },  // Ack            R       U       "Ack when done"                                     
+   {    259,     16,      0,       0   },  // DataI          R       U       "Data in from phy"                                  
+   {    258,     16,      0,       0   },  // DataO          RW      U       "Data out to phy"                                   
+   {    256,      5,      0,       0   },  // PhyAddr        RW      U       "Phy address"                                       
+   {    256,      1,      6,       0   },  // Rd             WI      U       "Read"                                              
+   {    257,      5,      0,       0   },  // RegAddr        RW      U       "Register address"                                  
+   {    256,      1,      5,       0   },  // Wr             WI      U       "Write"                                             
+};
+
+typedef enum{
    led0,
    led1,
    led2,
@@ -80,15 +101,15 @@ typedef enum{
 
 const autoreg_register_property i0jtag.i0demo.i0core.i0mac.i0rb_mac.mac [] = {
   //    Addr   Width  BitPos     Val          Name           Type    Format  Info
-   {    257,      1,      1,       0   },  // down           RW      U       "Count down continuously"                           
-   {    260,     16,      0,   65535   },  // max            RW      U       "Max value before wrap to 0"                        
-   {    257,     12,      2,    1024   },  // prescale       RW      U       "Max value for prescale counter"                    
-   {    258,      1,      2,       0   },  // preset         WI      U       "Preset to SetCnt value"                            
-   {    261,     16,      0,       0   },  // readcnt        R       U       "Read value of counter"                             
-   {    256,      8,      0,       5   },  // revision       RC      U       "Trunk revision."                                   
-   {    259,     16,      0,       0   },  // setcnt         RW      U       "Value to be set by Preset"                         
-   {    258,      1,      1,       0   },  // stepdown       WI      U       "Step down one value"                               
-   {    258,      1,      0,       0   },  // stepup         WI      U       "Step up one value"                                 
-   {    257,      1,      0,       1   },  // up             RW      U       "Count up continuously"                             
+   {    261,      1,      1,       0   },  // down           RW      U       "Count down continuously"                           
+   {    264,     16,      0,   65535   },  // max            RW      U       "Max value before wrap to 0"                        
+   {    261,     12,      2,    1024   },  // prescale       RW      U       "Max value for prescale counter"                    
+   {    262,      1,      2,       0   },  // preset         WI      U       "Preset to SetCnt value"                            
+   {    265,     16,      0,       0   },  // readcnt        R       U       "Read value of counter"                             
+   {    260,      8,      0,       5   },  // revision       RC      U       "Trunk revision."                                   
+   {    263,     16,      0,       0   },  // setcnt         RW      U       "Value to be set by Preset"                         
+   {    262,      1,      1,       0   },  // stepdown       WI      U       "Step down one value"                               
+   {    262,      1,      0,       0   },  // stepup         WI      U       "Step up one value"                                 
+   {    261,      1,      0,       1   },  // up             RW      U       "Count up continuously"                             
 };
 

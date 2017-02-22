@@ -100,7 +100,7 @@ set ::autoreg::vGuiArray(mac.-n) {mac}
 set ::autoreg::vGuiArray(mac.-o) {group}
 set ::autoreg::vGuiArray(mac.-path) {/i0jtag/i0demo/i0core/i0mac/i0rb_mac}
 set ::autoreg::vGuiArray(mac.-t) {bank}
-set ::autoreg::vGuiArray(mac.down.-a) {257}
+set ::autoreg::vGuiArray(mac.down.-a) {261}
 set ::autoreg::vGuiArray(mac.down.-as) {user}
 set ::autoreg::vGuiArray(mac.down.-aw) {16}
 set ::autoreg::vGuiArray(mac.down.-c) {Count down continuously}
@@ -119,7 +119,7 @@ set ::autoreg::vGuiArray(mac.down.-p) {1}
 set ::autoreg::vGuiArray(mac.down.-rmw) {1}
 set ::autoreg::vGuiArray(mac.down.-t) {RW}
 set ::autoreg::vGuiArray(mac.down.-w) {1}
-set ::autoreg::vGuiArray(mac.max.-a) {260}
+set ::autoreg::vGuiArray(mac.max.-a) {264}
 set ::autoreg::vGuiArray(mac.max.-as) {user}
 set ::autoreg::vGuiArray(mac.max.-aw) {16}
 set ::autoreg::vGuiArray(mac.max.-c) {Max value before wrap to 0}
@@ -139,7 +139,7 @@ set ::autoreg::vGuiArray(mac.max.-rmw) {1}
 set ::autoreg::vGuiArray(mac.max.-t) {RW}
 set ::autoreg::vGuiArray(mac.max.-v) {65535}
 set ::autoreg::vGuiArray(mac.max.-w) {16}
-set ::autoreg::vGuiArray(mac.prescale.-a) {257}
+set ::autoreg::vGuiArray(mac.prescale.-a) {261}
 set ::autoreg::vGuiArray(mac.prescale.-as) {user}
 set ::autoreg::vGuiArray(mac.prescale.-aw) {16}
 set ::autoreg::vGuiArray(mac.prescale.-c) {Max value for prescale counter}
@@ -159,7 +159,7 @@ set ::autoreg::vGuiArray(mac.prescale.-rmw) {1}
 set ::autoreg::vGuiArray(mac.prescale.-t) {RW}
 set ::autoreg::vGuiArray(mac.prescale.-v) {1024}
 set ::autoreg::vGuiArray(mac.prescale.-w) {12}
-set ::autoreg::vGuiArray(mac.preset.-a) {258}
+set ::autoreg::vGuiArray(mac.preset.-a) {262}
 set ::autoreg::vGuiArray(mac.preset.-as) {user}
 set ::autoreg::vGuiArray(mac.preset.-aw) {16}
 set ::autoreg::vGuiArray(mac.preset.-c) {Preset to SetCnt value}
@@ -178,7 +178,7 @@ set ::autoreg::vGuiArray(mac.preset.-p) {2}
 set ::autoreg::vGuiArray(mac.preset.-rmw) {1}
 set ::autoreg::vGuiArray(mac.preset.-t) {WI}
 set ::autoreg::vGuiArray(mac.preset.-w) {1}
-set ::autoreg::vGuiArray(mac.readcnt.-a) {261}
+set ::autoreg::vGuiArray(mac.readcnt.-a) {265}
 set ::autoreg::vGuiArray(mac.readcnt.-as) {user}
 set ::autoreg::vGuiArray(mac.readcnt.-aw) {16}
 set ::autoreg::vGuiArray(mac.readcnt.-c) {Read value of counter}
@@ -197,7 +197,7 @@ set ::autoreg::vGuiArray(mac.readcnt.-p) {0}
 set ::autoreg::vGuiArray(mac.readcnt.-rmw) {1}
 set ::autoreg::vGuiArray(mac.readcnt.-t) {R}
 set ::autoreg::vGuiArray(mac.readcnt.-w) {16}
-set ::autoreg::vGuiArray(mac.revision.-a) {256}
+set ::autoreg::vGuiArray(mac.revision.-a) {260}
 set ::autoreg::vGuiArray(mac.revision.-as) {user}
 set ::autoreg::vGuiArray(mac.revision.-aw) {16}
 set ::autoreg::vGuiArray(mac.revision.-c) {Trunk revision.}
@@ -217,7 +217,7 @@ set ::autoreg::vGuiArray(mac.revision.-rmw) {1}
 set ::autoreg::vGuiArray(mac.revision.-t) {RC}
 set ::autoreg::vGuiArray(mac.revision.-v) {5}
 set ::autoreg::vGuiArray(mac.revision.-w) {8}
-set ::autoreg::vGuiArray(mac.setcnt.-a) {259}
+set ::autoreg::vGuiArray(mac.setcnt.-a) {263}
 set ::autoreg::vGuiArray(mac.setcnt.-as) {user}
 set ::autoreg::vGuiArray(mac.setcnt.-aw) {16}
 set ::autoreg::vGuiArray(mac.setcnt.-c) {Value to be set by Preset}
@@ -236,7 +236,7 @@ set ::autoreg::vGuiArray(mac.setcnt.-p) {0}
 set ::autoreg::vGuiArray(mac.setcnt.-rmw) {1}
 set ::autoreg::vGuiArray(mac.setcnt.-t) {RW}
 set ::autoreg::vGuiArray(mac.setcnt.-w) {16}
-set ::autoreg::vGuiArray(mac.stepdown.-a) {258}
+set ::autoreg::vGuiArray(mac.stepdown.-a) {262}
 set ::autoreg::vGuiArray(mac.stepdown.-as) {user}
 set ::autoreg::vGuiArray(mac.stepdown.-aw) {16}
 set ::autoreg::vGuiArray(mac.stepdown.-c) {Step down one value}
@@ -255,7 +255,7 @@ set ::autoreg::vGuiArray(mac.stepdown.-p) {1}
 set ::autoreg::vGuiArray(mac.stepdown.-rmw) {1}
 set ::autoreg::vGuiArray(mac.stepdown.-t) {WI}
 set ::autoreg::vGuiArray(mac.stepdown.-w) {1}
-set ::autoreg::vGuiArray(mac.stepup.-a) {258}
+set ::autoreg::vGuiArray(mac.stepup.-a) {262}
 set ::autoreg::vGuiArray(mac.stepup.-as) {user}
 set ::autoreg::vGuiArray(mac.stepup.-aw) {16}
 set ::autoreg::vGuiArray(mac.stepup.-c) {Step up one value}
@@ -274,7 +274,7 @@ set ::autoreg::vGuiArray(mac.stepup.-p) {0}
 set ::autoreg::vGuiArray(mac.stepup.-rmw) {1}
 set ::autoreg::vGuiArray(mac.stepup.-t) {WI}
 set ::autoreg::vGuiArray(mac.stepup.-w) {1}
-set ::autoreg::vGuiArray(mac.up.-a) {257}
+set ::autoreg::vGuiArray(mac.up.-a) {261}
 set ::autoreg::vGuiArray(mac.up.-as) {user}
 set ::autoreg::vGuiArray(mac.up.-aw) {16}
 set ::autoreg::vGuiArray(mac.up.-c) {Count up continuously}
