@@ -1,10 +1,10 @@
-####################### COPYRIGHT ProgBit 2016 ###########################
+####################### COPYRIGHT ProgBit 2017 ###########################
 ##
 ## File:          filelist.txt
-## Project:       Counter ip
+## Project:       Mac ip
 ## Init author:   Arin
 ## Description:   List of design files for the project.
 ##
 ##########################################################################
 # Design files
-set_global_assignment -name VHDL_FILE ../mac/src/counter_ip.vhd
+set_global_assignment -name VHDL_FILE ../mac/src/mac.vhd

@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity counter_ip is
+entity mac is
    generic (
       gAddSz                         : integer   := 16;
       gDatSz                         : integer   := 16;
@@ -24,9 +24,9 @@ entity counter_ip is
    );
 end entity;
 
-architecture RTL of counter_ip is
+architecture RTL of mac is
 
-component counter_ip_addressdecoder is
+component mac_addressdecoder is
    generic (
       gAddSz                         : integer   := 16;
       gDatSz                         : integer   := 16
@@ -40,7 +40,7 @@ component counter_ip_addressdecoder is
    );
 end component;
 
-component counter_regbank is
+component mac_regbank is
    generic (
       gAddSz                             : integer   := 16;
       gDatSz                             : integer   := 16
@@ -83,7 +83,7 @@ end component;
  
 begin
 
-   i0counter_ip_addressdecoder : counter_ip_addressdecoder
+   i0mac_addressdecoder : mac_addressdecoder
       generic map (
          gAddSz                         => gAddSz,
          gDatSz                         => gDatSz
@@ -96,7 +96,7 @@ begin
          i0rb_counterRdBBI              => i0rb_counterRdBB
       );
 
-   i0rb_counter : counter_regbank
+   i0rb_mac : mac_regbank
       generic map (
          gAddSz                             => gAddSz,                         -- integer
          gDatSz                             => gDatSz                          -- integer
