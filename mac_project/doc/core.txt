@@ -26,5 +26,5 @@ reg -n led3 -t RW -f U -a 0  -w 1 -p 3 -port external -c "led 3 control, 1 ~ lig
 inst -n i0rb_mem -sg mem -ba 1024 -sy 1 -rtc 0 -rtb 0
 inst -n i0rb_mem -f ./mem.txt
 
-#  Instantiating mac
+#  Instantiating mac_ip
 inst -n i0mac -sg mac_ip -ba 256 -f ../mac_ip/doc/mac_ip.txt

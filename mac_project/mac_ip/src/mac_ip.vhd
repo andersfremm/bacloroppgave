@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity mac is
+entity mac_ip is
    generic (
       gAddSz                         : integer   := 16;
       gDatSz                         : integer   := 16;
@@ -24,9 +24,9 @@ entity mac is
    );
 end entity;
 
-architecture RTL of mac is
+architecture RTL of mac_ip is
 
-component mac_addressdecoder is
+component mac_ip_addressdecoder is
    generic (
       gAddSz                         : integer   := 16;
       gDatSz                         : integer   := 16
@@ -83,7 +83,7 @@ end component;
  
 begin
 
-   i0mac_addressdecoder : mac_addressdecoder
+   i0mac_ip_addressdecoder : mac_ip_addressdecoder
       generic map (
          gAddSz                         => gAddSz,
          gDatSz                         => gDatSz

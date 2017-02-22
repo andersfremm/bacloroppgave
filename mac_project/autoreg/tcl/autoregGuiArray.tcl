@@ -98,7 +98,7 @@ set ::autoreg::vGuiArray(mac.-gw) {12 8}
 set ::autoreg::vGuiArray(mac.-i) {revision prescale up down stepup stepdown preset setcnt max readcnt}
 set ::autoreg::vGuiArray(mac.-n) {mac}
 set ::autoreg::vGuiArray(mac.-o) {group}
-set ::autoreg::vGuiArray(mac.-path) {/i0jtag/i0demo/i0core/i0count/i0rb_mac}
+set ::autoreg::vGuiArray(mac.-path) {/i0jtag/i0demo/i0core/i0mac/i0rb_mac}
 set ::autoreg::vGuiArray(mac.-t) {bank}
 set ::autoreg::vGuiArray(mac.down.-a) {257}
 set ::autoreg::vGuiArray(mac.down.-as) {user}

@@ -5,7 +5,7 @@
 
 
 set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/core_template.vhd
-set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/mac_template.vhd
+set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/mac_ip_template.vhd
 set_global_assignment -name VHDL_FILE C:/ahvl/bacloroppgave/mac_project/autoreg/hdl/demo_template.vhd
 
 

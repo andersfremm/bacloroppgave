@@ -77,7 +77,7 @@ set ::autoreg::vRegBankArray(mac.-gw) {12 8}
 set ::autoreg::vRegBankArray(mac.-i) {revision prescale up down stepup stepdown preset setcnt max readcnt}
 set ::autoreg::vRegBankArray(mac.-n) {mac}
 set ::autoreg::vRegBankArray(mac.-o) {group}
-set ::autoreg::vRegBankArray(mac.-path) {/i0jtag/i0demo/i0core/i0count/i0rb_mac}
+set ::autoreg::vRegBankArray(mac.-path) {/i0jtag/i0demo/i0core/i0mac/i0rb_mac}
 set ::autoreg::vRegBankArray(mac.-sy) {0}
 set ::autoreg::vRegBankArray(mac.-t) {bank}
 set ::autoreg::vRegBankArray(mac.down.-a) {1}
