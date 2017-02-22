@@ -1,0 +1,42 @@
+# *******************************
+# Definition file for the revision GUI
+# *******************************
+
+group -n revision -t bank -i {trunkrev branchesrev year month day hour minute rwtest latch rtest rctest}
+group -n revision -gspan {4 8}
+group -n revision -gw {12 8}
+group -n revision -gupdate {2 7}
+
+reg -n trunkrev	   -gloc {0 0}
+reg -n trunkrev	   -gtype label
+
+reg -n branchesrev -gloc {0 1}
+reg -n branchesrev -gtype label
+
+reg -n year	   -gloc {0 2}
+reg -n year	   -gtype label
+
+reg -n month       -gloc {0 3}
+reg -n month       -gtype label
+
+reg -n day       -gloc {0 4}
+reg -n day       -gtype label
+
+reg -n hour       -gloc {0 5}
+reg -n hour       -gtype label
+
+reg -n minute       -gloc {0 6}
+reg -n minute       -gtype label
+
+reg -n rwtest	   -gloc {2 0}
+reg -n rwtest	   -gtype entry
+
+reg -n rtest       -gloc {2 1}
+reg -n rtest       -gtype label
+
+reg -n rctest       -gloc {2 2}
+reg -n rctest       -gtype label
+
+reg -n latch	   -gloc {2 3}
+reg -n latch	   -gtype button
+

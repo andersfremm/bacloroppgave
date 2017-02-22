@@ -1,0 +1,11 @@
+################# COPYRIGHT © ProgBit AS 2017 ##################################
+## gui_file.txt has been generated with ProgBit autoreg tools by user User
+################################################################################
+
+# Type      Arg0        Arg1        Arg2        etc         
+
+tcl         autoreg/tcl/led_gui.tcl
+tcl         autoreg/tcl/revision_gui.tcl
+tcl         autoreg/tcl/status_gui.tcl
+tcl         autoreg/tcl/counter_gui.tcl
+

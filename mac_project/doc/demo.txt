@@ -1,0 +1,10 @@
+# *******************************
+# Definition file for demo 
+# *******************************
+
+#  Instantiating core
+group -n demo -t main -i {i0core}
+
+# Defining core instance. Base address and file
+inst -n i0core -sg core -ba 0x0000 -f ./core.txt
+

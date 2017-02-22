@@ -1,0 +1,30 @@
+# *******************************
+# Definition file for core 
+# *******************************
+
+#  Defining core module
+group -n core -t mux -ba 0 -aw 16 -dw 16 -en big
+group -n core -i {i0rb_revision i0rb_led i0count i0rb_mem}
+
+#  Defining revision regbank
+inst -n i0rb_revision -sg revision -ba 0 -sy 1 -rtc 0 -rtb 0
+inst -n i0rb_revision -f ./revision_main.txt
+inst -n i0rb_revision -f ./revision_values.txt
+inst -n i0rb_revision -f ./revision_gui.txt
+inst -n i0rb_revision -f ./revision_other_params.txt
+
+#  Defining led regbank
+inst -n i0rb_led -sg led -ba 63 -sy 1 -rtc 0 -rtb 0
+group -n led -t bank -i {led0 led1 led2 led3} -gspan {2 4} -gw {12 8}
+group -n led -gupdate {0 4}
+reg -n led0 -t RW -f U -a 0  -w 1 -p 0 -port external -c "led 0 control, 1 ~ light" -gloc {0 0} -gtype checkbutton
+reg -n led1 -t RW -f U -a 0  -w 1 -p 1 -port external -v 1 -c "led 1 control, 1 ~ light" -gloc {0 1} -gtype checkbutton
+reg -n led2 -t RW -f U -a 0  -w 1 -p 2 -port external -c "led 2 control, 1 ~ light" -gloc {0 2} -gtype checkbutton
+reg -n led3 -t RW -f U -a 0  -w 1 -p 3 -port external -c "led 3 control, 1 ~ light" -gloc {0 3} -gtype checkbutton
+
+#  Defining mem membank
+inst -n i0rb_mem -sg mem -ba 1024 -sy 1 -rtc 0 -rtb 0
+inst -n i0rb_mem -f ./mem.txt
+
+#  Instantiating counter_ip
+inst -n i0count -sg counter_ip -ba 256 -f ../counter_ip/doc/counter_ip.txt
