@@ -7,4 +7,4 @@
 ##
 ##########################################################################
 # Design files
-set_global_assignment -name VHDL_FILE ../mac/src/mac.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/mac_ip.vhd
