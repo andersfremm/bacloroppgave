@@ -19,7 +19,7 @@ set ::autoreg::vMuxArray(core.i0count.-bh) {261}
 set ::autoreg::vMuxArray(core.i0count.-l) {::autoreg::myTree9}
 set ::autoreg::vMuxArray(core.i0count.-n) {i0count}
 set ::autoreg::vMuxArray(core.i0count.-o) {inst}
-set ::autoreg::vMuxArray(core.i0count.-sg) {counter_ip}
+set ::autoreg::vMuxArray(core.i0count.-sg) {mac}
 set ::autoreg::vMuxArray(core.i0rb_led.-ba) {63}
 set ::autoreg::vMuxArray(core.i0rb_led.-bh) {63}
 set ::autoreg::vMuxArray(core.i0rb_led.-n) {i0rb_led}
@@ -46,24 +46,24 @@ set ::autoreg::vMuxArray(core.i0rb_revision.-rtb) {0}
 set ::autoreg::vMuxArray(core.i0rb_revision.-rtc) {0}
 set ::autoreg::vMuxArray(core.i0rb_revision.-sg) {revision}
 set ::autoreg::vMuxArray(core.i0rb_revision.-sy) {1}
-set ::autoreg::vMuxArray(counter_ip.-aw) {16}
-set ::autoreg::vMuxArray(counter_ip.-ba) {256}
-set ::autoreg::vMuxArray(counter_ip.-clkcpu) {ClkCpu}
-set ::autoreg::vMuxArray(counter_ip.-clkpl) {Clk}
-set ::autoreg::vMuxArray(counter_ip.-dw) {16}
-set ::autoreg::vMuxArray(counter_ip.-en) {big}
-set ::autoreg::vMuxArray(counter_ip.-i) {i0rb_counter}
-set ::autoreg::vMuxArray(counter_ip.-n) {counter_ip}
-set ::autoreg::vMuxArray(counter_ip.-o) {group}
-set ::autoreg::vMuxArray(counter_ip.-path) {/i0jtag/i0demo/i0core/i0count}
-set ::autoreg::vMuxArray(counter_ip.-t) {mux}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-ba) {0}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-bh) {5}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-l) {::autoreg::myTree14 ::autoreg::myTree15}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-n) {i0rb_counter}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-o) {inst}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-rtb) {0}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-rtc) {0}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-sg) {counter}
-set ::autoreg::vMuxArray(counter_ip.i0rb_counter.-sy) {0}
+set ::autoreg::vMuxArray(mac.-aw) {16}
+set ::autoreg::vMuxArray(mac.-ba) {256}
+set ::autoreg::vMuxArray(mac.-clkcpu) {ClkCpu}
+set ::autoreg::vMuxArray(mac.-clkpl) {Clk}
+set ::autoreg::vMuxArray(mac.-dw) {16}
+set ::autoreg::vMuxArray(mac.-en) {big}
+set ::autoreg::vMuxArray(mac.-i) {i0rb_mac}
+set ::autoreg::vMuxArray(mac.-n) {mac}
+set ::autoreg::vMuxArray(mac.-o) {group}
+set ::autoreg::vMuxArray(mac.-path) {/i0jtag/i0demo/i0core/i0count}
+set ::autoreg::vMuxArray(mac.-t) {mux}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-ba) {0}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-bh) {5}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-l) {::autoreg::myTree14 ::autoreg::myTree15}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-n) {i0rb_mac}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-o) {inst}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-rtb) {0}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-rtc) {0}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-sg) {mac}
+set ::autoreg::vMuxArray(mac.i0rb_mac.-sy) {0}
 

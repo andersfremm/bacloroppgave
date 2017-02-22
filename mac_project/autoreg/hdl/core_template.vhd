@@ -47,7 +47,7 @@ component core_addressdecoder is
    );
 end component;
 
-component counter_ip is
+component mac is
    generic (
       gAddSz                             : integer   := 16;
       gDatSz                             : integer   := 16;
@@ -183,7 +183,7 @@ begin
          rwtestO                            => i0rb_revisionrwtest             -- out  std_logic_vector(39 downto 0)
       );
 
-   i0count : counter_ip
+   i0count : mac
       generic map (
          gAddSz                             => gAddSz,                         -- integer
          gDatSz                             => gDatSz,                         -- integer

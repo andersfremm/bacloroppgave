@@ -30,7 +30,7 @@ Register bank /i0jtag/i0demo/i0core/i0rb_led
        63 |   2 |   2 |   0  0   | led2                        |     1 | RW        |         |                                          | led 2 control, 1 ~ light             
        63 |   3 |   3 |   0  0   | led3                        |     1 | RW        |         |                                          | led 3 control, 1 ~ light             
 
-Register bank /i0jtag/i0demo/i0core/i0count/i0rb_counter
+Register bank /i0jtag/i0demo/i0core/i0count/i0rb_mac
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Address | MSB | LSB | Reg  slc | Signal Name                 | Width | Type      | Value   | Reference                                | Comment                              
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

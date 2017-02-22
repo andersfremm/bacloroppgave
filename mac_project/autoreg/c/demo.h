@@ -76,9 +76,9 @@ typedef enum{
    stepdown,
    stepup,
    up,
-} counter;
+} mac;
 
-const autoreg_register_property i0jtag.i0demo.i0core.i0count.i0rb_counter.counter [] = {
+const autoreg_register_property i0jtag.i0demo.i0core.i0count.i0rb_mac.mac [] = {
   //    Addr   Width  BitPos     Val          Name           Type    Format  Info
    {    257,      1,      1,       0   },  // down           RW      U       "Count down continuously"                           
    {    260,     16,      0,   65535   },  // max            RW      U       "Max value before wrap to 0"                        

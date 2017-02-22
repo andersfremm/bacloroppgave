@@ -3,208 +3,6 @@ if {[namespace exist ::autoreg] == 0} {
       variable vGuiArray
    }
 }
-set ::autoreg::vGuiArray(counter.-gspan) {6 8}
-set ::autoreg::vGuiArray(counter.-gupdate) {4 7}
-set ::autoreg::vGuiArray(counter.-gw) {12 8}
-set ::autoreg::vGuiArray(counter.-i) {revision prescale up down stepup stepdown preset setcnt max readcnt}
-set ::autoreg::vGuiArray(counter.-n) {counter}
-set ::autoreg::vGuiArray(counter.-o) {group}
-set ::autoreg::vGuiArray(counter.-path) {/i0jtag/i0demo/i0core/i0count/i0rb_counter}
-set ::autoreg::vGuiArray(counter.-t) {bank}
-set ::autoreg::vGuiArray(counter.down.-a) {257}
-set ::autoreg::vGuiArray(counter.down.-as) {user}
-set ::autoreg::vGuiArray(counter.down.-aw) {16}
-set ::autoreg::vGuiArray(counter.down.-c) {Count down continuously}
-set ::autoreg::vGuiArray(counter.down.-dw) {16}
-set ::autoreg::vGuiArray(counter.down.-en) {big}
-set ::autoreg::vGuiArray(counter.down.-ex) {2}
-set ::autoreg::vGuiArray(counter.down.-f) {U}
-set ::autoreg::vGuiArray(counter.down.-gloc) {2 1}
-set ::autoreg::vGuiArray(counter.down.-gtype) {checkbutton}
-set ::autoreg::vGuiArray(counter.down.-hi) {1}
-set ::autoreg::vGuiArray(counter.down.-i) {0}
-set ::autoreg::vGuiArray(counter.down.-lo) {0}
-set ::autoreg::vGuiArray(counter.down.-n) {down}
-set ::autoreg::vGuiArray(counter.down.-o) {reg}
-set ::autoreg::vGuiArray(counter.down.-p) {1}
-set ::autoreg::vGuiArray(counter.down.-rmw) {1}
-set ::autoreg::vGuiArray(counter.down.-t) {RW}
-set ::autoreg::vGuiArray(counter.down.-w) {1}
-set ::autoreg::vGuiArray(counter.max.-a) {260}
-set ::autoreg::vGuiArray(counter.max.-as) {user}
-set ::autoreg::vGuiArray(counter.max.-aw) {16}
-set ::autoreg::vGuiArray(counter.max.-c) {Max value before wrap to 0}
-set ::autoreg::vGuiArray(counter.max.-dw) {16}
-set ::autoreg::vGuiArray(counter.max.-en) {big}
-set ::autoreg::vGuiArray(counter.max.-ex) {65536}
-set ::autoreg::vGuiArray(counter.max.-f) {U}
-set ::autoreg::vGuiArray(counter.max.-gloc) {0 1}
-set ::autoreg::vGuiArray(counter.max.-gtype) {entry}
-set ::autoreg::vGuiArray(counter.max.-hi) {65535}
-set ::autoreg::vGuiArray(counter.max.-i) {0}
-set ::autoreg::vGuiArray(counter.max.-lo) {0}
-set ::autoreg::vGuiArray(counter.max.-n) {max}
-set ::autoreg::vGuiArray(counter.max.-o) {reg}
-set ::autoreg::vGuiArray(counter.max.-p) {0}
-set ::autoreg::vGuiArray(counter.max.-rmw) {1}
-set ::autoreg::vGuiArray(counter.max.-t) {RW}
-set ::autoreg::vGuiArray(counter.max.-v) {65535}
-set ::autoreg::vGuiArray(counter.max.-w) {16}
-set ::autoreg::vGuiArray(counter.prescale.-a) {257}
-set ::autoreg::vGuiArray(counter.prescale.-as) {user}
-set ::autoreg::vGuiArray(counter.prescale.-aw) {16}
-set ::autoreg::vGuiArray(counter.prescale.-c) {Max value for prescale counter}
-set ::autoreg::vGuiArray(counter.prescale.-dw) {16}
-set ::autoreg::vGuiArray(counter.prescale.-en) {big}
-set ::autoreg::vGuiArray(counter.prescale.-ex) {4096}
-set ::autoreg::vGuiArray(counter.prescale.-f) {U}
-set ::autoreg::vGuiArray(counter.prescale.-gloc) {0 0}
-set ::autoreg::vGuiArray(counter.prescale.-gtype) {entry}
-set ::autoreg::vGuiArray(counter.prescale.-hi) {4095}
-set ::autoreg::vGuiArray(counter.prescale.-i) {0}
-set ::autoreg::vGuiArray(counter.prescale.-lo) {0}
-set ::autoreg::vGuiArray(counter.prescale.-n) {prescale}
-set ::autoreg::vGuiArray(counter.prescale.-o) {reg}
-set ::autoreg::vGuiArray(counter.prescale.-p) {2}
-set ::autoreg::vGuiArray(counter.prescale.-rmw) {1}
-set ::autoreg::vGuiArray(counter.prescale.-t) {RW}
-set ::autoreg::vGuiArray(counter.prescale.-v) {1024}
-set ::autoreg::vGuiArray(counter.prescale.-w) {12}
-set ::autoreg::vGuiArray(counter.preset.-a) {258}
-set ::autoreg::vGuiArray(counter.preset.-as) {user}
-set ::autoreg::vGuiArray(counter.preset.-aw) {16}
-set ::autoreg::vGuiArray(counter.preset.-c) {Preset to SetCnt value}
-set ::autoreg::vGuiArray(counter.preset.-dw) {16}
-set ::autoreg::vGuiArray(counter.preset.-en) {big}
-set ::autoreg::vGuiArray(counter.preset.-ex) {2}
-set ::autoreg::vGuiArray(counter.preset.-f) {U}
-set ::autoreg::vGuiArray(counter.preset.-gloc) {2 4}
-set ::autoreg::vGuiArray(counter.preset.-gtype) {button}
-set ::autoreg::vGuiArray(counter.preset.-hi) {1}
-set ::autoreg::vGuiArray(counter.preset.-i) {0}
-set ::autoreg::vGuiArray(counter.preset.-lo) {0}
-set ::autoreg::vGuiArray(counter.preset.-n) {preset}
-set ::autoreg::vGuiArray(counter.preset.-o) {reg}
-set ::autoreg::vGuiArray(counter.preset.-p) {2}
-set ::autoreg::vGuiArray(counter.preset.-rmw) {1}
-set ::autoreg::vGuiArray(counter.preset.-t) {WI}
-set ::autoreg::vGuiArray(counter.preset.-w) {1}
-set ::autoreg::vGuiArray(counter.readcnt.-a) {261}
-set ::autoreg::vGuiArray(counter.readcnt.-as) {user}
-set ::autoreg::vGuiArray(counter.readcnt.-aw) {16}
-set ::autoreg::vGuiArray(counter.readcnt.-c) {Read value of counter}
-set ::autoreg::vGuiArray(counter.readcnt.-dw) {16}
-set ::autoreg::vGuiArray(counter.readcnt.-en) {big}
-set ::autoreg::vGuiArray(counter.readcnt.-ex) {65536}
-set ::autoreg::vGuiArray(counter.readcnt.-f) {U}
-set ::autoreg::vGuiArray(counter.readcnt.-gloc) {4 0}
-set ::autoreg::vGuiArray(counter.readcnt.-gtype) {label}
-set ::autoreg::vGuiArray(counter.readcnt.-hi) {65535}
-set ::autoreg::vGuiArray(counter.readcnt.-i) {0}
-set ::autoreg::vGuiArray(counter.readcnt.-lo) {0}
-set ::autoreg::vGuiArray(counter.readcnt.-n) {readcnt}
-set ::autoreg::vGuiArray(counter.readcnt.-o) {reg}
-set ::autoreg::vGuiArray(counter.readcnt.-p) {0}
-set ::autoreg::vGuiArray(counter.readcnt.-rmw) {1}
-set ::autoreg::vGuiArray(counter.readcnt.-t) {R}
-set ::autoreg::vGuiArray(counter.readcnt.-w) {16}
-set ::autoreg::vGuiArray(counter.revision.-a) {256}
-set ::autoreg::vGuiArray(counter.revision.-as) {user}
-set ::autoreg::vGuiArray(counter.revision.-aw) {16}
-set ::autoreg::vGuiArray(counter.revision.-c) {Trunk revision.}
-set ::autoreg::vGuiArray(counter.revision.-dw) {16}
-set ::autoreg::vGuiArray(counter.revision.-en) {big}
-set ::autoreg::vGuiArray(counter.revision.-ex) {256}
-set ::autoreg::vGuiArray(counter.revision.-f) {U}
-set ::autoreg::vGuiArray(counter.revision.-gloc) {0 7}
-set ::autoreg::vGuiArray(counter.revision.-gtype) {label}
-set ::autoreg::vGuiArray(counter.revision.-hi) {255}
-set ::autoreg::vGuiArray(counter.revision.-i) {0}
-set ::autoreg::vGuiArray(counter.revision.-lo) {0}
-set ::autoreg::vGuiArray(counter.revision.-n) {revision}
-set ::autoreg::vGuiArray(counter.revision.-o) {reg}
-set ::autoreg::vGuiArray(counter.revision.-p) {0}
-set ::autoreg::vGuiArray(counter.revision.-rmw) {1}
-set ::autoreg::vGuiArray(counter.revision.-t) {RC}
-set ::autoreg::vGuiArray(counter.revision.-v) {5}
-set ::autoreg::vGuiArray(counter.revision.-w) {8}
-set ::autoreg::vGuiArray(counter.setcnt.-a) {259}
-set ::autoreg::vGuiArray(counter.setcnt.-as) {user}
-set ::autoreg::vGuiArray(counter.setcnt.-aw) {16}
-set ::autoreg::vGuiArray(counter.setcnt.-c) {Value to be set by Preset}
-set ::autoreg::vGuiArray(counter.setcnt.-dw) {16}
-set ::autoreg::vGuiArray(counter.setcnt.-en) {big}
-set ::autoreg::vGuiArray(counter.setcnt.-ex) {65536}
-set ::autoreg::vGuiArray(counter.setcnt.-f) {U}
-set ::autoreg::vGuiArray(counter.setcnt.-gloc) {0 4}
-set ::autoreg::vGuiArray(counter.setcnt.-gtype) {entry}
-set ::autoreg::vGuiArray(counter.setcnt.-hi) {65535}
-set ::autoreg::vGuiArray(counter.setcnt.-i) {0}
-set ::autoreg::vGuiArray(counter.setcnt.-lo) {0}
-set ::autoreg::vGuiArray(counter.setcnt.-n) {setcnt}
-set ::autoreg::vGuiArray(counter.setcnt.-o) {reg}
-set ::autoreg::vGuiArray(counter.setcnt.-p) {0}
-set ::autoreg::vGuiArray(counter.setcnt.-rmw) {1}
-set ::autoreg::vGuiArray(counter.setcnt.-t) {RW}
-set ::autoreg::vGuiArray(counter.setcnt.-w) {16}
-set ::autoreg::vGuiArray(counter.stepdown.-a) {258}
-set ::autoreg::vGuiArray(counter.stepdown.-as) {user}
-set ::autoreg::vGuiArray(counter.stepdown.-aw) {16}
-set ::autoreg::vGuiArray(counter.stepdown.-c) {Step down one value}
-set ::autoreg::vGuiArray(counter.stepdown.-dw) {16}
-set ::autoreg::vGuiArray(counter.stepdown.-en) {big}
-set ::autoreg::vGuiArray(counter.stepdown.-ex) {2}
-set ::autoreg::vGuiArray(counter.stepdown.-f) {U}
-set ::autoreg::vGuiArray(counter.stepdown.-gloc) {2 3}
-set ::autoreg::vGuiArray(counter.stepdown.-gtype) {button}
-set ::autoreg::vGuiArray(counter.stepdown.-hi) {1}
-set ::autoreg::vGuiArray(counter.stepdown.-i) {0}
-set ::autoreg::vGuiArray(counter.stepdown.-lo) {0}
-set ::autoreg::vGuiArray(counter.stepdown.-n) {stepdown}
-set ::autoreg::vGuiArray(counter.stepdown.-o) {reg}
-set ::autoreg::vGuiArray(counter.stepdown.-p) {1}
-set ::autoreg::vGuiArray(counter.stepdown.-rmw) {1}
-set ::autoreg::vGuiArray(counter.stepdown.-t) {WI}
-set ::autoreg::vGuiArray(counter.stepdown.-w) {1}
-set ::autoreg::vGuiArray(counter.stepup.-a) {258}
-set ::autoreg::vGuiArray(counter.stepup.-as) {user}
-set ::autoreg::vGuiArray(counter.stepup.-aw) {16}
-set ::autoreg::vGuiArray(counter.stepup.-c) {Step up one value}
-set ::autoreg::vGuiArray(counter.stepup.-dw) {16}
-set ::autoreg::vGuiArray(counter.stepup.-en) {big}
-set ::autoreg::vGuiArray(counter.stepup.-ex) {2}
-set ::autoreg::vGuiArray(counter.stepup.-f) {U}
-set ::autoreg::vGuiArray(counter.stepup.-gloc) {2 2}
-set ::autoreg::vGuiArray(counter.stepup.-gtype) {button}
-set ::autoreg::vGuiArray(counter.stepup.-hi) {1}
-set ::autoreg::vGuiArray(counter.stepup.-i) {0}
-set ::autoreg::vGuiArray(counter.stepup.-lo) {0}
-set ::autoreg::vGuiArray(counter.stepup.-n) {stepup}
-set ::autoreg::vGuiArray(counter.stepup.-o) {reg}
-set ::autoreg::vGuiArray(counter.stepup.-p) {0}
-set ::autoreg::vGuiArray(counter.stepup.-rmw) {1}
-set ::autoreg::vGuiArray(counter.stepup.-t) {WI}
-set ::autoreg::vGuiArray(counter.stepup.-w) {1}
-set ::autoreg::vGuiArray(counter.up.-a) {257}
-set ::autoreg::vGuiArray(counter.up.-as) {user}
-set ::autoreg::vGuiArray(counter.up.-aw) {16}
-set ::autoreg::vGuiArray(counter.up.-c) {Count up continuously}
-set ::autoreg::vGuiArray(counter.up.-dw) {16}
-set ::autoreg::vGuiArray(counter.up.-en) {big}
-set ::autoreg::vGuiArray(counter.up.-ex) {2}
-set ::autoreg::vGuiArray(counter.up.-f) {U}
-set ::autoreg::vGuiArray(counter.up.-gloc) {2 0}
-set ::autoreg::vGuiArray(counter.up.-gtype) {checkbutton}
-set ::autoreg::vGuiArray(counter.up.-hi) {1}
-set ::autoreg::vGuiArray(counter.up.-i) {0}
-set ::autoreg::vGuiArray(counter.up.-lo) {0}
-set ::autoreg::vGuiArray(counter.up.-n) {up}
-set ::autoreg::vGuiArray(counter.up.-o) {reg}
-set ::autoreg::vGuiArray(counter.up.-p) {0}
-set ::autoreg::vGuiArray(counter.up.-rmw) {1}
-set ::autoreg::vGuiArray(counter.up.-t) {RW}
-set ::autoreg::vGuiArray(counter.up.-v) {1}
-set ::autoreg::vGuiArray(counter.up.-w) {1}
 set ::autoreg::vGuiArray(led.-gspan) {2 4}
 set ::autoreg::vGuiArray(led.-gupdate) {0 4}
 set ::autoreg::vGuiArray(led.-gw) {12 8}
@@ -294,6 +92,208 @@ set ::autoreg::vGuiArray(led.led3.-port) {external}
 set ::autoreg::vGuiArray(led.led3.-rmw) {1}
 set ::autoreg::vGuiArray(led.led3.-t) {RW}
 set ::autoreg::vGuiArray(led.led3.-w) {1}
+set ::autoreg::vGuiArray(mac.-gspan) {6 8}
+set ::autoreg::vGuiArray(mac.-gupdate) {4 7}
+set ::autoreg::vGuiArray(mac.-gw) {12 8}
+set ::autoreg::vGuiArray(mac.-i) {revision prescale up down stepup stepdown preset setcnt max readcnt}
+set ::autoreg::vGuiArray(mac.-n) {mac}
+set ::autoreg::vGuiArray(mac.-o) {group}
+set ::autoreg::vGuiArray(mac.-path) {/i0jtag/i0demo/i0core/i0count/i0rb_mac}
+set ::autoreg::vGuiArray(mac.-t) {bank}
+set ::autoreg::vGuiArray(mac.down.-a) {257}
+set ::autoreg::vGuiArray(mac.down.-as) {user}
+set ::autoreg::vGuiArray(mac.down.-aw) {16}
+set ::autoreg::vGuiArray(mac.down.-c) {Count down continuously}
+set ::autoreg::vGuiArray(mac.down.-dw) {16}
+set ::autoreg::vGuiArray(mac.down.-en) {big}
+set ::autoreg::vGuiArray(mac.down.-ex) {2}
+set ::autoreg::vGuiArray(mac.down.-f) {U}
+set ::autoreg::vGuiArray(mac.down.-gloc) {2 1}
+set ::autoreg::vGuiArray(mac.down.-gtype) {checkbutton}
+set ::autoreg::vGuiArray(mac.down.-hi) {1}
+set ::autoreg::vGuiArray(mac.down.-i) {0}
+set ::autoreg::vGuiArray(mac.down.-lo) {0}
+set ::autoreg::vGuiArray(mac.down.-n) {down}
+set ::autoreg::vGuiArray(mac.down.-o) {reg}
+set ::autoreg::vGuiArray(mac.down.-p) {1}
+set ::autoreg::vGuiArray(mac.down.-rmw) {1}
+set ::autoreg::vGuiArray(mac.down.-t) {RW}
+set ::autoreg::vGuiArray(mac.down.-w) {1}
+set ::autoreg::vGuiArray(mac.max.-a) {260}
+set ::autoreg::vGuiArray(mac.max.-as) {user}
+set ::autoreg::vGuiArray(mac.max.-aw) {16}
+set ::autoreg::vGuiArray(mac.max.-c) {Max value before wrap to 0}
+set ::autoreg::vGuiArray(mac.max.-dw) {16}
+set ::autoreg::vGuiArray(mac.max.-en) {big}
+set ::autoreg::vGuiArray(mac.max.-ex) {65536}
+set ::autoreg::vGuiArray(mac.max.-f) {U}
+set ::autoreg::vGuiArray(mac.max.-gloc) {0 1}
+set ::autoreg::vGuiArray(mac.max.-gtype) {entry}
+set ::autoreg::vGuiArray(mac.max.-hi) {65535}
+set ::autoreg::vGuiArray(mac.max.-i) {0}
+set ::autoreg::vGuiArray(mac.max.-lo) {0}
+set ::autoreg::vGuiArray(mac.max.-n) {max}
+set ::autoreg::vGuiArray(mac.max.-o) {reg}
+set ::autoreg::vGuiArray(mac.max.-p) {0}
+set ::autoreg::vGuiArray(mac.max.-rmw) {1}
+set ::autoreg::vGuiArray(mac.max.-t) {RW}
+set ::autoreg::vGuiArray(mac.max.-v) {65535}
+set ::autoreg::vGuiArray(mac.max.-w) {16}
+set ::autoreg::vGuiArray(mac.prescale.-a) {257}
+set ::autoreg::vGuiArray(mac.prescale.-as) {user}
+set ::autoreg::vGuiArray(mac.prescale.-aw) {16}
+set ::autoreg::vGuiArray(mac.prescale.-c) {Max value for prescale counter}
+set ::autoreg::vGuiArray(mac.prescale.-dw) {16}
+set ::autoreg::vGuiArray(mac.prescale.-en) {big}
+set ::autoreg::vGuiArray(mac.prescale.-ex) {4096}
+set ::autoreg::vGuiArray(mac.prescale.-f) {U}
+set ::autoreg::vGuiArray(mac.prescale.-gloc) {0 0}
+set ::autoreg::vGuiArray(mac.prescale.-gtype) {entry}
+set ::autoreg::vGuiArray(mac.prescale.-hi) {4095}
+set ::autoreg::vGuiArray(mac.prescale.-i) {0}
+set ::autoreg::vGuiArray(mac.prescale.-lo) {0}
+set ::autoreg::vGuiArray(mac.prescale.-n) {prescale}
+set ::autoreg::vGuiArray(mac.prescale.-o) {reg}
+set ::autoreg::vGuiArray(mac.prescale.-p) {2}
+set ::autoreg::vGuiArray(mac.prescale.-rmw) {1}
+set ::autoreg::vGuiArray(mac.prescale.-t) {RW}
+set ::autoreg::vGuiArray(mac.prescale.-v) {1024}
+set ::autoreg::vGuiArray(mac.prescale.-w) {12}
+set ::autoreg::vGuiArray(mac.preset.-a) {258}
+set ::autoreg::vGuiArray(mac.preset.-as) {user}
+set ::autoreg::vGuiArray(mac.preset.-aw) {16}
+set ::autoreg::vGuiArray(mac.preset.-c) {Preset to SetCnt value}
+set ::autoreg::vGuiArray(mac.preset.-dw) {16}
+set ::autoreg::vGuiArray(mac.preset.-en) {big}
+set ::autoreg::vGuiArray(mac.preset.-ex) {2}
+set ::autoreg::vGuiArray(mac.preset.-f) {U}
+set ::autoreg::vGuiArray(mac.preset.-gloc) {2 4}
+set ::autoreg::vGuiArray(mac.preset.-gtype) {button}
+set ::autoreg::vGuiArray(mac.preset.-hi) {1}
+set ::autoreg::vGuiArray(mac.preset.-i) {0}
+set ::autoreg::vGuiArray(mac.preset.-lo) {0}
+set ::autoreg::vGuiArray(mac.preset.-n) {preset}
+set ::autoreg::vGuiArray(mac.preset.-o) {reg}
+set ::autoreg::vGuiArray(mac.preset.-p) {2}
+set ::autoreg::vGuiArray(mac.preset.-rmw) {1}
+set ::autoreg::vGuiArray(mac.preset.-t) {WI}
+set ::autoreg::vGuiArray(mac.preset.-w) {1}
+set ::autoreg::vGuiArray(mac.readcnt.-a) {261}
+set ::autoreg::vGuiArray(mac.readcnt.-as) {user}
+set ::autoreg::vGuiArray(mac.readcnt.-aw) {16}
+set ::autoreg::vGuiArray(mac.readcnt.-c) {Read value of counter}
+set ::autoreg::vGuiArray(mac.readcnt.-dw) {16}
+set ::autoreg::vGuiArray(mac.readcnt.-en) {big}
+set ::autoreg::vGuiArray(mac.readcnt.-ex) {65536}
+set ::autoreg::vGuiArray(mac.readcnt.-f) {U}
+set ::autoreg::vGuiArray(mac.readcnt.-gloc) {4 0}
+set ::autoreg::vGuiArray(mac.readcnt.-gtype) {label}
+set ::autoreg::vGuiArray(mac.readcnt.-hi) {65535}
+set ::autoreg::vGuiArray(mac.readcnt.-i) {0}
+set ::autoreg::vGuiArray(mac.readcnt.-lo) {0}
+set ::autoreg::vGuiArray(mac.readcnt.-n) {readcnt}
+set ::autoreg::vGuiArray(mac.readcnt.-o) {reg}
+set ::autoreg::vGuiArray(mac.readcnt.-p) {0}
+set ::autoreg::vGuiArray(mac.readcnt.-rmw) {1}
+set ::autoreg::vGuiArray(mac.readcnt.-t) {R}
+set ::autoreg::vGuiArray(mac.readcnt.-w) {16}
+set ::autoreg::vGuiArray(mac.revision.-a) {256}
+set ::autoreg::vGuiArray(mac.revision.-as) {user}
+set ::autoreg::vGuiArray(mac.revision.-aw) {16}
+set ::autoreg::vGuiArray(mac.revision.-c) {Trunk revision.}
+set ::autoreg::vGuiArray(mac.revision.-dw) {16}
+set ::autoreg::vGuiArray(mac.revision.-en) {big}
+set ::autoreg::vGuiArray(mac.revision.-ex) {256}
+set ::autoreg::vGuiArray(mac.revision.-f) {U}
+set ::autoreg::vGuiArray(mac.revision.-gloc) {0 7}
+set ::autoreg::vGuiArray(mac.revision.-gtype) {label}
+set ::autoreg::vGuiArray(mac.revision.-hi) {255}
+set ::autoreg::vGuiArray(mac.revision.-i) {0}
+set ::autoreg::vGuiArray(mac.revision.-lo) {0}
+set ::autoreg::vGuiArray(mac.revision.-n) {revision}
+set ::autoreg::vGuiArray(mac.revision.-o) {reg}
+set ::autoreg::vGuiArray(mac.revision.-p) {0}
+set ::autoreg::vGuiArray(mac.revision.-rmw) {1}
+set ::autoreg::vGuiArray(mac.revision.-t) {RC}
+set ::autoreg::vGuiArray(mac.revision.-v) {5}
+set ::autoreg::vGuiArray(mac.revision.-w) {8}
+set ::autoreg::vGuiArray(mac.setcnt.-a) {259}
+set ::autoreg::vGuiArray(mac.setcnt.-as) {user}
+set ::autoreg::vGuiArray(mac.setcnt.-aw) {16}
+set ::autoreg::vGuiArray(mac.setcnt.-c) {Value to be set by Preset}
+set ::autoreg::vGuiArray(mac.setcnt.-dw) {16}
+set ::autoreg::vGuiArray(mac.setcnt.-en) {big}
+set ::autoreg::vGuiArray(mac.setcnt.-ex) {65536}
+set ::autoreg::vGuiArray(mac.setcnt.-f) {U}
+set ::autoreg::vGuiArray(mac.setcnt.-gloc) {0 4}
+set ::autoreg::vGuiArray(mac.setcnt.-gtype) {entry}
+set ::autoreg::vGuiArray(mac.setcnt.-hi) {65535}
+set ::autoreg::vGuiArray(mac.setcnt.-i) {0}
+set ::autoreg::vGuiArray(mac.setcnt.-lo) {0}
+set ::autoreg::vGuiArray(mac.setcnt.-n) {setcnt}
+set ::autoreg::vGuiArray(mac.setcnt.-o) {reg}
+set ::autoreg::vGuiArray(mac.setcnt.-p) {0}
+set ::autoreg::vGuiArray(mac.setcnt.-rmw) {1}
+set ::autoreg::vGuiArray(mac.setcnt.-t) {RW}
+set ::autoreg::vGuiArray(mac.setcnt.-w) {16}
+set ::autoreg::vGuiArray(mac.stepdown.-a) {258}
+set ::autoreg::vGuiArray(mac.stepdown.-as) {user}
+set ::autoreg::vGuiArray(mac.stepdown.-aw) {16}
+set ::autoreg::vGuiArray(mac.stepdown.-c) {Step down one value}
+set ::autoreg::vGuiArray(mac.stepdown.-dw) {16}
+set ::autoreg::vGuiArray(mac.stepdown.-en) {big}
+set ::autoreg::vGuiArray(mac.stepdown.-ex) {2}
+set ::autoreg::vGuiArray(mac.stepdown.-f) {U}
+set ::autoreg::vGuiArray(mac.stepdown.-gloc) {2 3}
+set ::autoreg::vGuiArray(mac.stepdown.-gtype) {button}
+set ::autoreg::vGuiArray(mac.stepdown.-hi) {1}
+set ::autoreg::vGuiArray(mac.stepdown.-i) {0}
+set ::autoreg::vGuiArray(mac.stepdown.-lo) {0}
+set ::autoreg::vGuiArray(mac.stepdown.-n) {stepdown}
+set ::autoreg::vGuiArray(mac.stepdown.-o) {reg}
+set ::autoreg::vGuiArray(mac.stepdown.-p) {1}
+set ::autoreg::vGuiArray(mac.stepdown.-rmw) {1}
+set ::autoreg::vGuiArray(mac.stepdown.-t) {WI}
+set ::autoreg::vGuiArray(mac.stepdown.-w) {1}
+set ::autoreg::vGuiArray(mac.stepup.-a) {258}
+set ::autoreg::vGuiArray(mac.stepup.-as) {user}
+set ::autoreg::vGuiArray(mac.stepup.-aw) {16}
+set ::autoreg::vGuiArray(mac.stepup.-c) {Step up one value}
+set ::autoreg::vGuiArray(mac.stepup.-dw) {16}
+set ::autoreg::vGuiArray(mac.stepup.-en) {big}
+set ::autoreg::vGuiArray(mac.stepup.-ex) {2}
+set ::autoreg::vGuiArray(mac.stepup.-f) {U}
+set ::autoreg::vGuiArray(mac.stepup.-gloc) {2 2}
+set ::autoreg::vGuiArray(mac.stepup.-gtype) {button}
+set ::autoreg::vGuiArray(mac.stepup.-hi) {1}
+set ::autoreg::vGuiArray(mac.stepup.-i) {0}
+set ::autoreg::vGuiArray(mac.stepup.-lo) {0}
+set ::autoreg::vGuiArray(mac.stepup.-n) {stepup}
+set ::autoreg::vGuiArray(mac.stepup.-o) {reg}
+set ::autoreg::vGuiArray(mac.stepup.-p) {0}
+set ::autoreg::vGuiArray(mac.stepup.-rmw) {1}
+set ::autoreg::vGuiArray(mac.stepup.-t) {WI}
+set ::autoreg::vGuiArray(mac.stepup.-w) {1}
+set ::autoreg::vGuiArray(mac.up.-a) {257}
+set ::autoreg::vGuiArray(mac.up.-as) {user}
+set ::autoreg::vGuiArray(mac.up.-aw) {16}
+set ::autoreg::vGuiArray(mac.up.-c) {Count up continuously}
+set ::autoreg::vGuiArray(mac.up.-dw) {16}
+set ::autoreg::vGuiArray(mac.up.-en) {big}
+set ::autoreg::vGuiArray(mac.up.-ex) {2}
+set ::autoreg::vGuiArray(mac.up.-f) {U}
+set ::autoreg::vGuiArray(mac.up.-gloc) {2 0}
+set ::autoreg::vGuiArray(mac.up.-gtype) {checkbutton}
+set ::autoreg::vGuiArray(mac.up.-hi) {1}
+set ::autoreg::vGuiArray(mac.up.-i) {0}
+set ::autoreg::vGuiArray(mac.up.-lo) {0}
+set ::autoreg::vGuiArray(mac.up.-n) {up}
+set ::autoreg::vGuiArray(mac.up.-o) {reg}
+set ::autoreg::vGuiArray(mac.up.-p) {0}
+set ::autoreg::vGuiArray(mac.up.-rmw) {1}
+set ::autoreg::vGuiArray(mac.up.-t) {RW}
+set ::autoreg::vGuiArray(mac.up.-v) {1}
+set ::autoreg::vGuiArray(mac.up.-w) {1}
 set ::autoreg::vGuiArray(revision.-gspan) {4 8}
 set ::autoreg::vGuiArray(revision.-gupdate) {2 7}
 set ::autoreg::vGuiArray(revision.-gw) {12 8}
