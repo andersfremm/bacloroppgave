@@ -4,7 +4,7 @@
 
 #  Defining core module
 group -n core -t mux -ba 0 -aw 16 -dw 16 -en big
-group -n core -i {i0rb_revision i0rb_led i0count i0rb_mem}
+group -n core -i {i0rb_revision i0rb_led i0mac i0rb_mem}
 
 #  Defining revision regbank
 inst -n i0rb_revision -sg revision -ba 0 -sy 1 -rtc 0 -rtb 0
@@ -26,5 +26,5 @@ reg -n led3 -t RW -f U -a 0  -w 1 -p 3 -port external -c "led 3 control, 1 ~ lig
 inst -n i0rb_mem -sg mem -ba 1024 -sy 1 -rtc 0 -rtb 0
 inst -n i0rb_mem -f ./mem.txt
 
-#  Instantiating counter_ip
-inst -n i0count -sg mac -ba 256 -f ../mac/doc/mac.txt
+#  Instantiating mac
+inst -n i0mac -sg mac_ip -ba 256 -f ../mac_ip/doc/mac_ip.txt

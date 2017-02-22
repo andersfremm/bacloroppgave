@@ -3,7 +3,7 @@
 # *******************************
 
 # Defining type and regbank instance for the IP
-group -n mac -t mux -i i0rb_mac
+group -n mac_ip -t mux -i i0rb_mac
 
 # defining base address, sync/async clock and retiming at bus interface
 inst -n i0rb_mac -sg mac -ba 0 -sy 0 -rtc 0 -rtb 0
