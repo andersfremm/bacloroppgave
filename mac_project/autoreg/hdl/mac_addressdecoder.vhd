@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity counter_ip_addressdecoder is
+entity mac_addressdecoder is
    generic (
       gAddSz                             : integer   := 16;
       gDatSz                             : integer   := 16
@@ -17,12 +17,12 @@ entity counter_ip_addressdecoder is
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
       -- Ports towards submodules and register banks
-      i0rb_counterCmdBO                  : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      i0rb_counterRdBBI                  : in  std_logic_vector(gDatSz+1 downto 0)
+      i0rb_macCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      i0rb_macRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0)
    );
 end;
 
-architecture RTL of counter_ip_addressdecoder is
+architecture RTL of mac_addressdecoder is
 
 component reg_addr_decoder is
    generic (
@@ -44,11 +44,11 @@ component reg_addr_decoder is
 end component;
 
 
-signal i0rb_counterRdBB                   : std_logic_vector(gDatSz+1 downto 0);
+signal i0rb_macRdBB                       : std_logic_vector(gDatSz+1 downto 0);
 
 begin
 
-   i0rb_counter_reg_addr_decoder : reg_addr_decoder
+   i0rb_mac_reg_addr_decoder : reg_addr_decoder
       generic map (
          gAddSz                             => gAddSz,                         -- integer
          gDatSz                             => gDatSz,                         -- integer
@@ -61,11 +61,11 @@ begin
       port map (
          ClkCpu                             => ClkCpu,                         -- in   std_logic
          CmdBI                              => CmdBI,                          -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBO                              => i0rb_counterRdBB,               -- out  std_logic_vector(gDatSz+1 downto 0)
-         CmdBO                              => i0rb_counterCmdBO,              -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBI                              => i0rb_counterRdBBI               -- in   std_logic_vector(gDatSz+1 downto 0)
+         RdBBO                              => i0rb_macRdBB,                   -- out  std_logic_vector(gDatSz+1 downto 0)
+         CmdBO                              => i0rb_macCmdBO,                  -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBI                              => i0rb_macRdBBI                   -- in   std_logic_vector(gDatSz+1 downto 0)
       );
 
-   pRdBBO                          : RdBBO                         <= i0rb_counterRdBB;
+   pRdBBO                          : RdBBO                         <= i0rb_macRdBB;
 
 end RTL;

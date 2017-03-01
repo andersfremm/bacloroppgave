@@ -6,6 +6,6 @@
 
 tcl         autoreg/tcl/led_gui.tcl
 tcl         autoreg/tcl/revision_gui.tcl
+tcl         autoreg/tcl/mac_gui.tcl
 tcl         autoreg/tcl/status_gui.tcl
-tcl         autoreg/tcl/counter_gui.tcl
 

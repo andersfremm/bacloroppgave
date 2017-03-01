@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity counter_ip is
+entity mac_ip is
    generic (
       gAddSz                         : integer   := 16;
       gDatSz                         : integer   := 16;
@@ -24,23 +24,23 @@ entity counter_ip is
    );
 end entity;
 
-architecture RTL of counter_ip is
+architecture RTL of mac_ip is
 
-component counter_ip_addressdecoder is
+component mac_ip_addressdecoder is
    generic (
-      gAddSz                         : integer   := 16;
-      gDatSz                         : integer   := 16
+      gAddSz                             : integer   := 16;
+      gDatSz                             : integer   := 16
    );
    port (
-      ClkCpu                         : in  std_logic;
-      CmdBI                          : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      RdBBO                          : out std_logic_vector(gDatSz+1 downto 0);
-      i0rb_counterCmdBO              : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      i0rb_counterRdBBI              : in  std_logic_vector(gDatSz+1 downto 0)
+      ClkCpu                             : in  std_logic;
+      CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
+      i0rb_macCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      i0rb_macRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0)
    );
 end component;
 
-component counter_regbank is
+component mac_regbank is
    generic (
       gAddSz                             : integer   := 16;
       gDatSz                             : integer   := 16
@@ -62,6 +62,26 @@ component counter_regbank is
    );
 end component;
 
+component mdio_regbank is
+   generic (
+      gAddSz                             : integer   := 16;
+      gDatSz                             : integer   := 16
+   );
+   port (
+      Clk                                : in  std_logic;
+      Rst                                : in  std_logic;
+      CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
+      AckI                               : in  std_logic;
+      DataII                             : in  std_logic_vector(15 downto 0);
+      DataOO                             : out std_logic_vector(15 downto 0);
+      PhyAddrO                           : out std_logic_vector(4 downto 0);
+      RdO                                : out std_logic;
+      RegAddrO                           : out std_logic_vector(4 downto 0);
+      WrO                                : out std_logic
+   );
+end component;
+
    signal i0rb_counterdown                   : std_logic;
    signal i0rb_countermax                    : std_logic_vector(15 downto 0);
    signal i0rb_counterprescale               : std_logic_vector(11 downto 0);
@@ -71,8 +91,19 @@ end component;
    signal i0rb_counterstepdown               : std_logic;
    signal i0rb_counterstepup                 : std_logic;
    signal i0rb_counterup                     : std_logic;
-   signal i0rb_counterCmdB                   : std_logic_vector(gAddSz+gDatSz+2 downto 0);
-   signal i0rb_counterRdBB                   : std_logic_vector(gDatSz+1 downto 0); 
+
+   signal i0rb_mdioAck                       : std_logic := '0';
+   signal i0rb_mdioDataI                     : std_logic_vector(15 downto 0) := x"0000";
+   signal i0rb_mdioDataO                     : std_logic_vector(15 downto 0);
+   signal i0rb_mdioPhyAddr                   : std_logic_vector(4 downto 0);
+   signal i0rb_mdioRd                        : std_logic;
+   signal i0rb_mdioRegAddr                   : std_logic_vector(4 downto 0);
+   signal i0rb_mdioWr                        : std_logic;
+
+   signal i0rb_macCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
+   signal i0rb_macRdBB                       : std_logic_vector(gDatSz+1 downto 0);
+   signal i0rb_mdioCmdB                      : std_logic_vector(gAddSz+gDatSz+2 downto 0);
+   signal i0rb_mdioRdBB                      : std_logic_vector(gDatSz+1 downto 0);
    -- ********************************************
    -- Signals manually added to the template from AutoReg
    -- ********************************************
@@ -83,7 +114,7 @@ end component;
  
 begin
 
-   i0counter_ip_addressdecoder : counter_ip_addressdecoder
+   i0mac_ip_addressdecoder : mac_ip_addressdecoder
       generic map (
          gAddSz                         => gAddSz,
          gDatSz                         => gDatSz
@@ -92,11 +123,30 @@ begin
          ClkCpu                         => ClkCpu,
          CmdBI                          => CmdBI,
          RdBBO                          => RdBBO,
-         i0rb_counterCmdBO              => i0rb_counterCmdB,
-         i0rb_counterRdBBI              => i0rb_counterRdBB
+         i0rb_macCmdBO                  => i0rb_macCmdB,
+         i0rb_macRdBBI                  => i0rb_macRdBB
       );
 
-   i0rb_counter : counter_regbank
+   i0rb_mdio : mdio_regbank
+      generic map (
+         gAddSz                             => gAddSz,                         -- integer
+         gDatSz                             => gDatSz                          -- integer
+      )
+      port map (
+         Clk                                => Clk,                            -- in   std_logic
+         Rst                                => Rst,                            -- in   std_logic
+         CmdBI                              => i0rb_mdioCmdB,                  -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBO                              => i0rb_mdioRdBB,                  -- out  std_logic_vector(gDatSz+1 downto 0)
+         AckI                               => i0rb_mdioAck,                   -- in   std_logic
+         DataII                             => i0rb_mdioDataI,                 -- in   std_logic_vector(15 downto 0)
+         DataOO                             => i0rb_mdioDataO,                 -- out  std_logic_vector(15 downto 0)
+         PhyAddrO                           => i0rb_mdioPhyAddr,               -- out  std_logic_vector(4 downto 0)
+         RdO                                => i0rb_mdioRd,                    -- out  std_logic
+         RegAddrO                           => i0rb_mdioRegAddr,               -- out  std_logic_vector(4 downto 0)
+         WrO                                => i0rb_mdioWr                     -- out  std_logic
+      );
+
+   i0rb_mac : mac_regbank
       generic map (
          gAddSz                             => gAddSz,                         -- integer
          gDatSz                             => gDatSz                          -- integer
@@ -104,8 +154,8 @@ begin
       port map (
          Clk                                => Clk,                            -- in std_logic
          Rst                                => Rst,                            -- in std_logic
-         CmdBI                              => i0rb_counterCmdB,              -- in std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBO                              => i0rb_counterRdBB,              -- out std_logic_vector(gDatSz+1 downto 0)
+         CmdBI                              => i0rb_macCmdB,                   -- in std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBO                              => i0rb_macRdBB,                   -- out std_logic_vector(gDatSz+1 downto 0)
          downO                              => i0rb_counterdown,              -- out std_logic
          maxO                               => i0rb_countermax,               -- out std_logic_vector(15 downto 0)
          prescaleO                          => i0rb_counterprescale,          -- out std_logic_vector(11 downto 0)

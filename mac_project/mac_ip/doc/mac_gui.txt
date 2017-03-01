@@ -1,0 +1,39 @@
+# *******************************
+# Definition file for the mac GUI
+# *******************************
+
+group -n mac -t bank -i {revision prescale up down stepup stepdown preset setcnt max readcnt}
+group -n mac -gspan {6 8}
+group -n mac -gw {12 8}
+group -n mac -gupdate {4 7}
+
+reg -n revision	 -gloc {0 7}
+reg -n revision	 -gtype label
+
+reg -n prescale	 -gloc {0 0}
+reg -n prescale	 -gtype entry
+
+reg -n setcnt	 -gloc {0 4}
+reg -n setcnt	 -gtype entry
+
+reg -n readcnt   -gloc {4 0}
+reg -n readcnt   -gtype label
+
+reg -n max	 -gloc {0 1}
+reg -n max	 -gtype entry
+
+reg -n up	 -gloc {2 0}
+reg -n up	 -gtype checkbutton
+
+reg -n down	 -gloc {2 1}
+reg -n down	 -gtype checkbutton
+
+reg -n stepup	 -gloc {2 2}
+reg -n stepup	 -gtype button
+
+reg -n stepdown	 -gloc {2 3}
+reg -n stepdown	 -gtype button
+
+reg -n preset	 -gloc {2 4}
+reg -n preset	 -gtype button
+

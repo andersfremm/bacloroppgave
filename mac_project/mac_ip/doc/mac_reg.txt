@@ -1,7 +1,7 @@
 # *******************************
-# Definition file for counter_ip registers
+# Definition file for mac registers
 # *******************************
-group -n counter -t bank -i {revision prescale up down stepup stepdown preset setcnt max readcnt}
+group -n mac -t bank -i {revision prescale up down stepup stepdown preset setcnt max readcnt}
 
 reg -n revision -t RC -f U -a 0 -w 8  -p 0 -v 5     -c "Trunk revision."
 reg -n prescale -t RW -f U -a 1 -w 12 -p 2 -v 1024  -c "Max value for prescale counter"

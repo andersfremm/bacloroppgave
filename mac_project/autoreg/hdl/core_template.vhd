@@ -36,8 +36,8 @@ component core_addressdecoder is
       ClkCpu                             : in  std_logic;
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
-      i0countCmdBO                       : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      i0countRdBBI                       : in  std_logic_vector(gDatSz+1 downto 0);
+      i0macCmdBO                         : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      i0macRdBBI                         : in  std_logic_vector(gDatSz+1 downto 0);
       i0rb_ledCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
       i0rb_ledRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0);
       i0rb_memCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
@@ -47,7 +47,7 @@ component core_addressdecoder is
    );
 end component;
 
-component counter_ip is
+component mac_ip is
    generic (
       gAddSz                             : integer   := 16;
       gDatSz                             : integer   := 16;
@@ -121,8 +121,8 @@ end component;
    signal i0rb_revisionlatch                 : std_logic;
    signal i0rb_revisionrtest                 : std_logic_vector(39 downto 0) := x"0000000000";
    signal i0rb_revisionrwtest                : std_logic_vector(39 downto 0);
-   signal i0countCmdB                        : std_logic_vector(gAddSz+gDatSz+2 downto 0);
-   signal i0countRdBB                        : std_logic_vector(gDatSz+1 downto 0);
+   signal i0macCmdB                          : std_logic_vector(gAddSz+gDatSz+2 downto 0);
+   signal i0macRdBB                          : std_logic_vector(gDatSz+1 downto 0);
    signal i0rb_ledCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
    signal i0rb_ledRdBB                       : std_logic_vector(gDatSz+1 downto 0);
    signal i0rb_memCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
@@ -142,8 +142,8 @@ begin
          ClkCpu                             => ClkCpu,                         -- in   std_logic
          CmdBI                              => CmdBI,                          -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
          RdBBO                              => RdBBO,                          -- out  std_logic_vector(gDatSz+1 downto 0)
-         i0countCmdBO                       => i0countCmdB,                    -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         i0countRdBBI                       => i0countRdBB,                    -- in   std_logic_vector(gDatSz+1 downto 0)
+         i0macCmdBO                         => i0macCmdB,                      -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         i0macRdBBI                         => i0macRdBB,                      -- in   std_logic_vector(gDatSz+1 downto 0)
          i0rb_ledCmdBO                      => i0rb_ledCmdB,                   -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
          i0rb_ledRdBBI                      => i0rb_ledRdBB,                   -- in   std_logic_vector(gDatSz+1 downto 0)
          i0rb_memCmdBO                      => i0rb_memCmdB,                   -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
@@ -183,7 +183,7 @@ begin
          rwtestO                            => i0rb_revisionrwtest             -- out  std_logic_vector(39 downto 0)
       );
 
-   i0count : counter_ip
+   i0mac : mac_ip
       generic map (
          gAddSz                             => gAddSz,                         -- integer
          gDatSz                             => gDatSz,                         -- integer
@@ -193,8 +193,8 @@ begin
          Clk                                => Clk,                            -- in   std_logic
          Rst                                => Rst,                            -- in   std_logic
          ClkCpu                             => ClkCpu,                         -- in   std_logic
-         CmdBI                              => i0countCmdB,                    -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBO                              => i0countRdBB                     -- out  std_logic_vector(gDatSz+1 downto 0)
+         CmdBI                              => i0macCmdB,                      -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBO                              => i0macRdBB                       -- out  std_logic_vector(gDatSz+1 downto 0)
       );
 
    i0rb_mem : mem_regbank

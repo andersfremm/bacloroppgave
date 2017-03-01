@@ -36,8 +36,8 @@ component core_addressdecoder is
       ClkCpu                             : in  std_logic;
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
-      i0countCmdBO                       : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      i0countRdBBI                       : in  std_logic_vector(gDatSz+1 downto 0);
+      i0macCmdBO                         : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      i0macRdBBI                         : in  std_logic_vector(gDatSz+1 downto 0);
       i0rb_memCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
       i0rb_memRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0);
       i0rb_ledCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
@@ -47,7 +47,7 @@ component core_addressdecoder is
    );
 end component;
 
-component counter_ip is
+component mac_ip is
    generic (
       gAddSz                             : integer   := 16;
       gDatSz                             : integer   := 16;
@@ -182,8 +182,8 @@ end component;
    signal i0rb_revisionlatch                 : std_logic;
    signal i0rb_revisionrtest                 : std_logic_vector(39 downto 0) := x"0000000000";
    signal i0rb_revisionrwtest                : std_logic_vector(39 downto 0);
-   signal i0countCmdB                        : std_logic_vector(gAddSz+gDatSz+2 downto 0);
-   signal i0countRdBB                        : std_logic_vector(gDatSz+1 downto 0);
+   signal i0macCmdB                          : std_logic_vector(gAddSz+gDatSz+2 downto 0);
+   signal i0macRdBB                          : std_logic_vector(gDatSz+1 downto 0);
    signal i0rb_memCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
    signal i0rb_memRdBB                       : std_logic_vector(gDatSz+1 downto 0);
    signal i0rb_ledCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
@@ -203,8 +203,8 @@ begin
          ClkCpu                             => ClkCpu,                        
          CmdBI                              => CmdBI,                         
          RdBBO                              => RdBBO,                         
-         i0countCmdBO                       => i0countCmdB,                   
-         i0countRdBBI                       => i0countRdBB,                   
+         i0macCmdBO                         => i0macCmdB,                   
+         i0macRdBBI                         => i0macRdBB,                   
          i0rb_memCmdBO                      => i0rb_memCmdB,                  
          i0rb_memRdBBI                      => i0rb_memRdBB,                  
          i0rb_ledCmdBO                      => i0rb_ledCmdB,                  
@@ -286,7 +286,7 @@ begin
       );
    
 
-   i0count : counter_ip
+   i0mac_ip : mac_ip
       generic map (
          gAddSz                             => gAddSz,                        
          gDatSz                             => gDatSz,                        
@@ -296,8 +296,8 @@ begin
          Clk                                => Clk,                           
          Rst                                => Rst,                           
          ClkCpu                             => ClkCpu,                        
-         CmdBI                              => i0countCmdB,                   
-         RdBBO                              => i0countRdBB,
+         CmdBI                              => i0macCmdB,                   
+         RdBBO                              => i0macRdBB,
 -- Manually added      
          CounterO                           => open,
          CounterMsbO                        => i0rb_ledled0O  

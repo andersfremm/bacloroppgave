@@ -1,0 +1,17 @@
+# *******************************
+# Definition file for mac
+# *******************************
+
+# souring seperate files for register definition and GUI
+inst -n i0rb_mac  -f ./mac_reg.txt
+inst -n i0rb_mac  -f ./mac_gui.txt
+
+inst -n i0rb_mdio  -f ./mdio_reg.txt
+
+# defining base address, sync/async clock and retiming at bus interface
+inst -n i0rb_mdio -sg mdio -ba 0 -sy 0 -rtc 0 -rtb 0
+inst -n i0rb_mac  -sg mac  -ba 4 -sy 0 -rtc 0 -rtb 0
+
+# Defining type and regbank instance for the IP
+group -n mac_ip -t mux -i {i0rb_mac i0rb_mdio}
+

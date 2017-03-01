@@ -1,0 +1,12 @@
+# *******************************
+# Definition file for mac registers
+# *******************************
+group -n mdio -t bank -i {PhyAddr Wr Rd Ack RegAddr DataO DataI}
+
+reg -n PhyAddr  -t RW -f U -a 0 -w  5  -p 0          -c "Phy address"
+reg -n Wr       -t WI -f U -a 0 -w  1  -p 5          -c "Write"
+reg -n Rd       -t WI -f U -a 0 -w  1  -p 6          -c "Read"
+reg -n Ack      -t R  -f U -a 0 -w  1  -p 7          -c "Ack when done"
+reg -n RegAddr  -t RW -f U -a 1 -w  5  -p 0          -c "Register address"
+reg -n DataO    -t RW -f U -a 2 -w 16  -p 0          -c "Data out to phy"
+reg -n DataI    -t R  -f U -a 3 -w 16  -p 0          -c "Data in from phy"

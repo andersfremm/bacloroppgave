@@ -17,8 +17,8 @@ entity core_addressdecoder is
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
       -- Ports towards submodules and register banks
-      i0countCmdBO                       : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      i0countRdBBI                       : in  std_logic_vector(gDatSz+1 downto 0);
+      i0macCmdBO                         : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      i0macRdBBI                         : in  std_logic_vector(gDatSz+1 downto 0);
       i0rb_ledCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
       i0rb_ledRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0);
       i0rb_memCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
@@ -50,19 +50,19 @@ component reg_addr_decoder is
 end component;
 
 
-signal i0countRdBB                        : std_logic_vector(gDatSz+1 downto 0);
+signal i0macRdBB                          : std_logic_vector(gDatSz+1 downto 0);
 signal i0rb_ledRdBB                       : std_logic_vector(gDatSz+1 downto 0);
 signal i0rb_memRdBB                       : std_logic_vector(gDatSz+1 downto 0);
 signal i0rb_revisionRdBB                  : std_logic_vector(gDatSz+1 downto 0);
 
 begin
 
-   i0count_reg_addr_decoder : reg_addr_decoder
+   i0mac_reg_addr_decoder : reg_addr_decoder
       generic map (
          gAddSz                             => gAddSz,                         -- integer
          gDatSz                             => gDatSz,                         -- integer
          gAddLow                            => 256,                            -- integer
-         gAddHigh                           => 261,                            -- integer
+         gAddHigh                           => 265,                            -- integer
          gAsync                             => false,                          -- boolean
          gRtCmdB                            => 0,                              -- integer
          gRtRdBB                            => 0                               -- integer
@@ -70,9 +70,9 @@ begin
       port map (
          ClkCpu                             => ClkCpu,                         -- in   std_logic
          CmdBI                              => CmdBI,                          -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBO                              => i0countRdBB,                    -- out  std_logic_vector(gDatSz+1 downto 0)
-         CmdBO                              => i0countCmdBO,                   -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBI                              => i0countRdBBI                    -- in   std_logic_vector(gDatSz+1 downto 0)
+         RdBBO                              => i0macRdBB,                      -- out  std_logic_vector(gDatSz+1 downto 0)
+         CmdBO                              => i0macCmdBO,                     -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBI                              => i0macRdBBI                      -- in   std_logic_vector(gDatSz+1 downto 0)
       );
 
    i0rb_mem_reg_addr_decoder : reg_addr_decoder
@@ -129,6 +129,6 @@ begin
          RdBBI                              => i0rb_revisionRdBBI              -- in   std_logic_vector(gDatSz+1 downto 0)
       );
 
-   pRdBBO                          : RdBBO                         <= i0countRdBB or i0rb_ledRdBB or i0rb_memRdBB or i0rb_revisionRdBB;
+   pRdBBO                          : RdBBO                         <= i0macRdBB or i0rb_ledRdBB or i0rb_memRdBB or i0rb_revisionRdBB;
 
 end RTL;

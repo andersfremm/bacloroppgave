@@ -30,20 +30,32 @@ Register bank /i0jtag/i0demo/i0core/i0rb_led
        63 |   2 |   2 |   0  0   | led2                        |     1 | RW        |         |                                          | led 2 control, 1 ~ light             
        63 |   3 |   3 |   0  0   | led3                        |     1 | RW        |         |                                          | led 3 control, 1 ~ light             
 
-Register bank /i0jtag/i0demo/i0core/i0count/i0rb_counter
+Register bank /i0jtag/i0demo/i0core/i0mac/i0rb_mdio
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Address | MSB | LSB | Reg  slc | Signal Name                 | Width | Type      | Value   | Reference                                | Comment                              
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      256 |   7 |   0 |   7  0   | revision                    |     8 | RC        | 5       |                                          | Trunk revision.                      
-      257 |   0 |   0 |   0  0   | up                          |     1 | RW        | 1       |                                          | Count up continuously                
-      257 |   1 |   1 |   0  0   | down                        |     1 | RW        |         |                                          | Count down continuously              
-      257 |  13 |   2 |  11  0   | prescale                    |    12 | RW        | 1024    |                                          | Max value for prescale counter       
-      258 |   0 |   0 |   0  0   | stepup                      |     1 | WI        |         |                                          | Step up one value                    
-      258 |   1 |   1 |   0  0   | stepdown                    |     1 | WI        |         |                                          | Step down one value                  
-      258 |   2 |   2 |   0  0   | preset                      |     1 | WI        |         |                                          | Preset to SetCnt value               
-      259 |  15 |   0 |  15  0   | setcnt                      |    16 | RW        |         |                                          | Value to be set by Preset            
-      260 |  15 |   0 |  15  0   | max                         |    16 | RW        | 65535   |                                          | Max value before wrap to 0           
-      261 |  15 |   0 |  15  0   | readcnt                     |    16 | R         |         |                                          | Read value of counter                
+      256 |   4 |   0 |   4  0   | PhyAddr                     |     5 | RW        |         |                                          | Phy address                          
+      256 |   5 |   5 |   0  0   | Wr                          |     1 | WI        |         |                                          | Write                                
+      256 |   6 |   6 |   0  0   | Rd                          |     1 | WI        |         |                                          | Read                                 
+      256 |   7 |   7 |   0  0   | Ack                         |     1 | R         |         |                                          | Ack when done                        
+      257 |   4 |   0 |   4  0   | RegAddr                     |     5 | RW        |         |                                          | Register address                     
+      258 |  15 |   0 |  15  0   | DataO                       |    16 | RW        |         |                                          | Data out to phy                      
+      259 |  15 |   0 |  15  0   | DataI                       |    16 | R         |         |                                          | Data in from phy                     
+
+Register bank /i0jtag/i0demo/i0core/i0mac/i0rb_mac
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Address | MSB | LSB | Reg  slc | Signal Name                 | Width | Type      | Value   | Reference                                | Comment                              
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      260 |   7 |   0 |   7  0   | revision                    |     8 | RC        | 5       |                                          | Trunk revision.                      
+      261 |   0 |   0 |   0  0   | up                          |     1 | RW        | 1       |                                          | Count up continuously                
+      261 |   1 |   1 |   0  0   | down                        |     1 | RW        |         |                                          | Count down continuously              
+      261 |  13 |   2 |  11  0   | prescale                    |    12 | RW        | 1024    |                                          | Max value for prescale counter       
+      262 |   0 |   0 |   0  0   | stepup                      |     1 | WI        |         |                                          | Step up one value                    
+      262 |   1 |   1 |   0  0   | stepdown                    |     1 | WI        |         |                                          | Step down one value                  
+      262 |   2 |   2 |   0  0   | preset                      |     1 | WI        |         |                                          | Preset to SetCnt value               
+      263 |  15 |   0 |  15  0   | setcnt                      |    16 | RW        |         |                                          | Value to be set by Preset            
+      264 |  15 |   0 |  15  0   | max                         |    16 | RW        | 65535   |                                          | Max value before wrap to 0           
+      265 |  15 |   0 |  15  0   | readcnt                     |    16 | R         |         |                                          | Read value of counter                
 
 Register bank /i0jtag/i0demo/i0core/i0rb_mem
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
