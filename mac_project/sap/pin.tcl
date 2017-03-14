@@ -43,6 +43,8 @@ set_location_assignment PIN_E25 -to i0rb_ledled2O
 set_location_assignment PIN_E24 -to i0rb_ledled3O
 set_location_assignment PIN_G19 -to Cpu0ActiveO
 set_location_assignment PIN_F19 -to Cpu1ActiveO
+set_location_assignment PIN_D25 -to MdioIO
+set_location_assignment PIN_D23 -to Mdc
 
 set_instance_assignment -name FAST_INPUT_REGISTER  ON -to serial0RxI
 set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to serial0TxO

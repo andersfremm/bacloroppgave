@@ -8,3 +8,4 @@
 ##########################################################################
 # Design files
 set_global_assignment -name VHDL_FILE ../mac_ip/src/mac_ip.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/MDIO.vhd

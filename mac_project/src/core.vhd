@@ -21,7 +21,11 @@ entity core is
       i0rb_ledled0O                      : out std_logic;
       i0rb_ledled1O                      : out std_logic;
       i0rb_ledled2O                      : out std_logic;
-      i0rb_ledled3O                      : out std_logic
+      i0rb_ledled3O                      : out std_logic;
+      
+      --mdio interface
+      mdioIO                             : inout std_logic; 
+      mdc                                : out std_logic
    );
 end entity;
 
@@ -60,8 +64,8 @@ component mac_ip is
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
 -- Manually added      
-      CounterO                           : out std_logic_vector(15 downto 0); -- Counter
-      CounterMsbO                        : out std_logic -- Pseudo MSB. 50% duty cycle and periode based on value for max 
+      mdioIO                             : inout std_logic; 
+      mdc                                : out std_logic
    );
 end component;
 
@@ -299,8 +303,8 @@ begin
          CmdBI                              => i0macCmdB,                   
          RdBBO                              => i0macRdBB,
 -- Manually added      
-         CounterO                           => open,
-         CounterMsbO                        => i0rb_ledled0O  
+         mdioIO                             => mdioIO, 
+         mdc                                => mdc
       );
 
    pConnect: process(i0rb_revisionrwtest)
