@@ -19,8 +19,8 @@ entity mac_ip is
       CmdBI                          : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                          : out std_logic_vector(gDatSz+1 downto 0);
 -- Manually added      
-      CounterO                       : out std_logic_vector(15 downto 0); -- Counter
-      CounterMsbO                    : out std_logic -- Pseudo MSB. 50% duty cycle and periode based on value for max
+      mdioIO                         : inout std_logic; 
+      mdc                            : out std_logic
    );
 end entity;
 
@@ -39,6 +39,31 @@ component mac_ip_addressdecoder is
       i0rb_macRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0)
    );
 end component;
+
+component MDIO is
+generic (
+   gDivCnt     : integer := 8;
+   gDivCntW    : integer := 3
+);
+port (
+   Clk         : in  std_logic;
+   Rst         : in  std_logic;
+
+   PhyAddrI    : in  std_logic_vector(4 downto 0);
+   RegAddrI    : in  std_logic_vector(4 downto 0);
+   WrI         : in  std_logic;
+   RdI         : in  std_logic;
+   DataI       : in  std_logic_vector(15 downto 0);
+   AckO        : out std_logic;
+   DataO       : out std_logic_vector(15 downto 0);
+
+   SerialClkO  : out std_logic;
+   SerialDataI : in  std_logic;
+   SerialDataO : out std_logic;
+   SerialEnO   : out std_logic
+);
+end component;
+
 
 component mac_regbank is
    generic (
@@ -82,6 +107,10 @@ component mdio_regbank is
    );
 end component;
 
+   signal MdioDataI                          : std_logic;
+   signal MdioDataO                          : std_logic;
+   signal MdioEnO                            : std_logic;
+   
    signal i0rb_counterdown                   : std_logic;
    signal i0rb_countermax                    : std_logic_vector(15 downto 0);
    signal i0rb_counterprescale               : std_logic_vector(11 downto 0);
@@ -126,6 +155,34 @@ begin
          i0rb_macCmdBO                  => i0rb_macCmdB,
          i0rb_macRdBBI                  => i0rb_macRdBB
       );
+      
+   i0MDIO : MDIO
+      generic map (
+         gDivCnt     => 50,
+         gDivCntW    => 6
+      )
+      port map (
+         Clk                                => Clk,
+         Rst                                => Rst,
+
+         PhyAddrI                           => i0rb_mdioPhyAddr,
+         RegAddrI                           => i0rb_mdioRegAddr,
+         WrI                                => i0rb_mdioWr, 
+         RdI                                => i0rb_mdioRd,
+         DataI                              => i0rb_mdioDataI,
+         AckO                               => i0rb_mdioAck,
+         DataO                              => i0rb_mdioDataO, 
+
+         -- MDIO interface
+         SerialClkO                         => mdc,   
+         SerialDataI                        => MdioDataI,  
+         SerialDataO                        => MdioDataO,  
+         SerialEnO                          => MdioEnO  
+      );
+
+      
+mdioIO <= MdioDataO when MdioEnO = '1' else 'Z';
+MdioDataI <= mdioIO;
 
    i0rb_mdio : mdio_regbank
       generic map (
@@ -191,62 +248,5 @@ begin
      end if;
   end process;
 
-  -- To avoid that the counter is not running with max=0, it is modified to FFFF if it max=0
-  MaxModified <= (others => '1') when unsigned(i0rb_countermax) = 0 else i0rb_countermax; --
-  
-   -- Counter.
-  pCounter:
-  process(Clk)
-  begin
-     if rising_edge(Clk) then
-        
-        if Rst ='1' then
-           Counter <= (others => '0');
-        elsif i0rb_counterstepup= '1' then
-           if Counter >= MaxModified then
-              Counter <= (others => '0');
-           else
-              Counter <= std_logic_vector(unsigned(Counter) + 1);
-           end if;
-        elsif i0rb_counterstepdown= '1' then
-           if unsigned(Counter) = 0 or Counter > MaxModified then
-              Counter <= MaxModified;
-           else
-              Counter <= std_logic_vector(unsigned(Counter) - 1);
-           end if;
-        elsif i0rb_counterpreset = '1' then
-           Counter <= i0rb_countersetcnt;
-        elsif PrescaleTc = '1' then
-           if unsigned(Counter) = 0  then 
-           end if;
-           
-           if i0rb_counterup = '1' then
-              if Counter >= MaxModified then
-                 Counter <= (others => '0');
-              else
-                 Counter <= std_logic_vector(unsigned(Counter) + 1);
-              end if;
-           elsif i0rb_counterdown= '1' then
-              if unsigned(Counter) = 0 or Counter > MaxModified then
-                Counter <= MaxModified;
-              else
-                Counter <= std_logic_vector(unsigned(Counter) - 1);
-              end if;
-           end if;
-        end if;
-        
-        -- Map to outputs
-        CounterO <= Counter;
-        -- Make pseudo MSB based on value for max
-        if unsigned(Counter) <= (unsigned(MaxModified))/2 then
-           CounterMsbO<= '0';
-        else
-           CounterMsbO<= '1';
-        end if;
-        
-     end if;
-  end process;
- 
-  i0rb_counterreadcnt <= Counter;
- 
+
 end RTL;
