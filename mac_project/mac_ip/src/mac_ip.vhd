@@ -36,7 +36,9 @@ component mac_ip_addressdecoder is
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
       i0rb_macCmdBO                      : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      i0rb_macRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0)
+      i0rb_macRdBBI                      : in  std_logic_vector(gDatSz+1 downto 0);
+      i0rb_mdioCmdBO                     : out std_logic_vector(gAddSz+gDatSz+2 downto 0);
+      i0rb_mdioRdBBI                     : in  std_logic_vector(gDatSz+1 downto 0)
    );
 end component;
 
@@ -145,17 +147,19 @@ begin
 
    i0mac_ip_addressdecoder : mac_ip_addressdecoder
       generic map (
-         gAddSz                         => gAddSz,
-         gDatSz                         => gDatSz
+         gAddSz                             => gAddSz,                         -- integer
+         gDatSz                             => gDatSz                          -- integer
       )
       port map (
-         ClkCpu                         => ClkCpu,
-         CmdBI                          => CmdBI,
-         RdBBO                          => RdBBO,
-         i0rb_macCmdBO                  => i0rb_macCmdB,
-         i0rb_macRdBBI                  => i0rb_macRdBB
+         ClkCpu                             => ClkCpu,                         -- in   std_logic
+         CmdBI                              => CmdBI,                          -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBO                              => RdBBO,                          -- out  std_logic_vector(gDatSz+1 downto 0)
+         i0rb_macCmdBO                      => i0rb_macCmdB,                   -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         i0rb_macRdBBI                      => i0rb_macRdBB,                   -- in   std_logic_vector(gDatSz+1 downto 0)
+         i0rb_mdioCmdBO                     => i0rb_mdioCmdB,                  -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         i0rb_mdioRdBBI                     => i0rb_mdioRdBB                   -- in   std_logic_vector(gDatSz+1 downto 0)
       );
-      
+   
    i0MDIO : MDIO
       generic map (
          gDivCnt     => 50,
