@@ -1,0 +1,29 @@
+# *******************************
+# Definition file for the mdio GUI
+# *******************************
+
+group -n mdio -t bank -i {PhyAddr Wr Rd Ack RegAddr DataO DataI}
+group -n mdio -gspan {6 8}
+group -n mdio -gw {12 8}
+group -n mdio -gupdate {4 7}
+
+reg -n PhyAddr	 -gloc {0 0}
+reg -n PhyAddr	 -gtype entry
+
+reg -n Wr	 -gloc {0 1}
+reg -n Wr	 -gtype button
+
+reg -n Rd	 -gloc {0 2}
+reg -n Rd	 -gtype button
+
+reg -n Ack	 -gloc {0 3}
+reg -n Ack	 -gtype label
+
+reg -n RegAddr	 -gloc {0 4}
+reg -n RegAddr	 -gtype entry
+
+reg -n DataO	 -gloc {0 5}
+reg -n DataO	 -gtype entry
+
+reg -n DataI	 -gloc {0 6}
+reg -n DataI	 -gtype label
