@@ -1,0 +1,51 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/altera_lite/15.1
+Emac_ip
+Z0 w1489860712
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dC:/Users/fremm/Documents/autoreg_guide/mac_project/mac_ip/src
+Z5 8C:/Users/fremm/Documents/autoreg_guide/mac_project/mac_ip/src/mac_ip_v2.vhd
+Z6 FC:/Users/fremm/Documents/autoreg_guide/mac_project/mac_ip/src/mac_ip_v2.vhd
+l0
+L9
+VdVADU59_1`4dY[lm`E0=T1
+!s100 ^6^zdKneb6C2g;^20SQVJ1
+Z7 OV;C;10.4b;61
+32
+Z8 !s110 1489860716
+!i10b 1
+Z9 !s108 1489860716.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/fremm/Documents/autoreg_guide/mac_project/mac_ip/src/mac_ip_v2.vhd|
+Z11 !s107 C:/Users/fremm/Documents/autoreg_guide/mac_project/mac_ip/src/mac_ip_v2.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1
+Artl
+R1
+R2
+R3
+DEx4 work 6 mac_ip 0 22 dVADU59_1`4dY[lm`E0=T1
+l137
+L27
+Vk2A8Yo[zhVB=@4BT1Nz^D2
+!s100 XUz>M2BK3`W_efK6Y2BCc2
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
