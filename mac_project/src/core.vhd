@@ -23,8 +23,11 @@ entity core is
       i0rb_ledled2O                      : out std_logic;
       i0rb_ledled3O                      : out std_logic;
       
-      --mdio interface
-      mdioIO                             : inout std_logic; 
+      -- MDIO
+      nRstO                              : out std_logic; -- Active low reset to PHY
+      mdi                                : in  std_logic;
+      mdo                                : out std_logic;
+      mden                               : out std_logic;
       mdc                                : out std_logic
    );
 end entity;
@@ -63,8 +66,11 @@ component mac_ip is
       ClkCpu                             : in  std_logic;
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
--- Manually added      
-      mdioIO                             : inout std_logic; 
+
+      -- MDIO
+      mdi                                : in  std_logic;
+      mdo                                : out std_logic;
+      mden                               : out std_logic;
       mdc                                : out std_logic
    );
 end component;
@@ -195,8 +201,51 @@ end component;
    signal i0rb_revisionCmdB                  : std_logic_vector(gAddSz+gDatSz+2 downto 0);
    signal i0rb_revisionRdBB                  : std_logic_vector(gDatSz+1 downto 0);
 
+   -- Time Base Counter or heartbeat. Approximately 1 sec.
+   -- Assuming the clock period is 20 ns this equals to 50.000.000 clock periods.
+   -- 25-bit is the closest.
+   constant cTbcSz                           : integer := 25;
+   signal TbcCnt                             : unsigned(cTbcSz - 1 downto 0);
+
+
+   -- Reset counter for PHY HW reset
+   -- The reset shall be held low for 10 ms.
+   -- Assuming the clock period is 20 ns this equals to 500 clock periods.
+   -- Lets go for 512. SInce we use the MSB directly the counter must be twice this - 1024.
+   signal RstCnt                             : unsigned(9 downto 0);
 
 begin
+
+   -- Time Base Counter
+   pTbc:
+   process(Clk)
+   begin
+      if rising_edge(Clk) then
+         if Rst ='1' then
+            TbcCnt <= (others => '0');
+         else
+            TbcCnt <= TbcCnt + 1;
+         end if;
+      end if;
+   end process;
+
+   i0rb_ledled0O <= TbcCnt(TbcCnt'left);
+
+   -- Reset counter
+   pRstCnt: process(Clk)
+   begin
+      if rising_edge(Clk) then
+         if Rst = '1' then
+            RstCnt <= (others => '0');
+         else
+            if RstCnt /= 2**RstCnt'length - 1 then
+               RstCnt <= RstCnt + 1;
+            end if;
+         end if;
+     end if;
+   end process;
+
+   nRstO <= RstCnt(RstCnt'left);
 
    i0core_addressdecoder : core_addressdecoder
       generic map (
@@ -302,8 +351,11 @@ begin
          ClkCpu                             => ClkCpu,                        
          CmdBI                              => i0macCmdB,                   
          RdBBO                              => i0macRdBB,
--- Manually added      
-         mdioIO                             => mdioIO, 
+
+         -- MDIO
+         mdi                                => mdi,
+         mdo                                => mdo,
+         mden                               => mden,
          mdc                                => mdc
       );
 

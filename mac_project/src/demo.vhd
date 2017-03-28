@@ -7,21 +7,25 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity demo is
-   port (
-      ClkCpu                             : in  std_logic;
-      Cpu0ActiveO                        : out std_logic;
-      Cpu1ActiveO                        : out std_logic;
-      serial0RxI                         : in  std_logic;
-      serial0TxO                         : out std_logic;
-      serial0TxEnO                       : out std_logic;
-      i0rb_ledled0O                      : out std_logic;
-      i0rb_ledled1O                      : out std_logic;
-      i0rb_ledled2O                      : out std_logic;
-      i0rb_ledled3O                      : out std_logic;
-      
-      --mdio
-      mdioIO                             : inout std_logic; 
-      mdc                                : out std_logic
+port (
+   ClkCpu                             : in  std_logic;
+   Cpu0ActiveO                        : out std_logic;
+   Cpu1ActiveO                        : out std_logic;
+   serial0RxI                         : in  std_logic;
+   serial0TxO                         : out std_logic;
+   serial0TxEnO                       : out std_logic;
+   i0rb_ledled0O                      : out std_logic;
+   i0rb_ledled1O                      : out std_logic;
+   i0rb_ledled2O                      : out std_logic;
+   i0rb_ledled3O                      : out std_logic;
+   
+   --mdio
+   nRstO                              : out std_logic; -- Active low reset to PHY
+   mdioIO                             : inout std_logic; 
+   mdc                                : out std_logic;
+
+   -- Debug
+   DebugO                             : out std_logic_vector(7 downto 0)
    );
 end entity;
 
@@ -131,7 +135,11 @@ component core is
       i0rb_ledled2O                      : out std_logic;
       i0rb_ledled3O                      : out std_logic;
       
-      mdioIO                             : inout std_logic; 
+      -- MDIO
+      nRstO                              : out std_logic; -- Active low reset to PHY
+      mdi                                : in  std_logic;
+      mdo                                : out std_logic;
+      mden                               : out std_logic;
       mdc                                : out std_logic
    );
 end component;
@@ -171,10 +179,27 @@ end component;
    signal i0reg_mainRdBBI                    : std_logic_vector(cDatSz+1 downto 0);
    signal i0coreRdBB                         : std_logic_vector(cDatSz+1 downto 0);
 
+   -- Core
+   signal CoreLed                            : std_logic_vector(3 downto 0);
+   signal CoreMdi                            : std_logic;
+   signal CoreMdo                            : std_logic;
+   signal CoreMden                           : std_logic;
+   signal CoreMdc                            : std_logic;
 
 begin
 
-   i0serial_wrapper : serial_wrapper
+      -- Debug
+      DebugO(0) <= CoreLed(0);
+      DebugO(1) <= '0';
+      DebugO(2) <= '0';
+      DebugO(3) <= '0';
+      DebugO(4) <= CoreMdc;
+      DebugO(5) <= CoreMdi;
+      DebugO(6) <= CoreMdo;
+      DebugO(7) <= CoreMden;
+
+
+      i0serial_wrapper : serial_wrapper
       generic map (
          gActivity_invert                   => cActivity_invert,               -- boolean
          gAccuCntSize                       => cAccuCntSize,                   -- integer
@@ -267,14 +292,27 @@ begin
          ClkCpu                             => ClkCpu,                         -- in   std_logic
          CmdBI                              => i0reg_mainCmdB,                 -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
          RdBBO                              => i0coreRdBB,                     -- out  std_logic_vector(gDatSz+1 downto 0)
-         i0rb_ledled0O                      => i0rb_ledled0O,                  -- out  std_logic
-         i0rb_ledled1O                      => i0rb_ledled1O,                  -- out  std_logic
-         i0rb_ledled2O                      => i0rb_ledled2O,                  -- out  std_logic
-         i0rb_ledled3O                      => i0rb_ledled3O,                  -- out  std_logic
-         -- Manually added      
-         mdioIO                             => mdioIO, 
-         mdc                                => mdc
+         i0rb_ledled0O                      => CoreLed(0),                     -- out  std_logic
+         i0rb_ledled1O                      => CoreLed(1),                     -- out  std_logic
+         i0rb_ledled2O                      => CoreLed(2),                     -- out  std_logic
+         i0rb_ledled3O                      => CoreLed(3),                     -- out  std_logic
+
+         -- MDIO
+         nRstO                              => nRstO,
+         mdi                                => CoreMdi,
+         mdo                                => CoreMdo,
+         mden                               => CoreMden,
+         mdc                                => CoreMdc
       );
 
+      mdioIO <= CoreMdo when CoreMden = '1' else 'Z';
+      CoreMdi <= mdioIO;
+
+      i0rb_ledled0O <= CoreLed(0);
+      i0rb_ledled1O <= CoreLed(1);
+      i0rb_ledled2O <= CoreLed(2);
+      i0rb_ledled3O <= CoreLed(3);
+
+      mdc <= CoreMdc;
 
 end RTL;

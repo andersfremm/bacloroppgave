@@ -18,8 +18,11 @@ entity mac_ip is
       ClkCpu                         : in  std_logic;
       CmdBI                          : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                          : out std_logic_vector(gDatSz+1 downto 0);
--- Manually added      
-      mdioIO                         : inout std_logic; 
+
+      -- MDIO
+      mdi                            : in  std_logic;
+      mdo                            : out std_logic;
+      mden                           : out std_logic;
       mdc                            : out std_logic
    );
 end entity;
@@ -164,21 +167,17 @@ begin
          RegAddrI                           => i0rb_mdioRegAddr,
          WrI                                => i0rb_mdioWr, 
          RdI                                => i0rb_mdioRd,
-         DataI                              => i0rb_mdioDataI,
+         DataI                              => i0rb_mdioDataO,
          AckO                               => i0rb_mdioAck,
-         DataO                              => i0rb_mdioDataO, 
+         DataO                              => i0rb_mdioDataI, 
 
          -- MDIO interface
          SerialClkO                         => mdc,   
-         SerialDataI                        => MdioDataI,  
-         SerialDataO                        => MdioDataO,  
-         SerialEnO                          => MdioEnO  
+         SerialDataI                        => mdi,  
+         SerialDataO                        => mdo,  
+         SerialEnO                          => mden  
       );
 
-      
-mdioIO <= MdioDataO when MdioEnO = '1' else 'Z';
-MdioDataI <= mdioIO;
-      
    i0rb_mdio : mdio_regbank
       generic map (
          gAddSz                             => gAddSz,                         -- integer

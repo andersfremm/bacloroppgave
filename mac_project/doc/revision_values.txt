@@ -1,8 +1,8 @@
 group -n revision -t bank -i {trunkrev branchesrev year month day hour minute}
-reg -n trunkrev    -v 8
+reg -n trunkrev    -v 16
 reg -n branchesrev -v 0
 reg -n year        -v 17
 reg -n month       -v 03
-reg -n day         -v 22
-reg -n hour        -v 13
-reg -n minute      -v 45
+reg -n day         -v 28
+reg -n hour        -v 20
+reg -n minute      -v 11
