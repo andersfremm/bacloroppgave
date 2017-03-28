@@ -1,4 +1,4 @@
------------------ COPYRIGHT Â© ProgBit AS 2017 ----------------------------------
+----------------- COPYRIGHT © ProgBit AS 2017 ----------------------------------
 -- This file has been generated using ProgBit autoreg tools
 --------------------------------------------------------------------------------
 
@@ -130,9 +130,9 @@ component core is
       i0rb_ledled1O                      : out std_logic;
       i0rb_ledled2O                      : out std_logic;
       i0rb_ledled3O                      : out std_logic;
-           mdioIO                             : inout std_logic; 
+      
+      mdioIO                             : inout std_logic; 
       mdc                                : out std_logic
-   );
    );
 end component;
 
@@ -270,8 +270,9 @@ begin
          i0rb_ledled0O                      => i0rb_ledled0O,                  -- out  std_logic
          i0rb_ledled1O                      => i0rb_ledled1O,                  -- out  std_logic
          i0rb_ledled2O                      => i0rb_ledled2O,                  -- out  std_logic
-         i0rb_ledled3O                      => i0rb_ledled3O                   -- out  std_logic
-         mdioIO                             => mdioIO,
+         i0rb_ledled3O                      => i0rb_ledled3O,                  -- out  std_logic
+         -- Manually added      
+         mdioIO                             => mdioIO, 
          mdc                                => mdc
       );
 

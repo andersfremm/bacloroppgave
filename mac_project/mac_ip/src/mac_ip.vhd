@@ -1,4 +1,4 @@
------------------ COPYRIGHT Â© ProgBit AS 2016 ----------------------------------
+----------------- COPYRIGHT © ProgBit AS 2017 ----------------------------------
 -- This file has been generated using ProgBit autoreg tools
 --------------------------------------------------------------------------------
 
@@ -42,31 +42,6 @@ component mac_ip_addressdecoder is
    );
 end component;
 
-component MDIO is
-generic (
-   gDivCnt     : integer := 8;
-   gDivCntW    : integer := 3
-);
-port (
-   Clk         : in  std_logic;
-   Rst         : in  std_logic;
-
-   PhyAddrI    : in  std_logic_vector(4 downto 0);
-   RegAddrI    : in  std_logic_vector(4 downto 0);
-   WrI         : in  std_logic;
-   RdI         : in  std_logic;
-   DataI       : in  std_logic_vector(15 downto 0);
-   AckO        : out std_logic;
-   DataO       : out std_logic_vector(15 downto 0);
-
-   SerialClkO  : out std_logic;
-   SerialDataI : in  std_logic;
-   SerialDataO : out std_logic;
-   SerialEnO   : out std_logic
-);
-end component;
-
-
 component mac_regbank is
    generic (
       gAddSz                             : integer   := 16;
@@ -109,20 +84,39 @@ component mdio_regbank is
    );
 end component;
 
-   signal MdioDataI                          : std_logic;
-   signal MdioDataO                          : std_logic;
-   signal MdioEnO                            : std_logic;
-   
-   signal i0rb_counterdown                   : std_logic;
-   signal i0rb_countermax                    : std_logic_vector(15 downto 0);
-   signal i0rb_counterprescale               : std_logic_vector(11 downto 0);
-   signal i0rb_counterpreset                 : std_logic;
-   signal i0rb_counterreadcnt                : std_logic_vector(15 downto 0) := x"0000";
-   signal i0rb_countersetcnt                 : std_logic_vector(15 downto 0);
-   signal i0rb_counterstepdown               : std_logic;
-   signal i0rb_counterstepup                 : std_logic;
-   signal i0rb_counterup                     : std_logic;
+component MDIO is
+generic (
+   gDivCnt     : integer := 8;
+   gDivCntW    : integer := 3
+);
+port (
+   Clk         : in  std_logic;
+   Rst         : in  std_logic;
 
+   PhyAddrI    : in  std_logic_vector(4 downto 0);
+   RegAddrI    : in  std_logic_vector(4 downto 0);
+   WrI         : in  std_logic;
+   RdI         : in  std_logic;
+   DataI       : in  std_logic_vector(15 downto 0);
+   AckO        : out std_logic;
+   DataO       : out std_logic_vector(15 downto 0);
+
+   SerialClkO  : out std_logic;
+   SerialDataI : in  std_logic;
+   SerialDataO : out std_logic;
+   SerialEnO   : out std_logic
+);
+end component;
+
+   signal i0rb_macdown                       : std_logic;
+   signal i0rb_macmax                        : std_logic_vector(15 downto 0);
+   signal i0rb_macprescale                   : std_logic_vector(11 downto 0);
+   signal i0rb_macpreset                     : std_logic;
+   signal i0rb_macreadcnt                    : std_logic_vector(15 downto 0) := x"0000";
+   signal i0rb_macsetcnt                     : std_logic_vector(15 downto 0);
+   signal i0rb_macstepdown                   : std_logic;
+   signal i0rb_macstepup                     : std_logic;
+   signal i0rb_macup                         : std_logic;
    signal i0rb_mdioAck                       : std_logic := '0';
    signal i0rb_mdioDataI                     : std_logic_vector(15 downto 0) := x"0000";
    signal i0rb_mdioDataO                     : std_logic_vector(15 downto 0);
@@ -130,19 +124,16 @@ end component;
    signal i0rb_mdioRd                        : std_logic;
    signal i0rb_mdioRegAddr                   : std_logic_vector(4 downto 0);
    signal i0rb_mdioWr                        : std_logic;
-
    signal i0rb_macCmdB                       : std_logic_vector(gAddSz+gDatSz+2 downto 0);
    signal i0rb_macRdBB                       : std_logic_vector(gDatSz+1 downto 0);
    signal i0rb_mdioCmdB                      : std_logic_vector(gAddSz+gDatSz+2 downto 0);
    signal i0rb_mdioRdBB                      : std_logic_vector(gDatSz+1 downto 0);
-   -- ********************************************
-   -- Signals manually added to the template from AutoReg
-   -- ********************************************
-   signal PrescaleCnt         : std_logic_vector(11 downto 0); -- Prescale counter
-   signal PrescaleTc          : std_logic;                     -- Terminal count from prescale counter    
-   signal Counter             : std_logic_vector(15 downto 0); -- Counter
-   signal MaxModified         : std_logic_vector(15 downto 0); -- Modified value if Max = 0
- 
+
+   signal MdioDataI                          : std_logic;
+   signal MdioDataO                          : std_logic;
+   signal MdioEnO                            : std_logic;
+   
+
 begin
 
    i0mac_ip_addressdecoder : mac_ip_addressdecoder
@@ -159,7 +150,7 @@ begin
          i0rb_mdioCmdBO                     => i0rb_mdioCmdB,                  -- out  std_logic_vector(gAddSz+gDatSz+2 downto 0)
          i0rb_mdioRdBBI                     => i0rb_mdioRdBB                   -- in   std_logic_vector(gDatSz+1 downto 0)
       );
-   
+
    i0MDIO : MDIO
       generic map (
          gDivCnt     => 50,
@@ -187,7 +178,7 @@ begin
       
 mdioIO <= MdioDataO when MdioEnO = '1' else 'Z';
 MdioDataI <= mdioIO;
-
+      
    i0rb_mdio : mdio_regbank
       generic map (
          gAddSz                             => gAddSz,                         -- integer
@@ -213,44 +204,20 @@ MdioDataI <= mdioIO;
          gDatSz                             => gDatSz                          -- integer
       )
       port map (
-         Clk                                => Clk,                            -- in std_logic
-         Rst                                => Rst,                            -- in std_logic
-         CmdBI                              => i0rb_macCmdB,                   -- in std_logic_vector(gAddSz+gDatSz+2 downto 0)
-         RdBBO                              => i0rb_macRdBB,                   -- out std_logic_vector(gDatSz+1 downto 0)
-         downO                              => i0rb_counterdown,              -- out std_logic
-         maxO                               => i0rb_countermax,               -- out std_logic_vector(15 downto 0)
-         prescaleO                          => i0rb_counterprescale,          -- out std_logic_vector(11 downto 0)
-         presetO                            => i0rb_counterpreset,            -- out std_logic
-         readcntI                           => i0rb_counterreadcnt,           -- in std_logic_vector(15 downto 0)
-         setcntO                            => i0rb_countersetcnt,            -- out std_logic_vector(15 downto 0)
-         stepdownO                          => i0rb_counterstepdown,          -- out std_logic
-         stepupO                            => i0rb_counterstepup,            -- out std_logic
-         upO                                => i0rb_counterup                 -- out std_logic
+         Clk                                => Clk,                            -- in   std_logic
+         Rst                                => Rst,                            -- in   std_logic
+         CmdBI                              => i0rb_macCmdB,                   -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
+         RdBBO                              => i0rb_macRdBB,                   -- out  std_logic_vector(gDatSz+1 downto 0)
+         downO                              => i0rb_macdown,                   -- out  std_logic
+         maxO                               => i0rb_macmax,                    -- out  std_logic_vector(15 downto 0)
+         prescaleO                          => i0rb_macprescale,               -- out  std_logic_vector(11 downto 0)
+         presetO                            => i0rb_macpreset,                 -- out  std_logic
+         readcntI                           => i0rb_macreadcnt,                -- in   std_logic_vector(15 downto 0)
+         setcntO                            => i0rb_macsetcnt,                 -- out  std_logic_vector(15 downto 0)
+         stepdownO                          => i0rb_macstepdown,               -- out  std_logic
+         stepupO                            => i0rb_macstepup,                 -- out  std_logic
+         upO                                => i0rb_macup                      -- out  std_logic
       );
-
--- ********************************************
--- Logic manually added to the template from AutoReg
--- ********************************************
-   -- Prescale counter.
-  pPrescale:
-  process(Clk)
-  begin
-     if rising_edge(Clk) then
-        if Rst ='1' then
-           PrescaleCnt <= (others => '0');
-        elsif PrescaleCnt >= i0rb_counterprescale and unsigned(i0rb_counterprescale) /= 0 then
-           PrescaleCnt <= (others => '0');
-        else
-           PrescaleCnt <= std_logic_vector(unsigned(PrescaleCnt) + 1);
-        end if;
-        
-        if unsigned(PrescaleCnt) = 0 then
-           PrescaleTc <= '1';
-        else
-           PrescaleTc <= '0';
-        end if;
-     end if;
-  end process;
 
 
 end RTL;
