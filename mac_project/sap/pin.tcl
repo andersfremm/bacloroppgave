@@ -47,6 +47,27 @@ set_location_assignment PIN_D22 -to nRstO
 set_location_assignment PIN_D25 -to MdioIO
 set_location_assignment PIN_D23 -to Mdc
 
+
+set_location_assignment PIN_B17 -to TxClk
+set_location_assignment PIN_C18 -to TxD[0]
+set_location_assignment PIN_D19 -to TxD[1]
+set_location_assignment PIN_A19 -to TxD[2]
+set_location_assignment PIN_B19 -to TxD[3]
+set_location_assignment PIN_A18 -to TxEn
+set_location_assignment PIN_B18 -to TxEr
+set_location_assignment PIN_E15 -to Col
+set_location_assignment PIN_D15 -to CRS
+
+
+set_location_assignment PIN_A15 -to RXClk
+set_location_assignment PIN_C16 -to RXdata[0]
+set_location_assignment PIN_D16 -to RXdata[1]
+set_location_assignment PIN_D17 -to RXdata[2]
+set_location_assignment PIN_C15 -to RXdata[3]
+set_location_assignment PIN_C17 -to RXdv
+set_location_assignment PIN_D18 -to RXErr
+
+
 set_location_assignment PIN_AH23 -to DebugO[0]
 set_location_assignment PIN_AF20 -to DebugO[1]
 set_location_assignment PIN_AE20 -to DebugO[2]
