@@ -318,7 +318,7 @@ begin
                   else
                      PhyEmuState <= sIdle;
                   end if;
-               when sWait0 =>
+               when sWait0 => -- Must wait at least 1 clock period for TxEmpty to change
                   PhyEmuState <= sWait1;
                when sWait1 =>
                   if TxEmpty = '0' then
