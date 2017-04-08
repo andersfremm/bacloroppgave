@@ -7,7 +7,7 @@ set ::autoreg::vMainArray(0.demo.-aw) {16}
 set ::autoreg::vMainArray(0.demo.-clkcpu) {ClkCpu}
 set ::autoreg::vMainArray(0.demo.-clkpl) {Clk}
 set ::autoreg::vMainArray(0.demo.-company) {ProgBit AS}
-set ::autoreg::vMainArray(0.demo.-constantList) {gClkFreq 50_000_000 gStretchSize 5_000_000 gBaudRate 115_200 gActivity_invert true}
+set ::autoreg::vMainArray(0.demo.-constantList) {gClkFreq 50_000_000 gStretchSize 5_000_000 gBaudRate 115_200 gActivity_invert true gJTAG_CHAIN 3}
 set ::autoreg::vMainArray(0.demo.-cpu0) {jtag}
 set ::autoreg::vMainArray(0.demo.-cpu1) {serial}
 set ::autoreg::vMainArray(0.demo.-dw) {16}

@@ -3,13 +3,13 @@ Register bank /i0jtag/i0demo/i0core/i0rb_revision
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Address | MSB | LSB | Reg  slc | Signal Name                 | Width | Type      | Value   | Reference                                | Comment                              
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        0 |   7 |   0 |   7  0   | trunkrev                    |     8 | RC        | 6       |                                          | Trunk revision.                      
+        0 |   7 |   0 |   7  0   | trunkrev                    |     8 | RC        | 20      |                                          | Trunk revision.                      
         0 |  15 |   8 |   7  0   | branchesrev                 |     8 | RC        | 0       |                                          | Branches revision.                   
         1 |  15 |   0 |  15  0   | year                        |    16 | RC        | 17      |                                          | Year of build                        
-        2 |  15 |   0 |  15  0   | month                       |    16 | RC        | 02      |                                          | Month of build                       
-        3 |  15 |   0 |  15  0   | day                         |    16 | RC        | 21      |                                          | Day of build                         
-        4 |  15 |   0 |  15  0   | hour                        |    16 | RC        | 17      |                                          | Hour of build                        
-        5 |  15 |   0 |  15  0   | minute                      |    16 | RC        | 16      |                                          | Minute of build                      
+        2 |  15 |   0 |  15  0   | month                       |    16 | RC        | 04      |                                          | Month of build                       
+        3 |  15 |   0 |  15  0   | day                         |    16 | RC        | 08      |                                          | Day of build                         
+        4 |  15 |   0 |  15  0   | hour                        |    16 | RC        | 14      |                                          | Hour of build                        
+        5 |  15 |   0 |  15  0   | minute                      |    16 | RC        | 48      |                                          | Minute of build                      
         6 |  15 |   1 |  14  0   | rwtest                      |    40 | RW        |         |                                          | Test register                        
         7 |  15 |   0 |  30  15  | :                           |     : | :         |         |                                          | :                                    
         8 |   8 |   0 |  39  31  | :                           |     : | :         |         |                                          | :                                    
@@ -46,16 +46,17 @@ Register bank /i0jtag/i0demo/i0core/i0mac/i0rb_mac
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   Address | MSB | LSB | Reg  slc | Signal Name                 | Width | Type      | Value   | Reference                                | Comment                              
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      260 |   7 |   0 |   7  0   | revision                    |     8 | RC        | 5       |                                          | Trunk revision.                      
-      261 |   0 |   0 |   0  0   | up                          |     1 | RW        | 1       |                                          | Count up continuously                
-      261 |   1 |   1 |   0  0   | down                        |     1 | RW        |         |                                          | Count down continuously              
-      261 |  13 |   2 |  11  0   | prescale                    |    12 | RW        | 1024    |                                          | Max value for prescale counter       
-      262 |   0 |   0 |   0  0   | stepup                      |     1 | WI        |         |                                          | Step up one value                    
-      262 |   1 |   1 |   0  0   | stepdown                    |     1 | WI        |         |                                          | Step down one value                  
-      262 |   2 |   2 |   0  0   | preset                      |     1 | WI        |         |                                          | Preset to SetCnt value               
-      263 |  15 |   0 |  15  0   | setcnt                      |    16 | RW        |         |                                          | Value to be set by Preset            
-      264 |  15 |   0 |  15  0   | max                         |    16 | RW        | 65535   |                                          | Max value before wrap to 0           
-      265 |  15 |   0 |  15  0   | readcnt                     |    16 | R         |         |                                          | Read value of counter                
+      260 |   7 |   0 |   7  0   | TxFifo                      |     8 | FIFOW     |         |                                          | Transmit fifo                        
+      261 |   7 |   0 |   7  0   | RxFifo                      |     8 | FIFOR     |         |                                          | Receive fifo                         
+      262 |   9 |   0 |   9  0   | TxCnt                       |    10 | R         |         |                                          | TxFifo fill                          
+      263 |   9 |   0 |   9  0   | RxCnt                       |    10 | R         |         |                                          | RxFifo fill                          
+      264 |   0 |   0 |   0  0   | TxFifoFull                  |     1 | R         |         |                                          | Transmit fifo full                   
+      264 |   1 |   1 |   0  0   | TxFifoEmpty                 |     1 | R         |         |                                          | Transmit fifo empty                  
+      264 |   2 |   2 |   0  0   | RxFifoFull                  |     1 | R         |         |                                          | Receive fifo full                    
+      264 |   3 |   3 |   0  0   | RxFifoEmpty                 |     1 | R         |         |                                          | Receive fifo empty                   
+      265 |   0 |   0 |   0  0   | LoopEn                      |     1 | RW        |         |                                          | Enable looping                       
+      265 |   1 |   1 |   0  0   | TxStart                     |     1 | WI        |         |                                          | Start transmitting                   
+      265 |   2 |   2 |   0  0   | FifoRst                     |     1 | WI        |         |                                          | Reset fifo logic                     
 
 Register bank /i0jtag/i0demo/i0core/i0rb_mem
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -66,5 +67,5 @@ Register bank /i0jtag/i0demo/i0core/i0rb_mem
      1033 |  15 |   0 |  31  16  | :                           |     : | :         | -       |                                          | :                                    
      1034 |   3 |   0 |  35  32  | :                           |     : | :         | -       |                                          | :                                    
 
-Main path /i0jtag/i0demo comprises 6 register types:
-R RAMIFADDR RAMIFRW RC RW WI
+Main path /i0jtag/i0demo comprises 8 register types:
+FIFOR FIFOW R RAMIFADDR RAMIFRW RC RW WI

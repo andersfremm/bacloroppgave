@@ -95,205 +95,361 @@ set ::autoreg::vGuiArray(led.led3.-w) {1}
 set ::autoreg::vGuiArray(mac.-gspan) {6 8}
 set ::autoreg::vGuiArray(mac.-gupdate) {4 7}
 set ::autoreg::vGuiArray(mac.-gw) {12 8}
-set ::autoreg::vGuiArray(mac.-i) {revision prescale up down stepup stepdown preset setcnt max readcnt}
+set ::autoreg::vGuiArray(mac.-i) {TxFifo RxFifo TxCnt RxCnt TxFifoFull TxFifoEmpty RxFifoFull RxFifoEmpty LoopEn TxStart FifoRst}
 set ::autoreg::vGuiArray(mac.-n) {mac}
 set ::autoreg::vGuiArray(mac.-o) {group}
 set ::autoreg::vGuiArray(mac.-path) {/i0jtag/i0demo/i0core/i0mac/i0rb_mac}
 set ::autoreg::vGuiArray(mac.-t) {bank}
-set ::autoreg::vGuiArray(mac.down.-a) {261}
-set ::autoreg::vGuiArray(mac.down.-as) {user}
-set ::autoreg::vGuiArray(mac.down.-aw) {16}
-set ::autoreg::vGuiArray(mac.down.-c) {Count down continuously}
-set ::autoreg::vGuiArray(mac.down.-dw) {16}
-set ::autoreg::vGuiArray(mac.down.-en) {big}
-set ::autoreg::vGuiArray(mac.down.-ex) {2}
-set ::autoreg::vGuiArray(mac.down.-f) {U}
-set ::autoreg::vGuiArray(mac.down.-gloc) {2 1}
-set ::autoreg::vGuiArray(mac.down.-gtype) {checkbutton}
-set ::autoreg::vGuiArray(mac.down.-hi) {1}
-set ::autoreg::vGuiArray(mac.down.-i) {0}
-set ::autoreg::vGuiArray(mac.down.-lo) {0}
-set ::autoreg::vGuiArray(mac.down.-n) {down}
-set ::autoreg::vGuiArray(mac.down.-o) {reg}
-set ::autoreg::vGuiArray(mac.down.-p) {1}
-set ::autoreg::vGuiArray(mac.down.-rmw) {1}
-set ::autoreg::vGuiArray(mac.down.-t) {RW}
-set ::autoreg::vGuiArray(mac.down.-w) {1}
-set ::autoreg::vGuiArray(mac.max.-a) {264}
-set ::autoreg::vGuiArray(mac.max.-as) {user}
-set ::autoreg::vGuiArray(mac.max.-aw) {16}
-set ::autoreg::vGuiArray(mac.max.-c) {Max value before wrap to 0}
-set ::autoreg::vGuiArray(mac.max.-dw) {16}
-set ::autoreg::vGuiArray(mac.max.-en) {big}
-set ::autoreg::vGuiArray(mac.max.-ex) {65536}
-set ::autoreg::vGuiArray(mac.max.-f) {U}
-set ::autoreg::vGuiArray(mac.max.-gloc) {0 1}
-set ::autoreg::vGuiArray(mac.max.-gtype) {entry}
-set ::autoreg::vGuiArray(mac.max.-hi) {65535}
-set ::autoreg::vGuiArray(mac.max.-i) {0}
-set ::autoreg::vGuiArray(mac.max.-lo) {0}
-set ::autoreg::vGuiArray(mac.max.-n) {max}
-set ::autoreg::vGuiArray(mac.max.-o) {reg}
-set ::autoreg::vGuiArray(mac.max.-p) {0}
-set ::autoreg::vGuiArray(mac.max.-rmw) {1}
-set ::autoreg::vGuiArray(mac.max.-t) {RW}
-set ::autoreg::vGuiArray(mac.max.-v) {65535}
-set ::autoreg::vGuiArray(mac.max.-w) {16}
-set ::autoreg::vGuiArray(mac.prescale.-a) {261}
-set ::autoreg::vGuiArray(mac.prescale.-as) {user}
-set ::autoreg::vGuiArray(mac.prescale.-aw) {16}
-set ::autoreg::vGuiArray(mac.prescale.-c) {Max value for prescale counter}
-set ::autoreg::vGuiArray(mac.prescale.-dw) {16}
-set ::autoreg::vGuiArray(mac.prescale.-en) {big}
-set ::autoreg::vGuiArray(mac.prescale.-ex) {4096}
-set ::autoreg::vGuiArray(mac.prescale.-f) {U}
-set ::autoreg::vGuiArray(mac.prescale.-gloc) {0 0}
-set ::autoreg::vGuiArray(mac.prescale.-gtype) {entry}
-set ::autoreg::vGuiArray(mac.prescale.-hi) {4095}
-set ::autoreg::vGuiArray(mac.prescale.-i) {0}
-set ::autoreg::vGuiArray(mac.prescale.-lo) {0}
-set ::autoreg::vGuiArray(mac.prescale.-n) {prescale}
-set ::autoreg::vGuiArray(mac.prescale.-o) {reg}
-set ::autoreg::vGuiArray(mac.prescale.-p) {2}
-set ::autoreg::vGuiArray(mac.prescale.-rmw) {1}
-set ::autoreg::vGuiArray(mac.prescale.-t) {RW}
-set ::autoreg::vGuiArray(mac.prescale.-v) {1024}
-set ::autoreg::vGuiArray(mac.prescale.-w) {12}
-set ::autoreg::vGuiArray(mac.preset.-a) {262}
-set ::autoreg::vGuiArray(mac.preset.-as) {user}
-set ::autoreg::vGuiArray(mac.preset.-aw) {16}
-set ::autoreg::vGuiArray(mac.preset.-c) {Preset to SetCnt value}
-set ::autoreg::vGuiArray(mac.preset.-dw) {16}
-set ::autoreg::vGuiArray(mac.preset.-en) {big}
-set ::autoreg::vGuiArray(mac.preset.-ex) {2}
-set ::autoreg::vGuiArray(mac.preset.-f) {U}
-set ::autoreg::vGuiArray(mac.preset.-gloc) {2 4}
-set ::autoreg::vGuiArray(mac.preset.-gtype) {button}
-set ::autoreg::vGuiArray(mac.preset.-hi) {1}
-set ::autoreg::vGuiArray(mac.preset.-i) {0}
-set ::autoreg::vGuiArray(mac.preset.-lo) {0}
-set ::autoreg::vGuiArray(mac.preset.-n) {preset}
-set ::autoreg::vGuiArray(mac.preset.-o) {reg}
-set ::autoreg::vGuiArray(mac.preset.-p) {2}
-set ::autoreg::vGuiArray(mac.preset.-rmw) {1}
-set ::autoreg::vGuiArray(mac.preset.-t) {WI}
-set ::autoreg::vGuiArray(mac.preset.-w) {1}
-set ::autoreg::vGuiArray(mac.readcnt.-a) {265}
-set ::autoreg::vGuiArray(mac.readcnt.-as) {user}
-set ::autoreg::vGuiArray(mac.readcnt.-aw) {16}
-set ::autoreg::vGuiArray(mac.readcnt.-c) {Read value of counter}
-set ::autoreg::vGuiArray(mac.readcnt.-dw) {16}
-set ::autoreg::vGuiArray(mac.readcnt.-en) {big}
-set ::autoreg::vGuiArray(mac.readcnt.-ex) {65536}
-set ::autoreg::vGuiArray(mac.readcnt.-f) {U}
-set ::autoreg::vGuiArray(mac.readcnt.-gloc) {4 0}
-set ::autoreg::vGuiArray(mac.readcnt.-gtype) {label}
-set ::autoreg::vGuiArray(mac.readcnt.-hi) {65535}
-set ::autoreg::vGuiArray(mac.readcnt.-i) {0}
-set ::autoreg::vGuiArray(mac.readcnt.-lo) {0}
-set ::autoreg::vGuiArray(mac.readcnt.-n) {readcnt}
-set ::autoreg::vGuiArray(mac.readcnt.-o) {reg}
-set ::autoreg::vGuiArray(mac.readcnt.-p) {0}
-set ::autoreg::vGuiArray(mac.readcnt.-rmw) {1}
-set ::autoreg::vGuiArray(mac.readcnt.-t) {R}
-set ::autoreg::vGuiArray(mac.readcnt.-w) {16}
-set ::autoreg::vGuiArray(mac.revision.-a) {260}
-set ::autoreg::vGuiArray(mac.revision.-as) {user}
-set ::autoreg::vGuiArray(mac.revision.-aw) {16}
-set ::autoreg::vGuiArray(mac.revision.-c) {Trunk revision.}
-set ::autoreg::vGuiArray(mac.revision.-dw) {16}
-set ::autoreg::vGuiArray(mac.revision.-en) {big}
-set ::autoreg::vGuiArray(mac.revision.-ex) {256}
-set ::autoreg::vGuiArray(mac.revision.-f) {U}
-set ::autoreg::vGuiArray(mac.revision.-gloc) {0 7}
-set ::autoreg::vGuiArray(mac.revision.-gtype) {label}
-set ::autoreg::vGuiArray(mac.revision.-hi) {255}
-set ::autoreg::vGuiArray(mac.revision.-i) {0}
-set ::autoreg::vGuiArray(mac.revision.-lo) {0}
-set ::autoreg::vGuiArray(mac.revision.-n) {revision}
-set ::autoreg::vGuiArray(mac.revision.-o) {reg}
-set ::autoreg::vGuiArray(mac.revision.-p) {0}
-set ::autoreg::vGuiArray(mac.revision.-rmw) {1}
-set ::autoreg::vGuiArray(mac.revision.-t) {RC}
-set ::autoreg::vGuiArray(mac.revision.-v) {5}
-set ::autoreg::vGuiArray(mac.revision.-w) {8}
-set ::autoreg::vGuiArray(mac.setcnt.-a) {263}
-set ::autoreg::vGuiArray(mac.setcnt.-as) {user}
-set ::autoreg::vGuiArray(mac.setcnt.-aw) {16}
-set ::autoreg::vGuiArray(mac.setcnt.-c) {Value to be set by Preset}
-set ::autoreg::vGuiArray(mac.setcnt.-dw) {16}
-set ::autoreg::vGuiArray(mac.setcnt.-en) {big}
-set ::autoreg::vGuiArray(mac.setcnt.-ex) {65536}
-set ::autoreg::vGuiArray(mac.setcnt.-f) {U}
-set ::autoreg::vGuiArray(mac.setcnt.-gloc) {0 4}
-set ::autoreg::vGuiArray(mac.setcnt.-gtype) {entry}
-set ::autoreg::vGuiArray(mac.setcnt.-hi) {65535}
-set ::autoreg::vGuiArray(mac.setcnt.-i) {0}
-set ::autoreg::vGuiArray(mac.setcnt.-lo) {0}
-set ::autoreg::vGuiArray(mac.setcnt.-n) {setcnt}
-set ::autoreg::vGuiArray(mac.setcnt.-o) {reg}
-set ::autoreg::vGuiArray(mac.setcnt.-p) {0}
-set ::autoreg::vGuiArray(mac.setcnt.-rmw) {1}
-set ::autoreg::vGuiArray(mac.setcnt.-t) {RW}
-set ::autoreg::vGuiArray(mac.setcnt.-w) {16}
-set ::autoreg::vGuiArray(mac.stepdown.-a) {262}
-set ::autoreg::vGuiArray(mac.stepdown.-as) {user}
-set ::autoreg::vGuiArray(mac.stepdown.-aw) {16}
-set ::autoreg::vGuiArray(mac.stepdown.-c) {Step down one value}
-set ::autoreg::vGuiArray(mac.stepdown.-dw) {16}
-set ::autoreg::vGuiArray(mac.stepdown.-en) {big}
-set ::autoreg::vGuiArray(mac.stepdown.-ex) {2}
-set ::autoreg::vGuiArray(mac.stepdown.-f) {U}
-set ::autoreg::vGuiArray(mac.stepdown.-gloc) {2 3}
-set ::autoreg::vGuiArray(mac.stepdown.-gtype) {button}
-set ::autoreg::vGuiArray(mac.stepdown.-hi) {1}
-set ::autoreg::vGuiArray(mac.stepdown.-i) {0}
-set ::autoreg::vGuiArray(mac.stepdown.-lo) {0}
-set ::autoreg::vGuiArray(mac.stepdown.-n) {stepdown}
-set ::autoreg::vGuiArray(mac.stepdown.-o) {reg}
-set ::autoreg::vGuiArray(mac.stepdown.-p) {1}
-set ::autoreg::vGuiArray(mac.stepdown.-rmw) {1}
-set ::autoreg::vGuiArray(mac.stepdown.-t) {WI}
-set ::autoreg::vGuiArray(mac.stepdown.-w) {1}
-set ::autoreg::vGuiArray(mac.stepup.-a) {262}
-set ::autoreg::vGuiArray(mac.stepup.-as) {user}
-set ::autoreg::vGuiArray(mac.stepup.-aw) {16}
-set ::autoreg::vGuiArray(mac.stepup.-c) {Step up one value}
-set ::autoreg::vGuiArray(mac.stepup.-dw) {16}
-set ::autoreg::vGuiArray(mac.stepup.-en) {big}
-set ::autoreg::vGuiArray(mac.stepup.-ex) {2}
-set ::autoreg::vGuiArray(mac.stepup.-f) {U}
-set ::autoreg::vGuiArray(mac.stepup.-gloc) {2 2}
-set ::autoreg::vGuiArray(mac.stepup.-gtype) {button}
-set ::autoreg::vGuiArray(mac.stepup.-hi) {1}
-set ::autoreg::vGuiArray(mac.stepup.-i) {0}
-set ::autoreg::vGuiArray(mac.stepup.-lo) {0}
-set ::autoreg::vGuiArray(mac.stepup.-n) {stepup}
-set ::autoreg::vGuiArray(mac.stepup.-o) {reg}
-set ::autoreg::vGuiArray(mac.stepup.-p) {0}
-set ::autoreg::vGuiArray(mac.stepup.-rmw) {1}
-set ::autoreg::vGuiArray(mac.stepup.-t) {WI}
-set ::autoreg::vGuiArray(mac.stepup.-w) {1}
-set ::autoreg::vGuiArray(mac.up.-a) {261}
-set ::autoreg::vGuiArray(mac.up.-as) {user}
-set ::autoreg::vGuiArray(mac.up.-aw) {16}
-set ::autoreg::vGuiArray(mac.up.-c) {Count up continuously}
-set ::autoreg::vGuiArray(mac.up.-dw) {16}
-set ::autoreg::vGuiArray(mac.up.-en) {big}
-set ::autoreg::vGuiArray(mac.up.-ex) {2}
-set ::autoreg::vGuiArray(mac.up.-f) {U}
-set ::autoreg::vGuiArray(mac.up.-gloc) {2 0}
-set ::autoreg::vGuiArray(mac.up.-gtype) {checkbutton}
-set ::autoreg::vGuiArray(mac.up.-hi) {1}
-set ::autoreg::vGuiArray(mac.up.-i) {0}
-set ::autoreg::vGuiArray(mac.up.-lo) {0}
-set ::autoreg::vGuiArray(mac.up.-n) {up}
-set ::autoreg::vGuiArray(mac.up.-o) {reg}
-set ::autoreg::vGuiArray(mac.up.-p) {0}
-set ::autoreg::vGuiArray(mac.up.-rmw) {1}
-set ::autoreg::vGuiArray(mac.up.-t) {RW}
-set ::autoreg::vGuiArray(mac.up.-v) {1}
-set ::autoreg::vGuiArray(mac.up.-w) {1}
+set ::autoreg::vGuiArray(mac.FifoRst.-a) {265}
+set ::autoreg::vGuiArray(mac.FifoRst.-as) {user}
+set ::autoreg::vGuiArray(mac.FifoRst.-aw) {16}
+set ::autoreg::vGuiArray(mac.FifoRst.-c) {Reset fifo logic}
+set ::autoreg::vGuiArray(mac.FifoRst.-dw) {16}
+set ::autoreg::vGuiArray(mac.FifoRst.-en) {big}
+set ::autoreg::vGuiArray(mac.FifoRst.-ex) {2}
+set ::autoreg::vGuiArray(mac.FifoRst.-f) {U}
+set ::autoreg::vGuiArray(mac.FifoRst.-gloc) {0 10}
+set ::autoreg::vGuiArray(mac.FifoRst.-gtype) {button}
+set ::autoreg::vGuiArray(mac.FifoRst.-hi) {1}
+set ::autoreg::vGuiArray(mac.FifoRst.-i) {0}
+set ::autoreg::vGuiArray(mac.FifoRst.-lo) {0}
+set ::autoreg::vGuiArray(mac.FifoRst.-n) {FifoRst}
+set ::autoreg::vGuiArray(mac.FifoRst.-o) {reg}
+set ::autoreg::vGuiArray(mac.FifoRst.-p) {2}
+set ::autoreg::vGuiArray(mac.FifoRst.-rmw) {1}
+set ::autoreg::vGuiArray(mac.FifoRst.-t) {WI}
+set ::autoreg::vGuiArray(mac.FifoRst.-w) {1}
+set ::autoreg::vGuiArray(mac.LoopEn.-a) {265}
+set ::autoreg::vGuiArray(mac.LoopEn.-as) {user}
+set ::autoreg::vGuiArray(mac.LoopEn.-aw) {16}
+set ::autoreg::vGuiArray(mac.LoopEn.-c) {Enable looping}
+set ::autoreg::vGuiArray(mac.LoopEn.-dw) {16}
+set ::autoreg::vGuiArray(mac.LoopEn.-en) {big}
+set ::autoreg::vGuiArray(mac.LoopEn.-ex) {2}
+set ::autoreg::vGuiArray(mac.LoopEn.-f) {U}
+set ::autoreg::vGuiArray(mac.LoopEn.-gloc) {0  8}
+set ::autoreg::vGuiArray(mac.LoopEn.-gtype) {checkbutton}
+set ::autoreg::vGuiArray(mac.LoopEn.-hi) {1}
+set ::autoreg::vGuiArray(mac.LoopEn.-i) {0}
+set ::autoreg::vGuiArray(mac.LoopEn.-lo) {0}
+set ::autoreg::vGuiArray(mac.LoopEn.-n) {LoopEn}
+set ::autoreg::vGuiArray(mac.LoopEn.-o) {reg}
+set ::autoreg::vGuiArray(mac.LoopEn.-p) {0}
+set ::autoreg::vGuiArray(mac.LoopEn.-rmw) {1}
+set ::autoreg::vGuiArray(mac.LoopEn.-t) {RW}
+set ::autoreg::vGuiArray(mac.LoopEn.-w) {1}
+set ::autoreg::vGuiArray(mac.RxCnt.-a) {263}
+set ::autoreg::vGuiArray(mac.RxCnt.-as) {user}
+set ::autoreg::vGuiArray(mac.RxCnt.-aw) {16}
+set ::autoreg::vGuiArray(mac.RxCnt.-c) {RxFifo fill}
+set ::autoreg::vGuiArray(mac.RxCnt.-dw) {16}
+set ::autoreg::vGuiArray(mac.RxCnt.-en) {big}
+set ::autoreg::vGuiArray(mac.RxCnt.-ex) {1024}
+set ::autoreg::vGuiArray(mac.RxCnt.-f) {U}
+set ::autoreg::vGuiArray(mac.RxCnt.-gloc) {0  3}
+set ::autoreg::vGuiArray(mac.RxCnt.-gtype) {label}
+set ::autoreg::vGuiArray(mac.RxCnt.-hi) {1023}
+set ::autoreg::vGuiArray(mac.RxCnt.-i) {0}
+set ::autoreg::vGuiArray(mac.RxCnt.-lo) {0}
+set ::autoreg::vGuiArray(mac.RxCnt.-n) {RxCnt}
+set ::autoreg::vGuiArray(mac.RxCnt.-o) {reg}
+set ::autoreg::vGuiArray(mac.RxCnt.-p) {0}
+set ::autoreg::vGuiArray(mac.RxCnt.-rmw) {1}
+set ::autoreg::vGuiArray(mac.RxCnt.-t) {R}
+set ::autoreg::vGuiArray(mac.RxCnt.-w) {10}
+set ::autoreg::vGuiArray(mac.RxFifo.-a) {261}
+set ::autoreg::vGuiArray(mac.RxFifo.-as) {user}
+set ::autoreg::vGuiArray(mac.RxFifo.-aw) {16}
+set ::autoreg::vGuiArray(mac.RxFifo.-c) {Receive fifo}
+set ::autoreg::vGuiArray(mac.RxFifo.-dw) {16}
+set ::autoreg::vGuiArray(mac.RxFifo.-en) {big}
+set ::autoreg::vGuiArray(mac.RxFifo.-ex) {256}
+set ::autoreg::vGuiArray(mac.RxFifo.-f) {U}
+set ::autoreg::vGuiArray(mac.RxFifo.-gloc) {0  1}
+set ::autoreg::vGuiArray(mac.RxFifo.-gtype) {label}
+set ::autoreg::vGuiArray(mac.RxFifo.-hi) {255}
+set ::autoreg::vGuiArray(mac.RxFifo.-i) {0}
+set ::autoreg::vGuiArray(mac.RxFifo.-lo) {0}
+set ::autoreg::vGuiArray(mac.RxFifo.-n) {RxFifo}
+set ::autoreg::vGuiArray(mac.RxFifo.-o) {reg}
+set ::autoreg::vGuiArray(mac.RxFifo.-p) {0}
+set ::autoreg::vGuiArray(mac.RxFifo.-rmw) {0}
+set ::autoreg::vGuiArray(mac.RxFifo.-t) {FIFOR}
+set ::autoreg::vGuiArray(mac.RxFifo.-w) {8}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-a) {264}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-as) {user}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-aw) {16}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-c) {Receive fifo empty}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-dw) {16}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-en) {big}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-ex) {2}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-f) {U}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-gloc) {0  7}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-gtype) {label}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-hi) {1}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-i) {0}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-lo) {0}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-n) {RxFifoEmpty}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-o) {reg}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-p) {3}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-rmw) {1}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-t) {R}
+set ::autoreg::vGuiArray(mac.RxFifoEmpty.-w) {1}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-a) {264}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-as) {user}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-aw) {16}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-c) {Receive fifo full}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-dw) {16}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-en) {big}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-ex) {2}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-f) {U}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-gloc) {0  6}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-gtype) {label}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-hi) {1}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-i) {0}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-lo) {0}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-n) {RxFifoFull}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-o) {reg}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-p) {2}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-rmw) {1}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-t) {R}
+set ::autoreg::vGuiArray(mac.RxFifoFull.-w) {1}
+set ::autoreg::vGuiArray(mac.TxCnt.-a) {262}
+set ::autoreg::vGuiArray(mac.TxCnt.-as) {user}
+set ::autoreg::vGuiArray(mac.TxCnt.-aw) {16}
+set ::autoreg::vGuiArray(mac.TxCnt.-c) {TxFifo fill}
+set ::autoreg::vGuiArray(mac.TxCnt.-dw) {16}
+set ::autoreg::vGuiArray(mac.TxCnt.-en) {big}
+set ::autoreg::vGuiArray(mac.TxCnt.-ex) {1024}
+set ::autoreg::vGuiArray(mac.TxCnt.-f) {U}
+set ::autoreg::vGuiArray(mac.TxCnt.-gloc) {0  2}
+set ::autoreg::vGuiArray(mac.TxCnt.-gtype) {label}
+set ::autoreg::vGuiArray(mac.TxCnt.-hi) {1023}
+set ::autoreg::vGuiArray(mac.TxCnt.-i) {0}
+set ::autoreg::vGuiArray(mac.TxCnt.-lo) {0}
+set ::autoreg::vGuiArray(mac.TxCnt.-n) {TxCnt}
+set ::autoreg::vGuiArray(mac.TxCnt.-o) {reg}
+set ::autoreg::vGuiArray(mac.TxCnt.-p) {0}
+set ::autoreg::vGuiArray(mac.TxCnt.-rmw) {1}
+set ::autoreg::vGuiArray(mac.TxCnt.-t) {R}
+set ::autoreg::vGuiArray(mac.TxCnt.-w) {10}
+set ::autoreg::vGuiArray(mac.TxFifo.-a) {260}
+set ::autoreg::vGuiArray(mac.TxFifo.-as) {user}
+set ::autoreg::vGuiArray(mac.TxFifo.-aw) {16}
+set ::autoreg::vGuiArray(mac.TxFifo.-c) {Transmit fifo}
+set ::autoreg::vGuiArray(mac.TxFifo.-dw) {16}
+set ::autoreg::vGuiArray(mac.TxFifo.-en) {big}
+set ::autoreg::vGuiArray(mac.TxFifo.-ex) {256}
+set ::autoreg::vGuiArray(mac.TxFifo.-f) {U}
+set ::autoreg::vGuiArray(mac.TxFifo.-gloc) {0  0}
+set ::autoreg::vGuiArray(mac.TxFifo.-gtype) {entry}
+set ::autoreg::vGuiArray(mac.TxFifo.-hi) {255}
+set ::autoreg::vGuiArray(mac.TxFifo.-i) {0}
+set ::autoreg::vGuiArray(mac.TxFifo.-lo) {0}
+set ::autoreg::vGuiArray(mac.TxFifo.-n) {TxFifo}
+set ::autoreg::vGuiArray(mac.TxFifo.-o) {reg}
+set ::autoreg::vGuiArray(mac.TxFifo.-p) {0}
+set ::autoreg::vGuiArray(mac.TxFifo.-rmw) {0}
+set ::autoreg::vGuiArray(mac.TxFifo.-t) {FIFOW}
+set ::autoreg::vGuiArray(mac.TxFifo.-w) {8}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-a) {264}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-as) {user}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-aw) {16}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-c) {Transmit fifo empty}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-dw) {16}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-en) {big}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-ex) {2}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-f) {U}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-gloc) {0  5}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-gtype) {label}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-hi) {1}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-i) {0}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-lo) {0}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-n) {TxFifoEmpty}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-o) {reg}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-p) {1}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-rmw) {1}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-t) {R}
+set ::autoreg::vGuiArray(mac.TxFifoEmpty.-w) {1}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-a) {264}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-as) {user}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-aw) {16}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-c) {Transmit fifo full}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-dw) {16}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-en) {big}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-ex) {2}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-f) {U}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-gloc) {0  4}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-gtype) {label}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-hi) {1}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-i) {0}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-lo) {0}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-n) {TxFifoFull}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-o) {reg}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-p) {0}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-rmw) {1}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-t) {R}
+set ::autoreg::vGuiArray(mac.TxFifoFull.-w) {1}
+set ::autoreg::vGuiArray(mac.TxStart.-a) {265}
+set ::autoreg::vGuiArray(mac.TxStart.-as) {user}
+set ::autoreg::vGuiArray(mac.TxStart.-aw) {16}
+set ::autoreg::vGuiArray(mac.TxStart.-c) {Start transmitting}
+set ::autoreg::vGuiArray(mac.TxStart.-dw) {16}
+set ::autoreg::vGuiArray(mac.TxStart.-en) {big}
+set ::autoreg::vGuiArray(mac.TxStart.-ex) {2}
+set ::autoreg::vGuiArray(mac.TxStart.-f) {U}
+set ::autoreg::vGuiArray(mac.TxStart.-gloc) {0  9}
+set ::autoreg::vGuiArray(mac.TxStart.-gtype) {button}
+set ::autoreg::vGuiArray(mac.TxStart.-hi) {1}
+set ::autoreg::vGuiArray(mac.TxStart.-i) {0}
+set ::autoreg::vGuiArray(mac.TxStart.-lo) {0}
+set ::autoreg::vGuiArray(mac.TxStart.-n) {TxStart}
+set ::autoreg::vGuiArray(mac.TxStart.-o) {reg}
+set ::autoreg::vGuiArray(mac.TxStart.-p) {1}
+set ::autoreg::vGuiArray(mac.TxStart.-rmw) {1}
+set ::autoreg::vGuiArray(mac.TxStart.-t) {WI}
+set ::autoreg::vGuiArray(mac.TxStart.-w) {1}
+set ::autoreg::vGuiArray(mdio.-gspan) {6 8}
+set ::autoreg::vGuiArray(mdio.-gupdate) {4 7}
+set ::autoreg::vGuiArray(mdio.-gw) {12 8}
+set ::autoreg::vGuiArray(mdio.-i) {PhyAddr Wr Rd Ack RegAddr DataO DataI}
+set ::autoreg::vGuiArray(mdio.-n) {mdio}
+set ::autoreg::vGuiArray(mdio.-o) {group}
+set ::autoreg::vGuiArray(mdio.-path) {/i0jtag/i0demo/i0core/i0mac/i0rb_mdio}
+set ::autoreg::vGuiArray(mdio.-t) {bank}
+set ::autoreg::vGuiArray(mdio.Ack.-a) {256}
+set ::autoreg::vGuiArray(mdio.Ack.-as) {user}
+set ::autoreg::vGuiArray(mdio.Ack.-aw) {16}
+set ::autoreg::vGuiArray(mdio.Ack.-c) {Ack when done}
+set ::autoreg::vGuiArray(mdio.Ack.-dw) {16}
+set ::autoreg::vGuiArray(mdio.Ack.-en) {big}
+set ::autoreg::vGuiArray(mdio.Ack.-ex) {2}
+set ::autoreg::vGuiArray(mdio.Ack.-f) {U}
+set ::autoreg::vGuiArray(mdio.Ack.-gloc) {0 3}
+set ::autoreg::vGuiArray(mdio.Ack.-gtype) {label}
+set ::autoreg::vGuiArray(mdio.Ack.-hi) {1}
+set ::autoreg::vGuiArray(mdio.Ack.-i) {0}
+set ::autoreg::vGuiArray(mdio.Ack.-lo) {0}
+set ::autoreg::vGuiArray(mdio.Ack.-n) {Ack}
+set ::autoreg::vGuiArray(mdio.Ack.-o) {reg}
+set ::autoreg::vGuiArray(mdio.Ack.-p) {7}
+set ::autoreg::vGuiArray(mdio.Ack.-rmw) {1}
+set ::autoreg::vGuiArray(mdio.Ack.-t) {R}
+set ::autoreg::vGuiArray(mdio.Ack.-w) {1}
+set ::autoreg::vGuiArray(mdio.DataI.-a) {259}
+set ::autoreg::vGuiArray(mdio.DataI.-as) {user}
+set ::autoreg::vGuiArray(mdio.DataI.-aw) {16}
+set ::autoreg::vGuiArray(mdio.DataI.-c) {Data in from phy}
+set ::autoreg::vGuiArray(mdio.DataI.-dw) {16}
+set ::autoreg::vGuiArray(mdio.DataI.-en) {big}
+set ::autoreg::vGuiArray(mdio.DataI.-ex) {65536}
+set ::autoreg::vGuiArray(mdio.DataI.-f) {U}
+set ::autoreg::vGuiArray(mdio.DataI.-gloc) {0 6}
+set ::autoreg::vGuiArray(mdio.DataI.-gtype) {label}
+set ::autoreg::vGuiArray(mdio.DataI.-hi) {65535}
+set ::autoreg::vGuiArray(mdio.DataI.-i) {0}
+set ::autoreg::vGuiArray(mdio.DataI.-lo) {0}
+set ::autoreg::vGuiArray(mdio.DataI.-n) {DataI}
+set ::autoreg::vGuiArray(mdio.DataI.-o) {reg}
+set ::autoreg::vGuiArray(mdio.DataI.-p) {0}
+set ::autoreg::vGuiArray(mdio.DataI.-rmw) {1}
+set ::autoreg::vGuiArray(mdio.DataI.-t) {R}
+set ::autoreg::vGuiArray(mdio.DataI.-w) {16}
+set ::autoreg::vGuiArray(mdio.DataO.-a) {258}
+set ::autoreg::vGuiArray(mdio.DataO.-as) {user}
+set ::autoreg::vGuiArray(mdio.DataO.-aw) {16}
+set ::autoreg::vGuiArray(mdio.DataO.-c) {Data out to phy}
+set ::autoreg::vGuiArray(mdio.DataO.-dw) {16}
+set ::autoreg::vGuiArray(mdio.DataO.-en) {big}
+set ::autoreg::vGuiArray(mdio.DataO.-ex) {65536}
+set ::autoreg::vGuiArray(mdio.DataO.-f) {U}
+set ::autoreg::vGuiArray(mdio.DataO.-gloc) {0 5}
+set ::autoreg::vGuiArray(mdio.DataO.-gtype) {entry}
+set ::autoreg::vGuiArray(mdio.DataO.-hi) {65535}
+set ::autoreg::vGuiArray(mdio.DataO.-i) {0}
+set ::autoreg::vGuiArray(mdio.DataO.-lo) {0}
+set ::autoreg::vGuiArray(mdio.DataO.-n) {DataO}
+set ::autoreg::vGuiArray(mdio.DataO.-o) {reg}
+set ::autoreg::vGuiArray(mdio.DataO.-p) {0}
+set ::autoreg::vGuiArray(mdio.DataO.-rmw) {1}
+set ::autoreg::vGuiArray(mdio.DataO.-t) {RW}
+set ::autoreg::vGuiArray(mdio.DataO.-w) {16}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-a) {256}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-as) {user}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-aw) {16}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-c) {Phy address}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-dw) {16}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-en) {big}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-ex) {32}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-f) {U}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-gloc) {0 0}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-gtype) {entry}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-hi) {31}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-i) {0}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-lo) {0}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-n) {PhyAddr}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-o) {reg}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-p) {0}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-rmw) {1}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-t) {RW}
+set ::autoreg::vGuiArray(mdio.PhyAddr.-w) {5}
+set ::autoreg::vGuiArray(mdio.Rd.-a) {256}
+set ::autoreg::vGuiArray(mdio.Rd.-as) {user}
+set ::autoreg::vGuiArray(mdio.Rd.-aw) {16}
+set ::autoreg::vGuiArray(mdio.Rd.-c) {Read}
+set ::autoreg::vGuiArray(mdio.Rd.-dw) {16}
+set ::autoreg::vGuiArray(mdio.Rd.-en) {big}
+set ::autoreg::vGuiArray(mdio.Rd.-ex) {2}
+set ::autoreg::vGuiArray(mdio.Rd.-f) {U}
+set ::autoreg::vGuiArray(mdio.Rd.-gloc) {0 2}
+set ::autoreg::vGuiArray(mdio.Rd.-gtype) {button}
+set ::autoreg::vGuiArray(mdio.Rd.-hi) {1}
+set ::autoreg::vGuiArray(mdio.Rd.-i) {0}
+set ::autoreg::vGuiArray(mdio.Rd.-lo) {0}
+set ::autoreg::vGuiArray(mdio.Rd.-n) {Rd}
+set ::autoreg::vGuiArray(mdio.Rd.-o) {reg}
+set ::autoreg::vGuiArray(mdio.Rd.-p) {6}
+set ::autoreg::vGuiArray(mdio.Rd.-rmw) {1}
+set ::autoreg::vGuiArray(mdio.Rd.-t) {WI}
+set ::autoreg::vGuiArray(mdio.Rd.-w) {1}
+set ::autoreg::vGuiArray(mdio.RegAddr.-a) {257}
+set ::autoreg::vGuiArray(mdio.RegAddr.-as) {user}
+set ::autoreg::vGuiArray(mdio.RegAddr.-aw) {16}
+set ::autoreg::vGuiArray(mdio.RegAddr.-c) {Register address}
+set ::autoreg::vGuiArray(mdio.RegAddr.-dw) {16}
+set ::autoreg::vGuiArray(mdio.RegAddr.-en) {big}
+set ::autoreg::vGuiArray(mdio.RegAddr.-ex) {32}
+set ::autoreg::vGuiArray(mdio.RegAddr.-f) {U}
+set ::autoreg::vGuiArray(mdio.RegAddr.-gloc) {0 4}
+set ::autoreg::vGuiArray(mdio.RegAddr.-gtype) {entry}
+set ::autoreg::vGuiArray(mdio.RegAddr.-hi) {31}
+set ::autoreg::vGuiArray(mdio.RegAddr.-i) {0}
+set ::autoreg::vGuiArray(mdio.RegAddr.-lo) {0}
+set ::autoreg::vGuiArray(mdio.RegAddr.-n) {RegAddr}
+set ::autoreg::vGuiArray(mdio.RegAddr.-o) {reg}
+set ::autoreg::vGuiArray(mdio.RegAddr.-p) {0}
+set ::autoreg::vGuiArray(mdio.RegAddr.-rmw) {1}
+set ::autoreg::vGuiArray(mdio.RegAddr.-t) {RW}
+set ::autoreg::vGuiArray(mdio.RegAddr.-w) {5}
+set ::autoreg::vGuiArray(mdio.Wr.-a) {256}
+set ::autoreg::vGuiArray(mdio.Wr.-as) {user}
+set ::autoreg::vGuiArray(mdio.Wr.-aw) {16}
+set ::autoreg::vGuiArray(mdio.Wr.-c) {Write}
+set ::autoreg::vGuiArray(mdio.Wr.-dw) {16}
+set ::autoreg::vGuiArray(mdio.Wr.-en) {big}
+set ::autoreg::vGuiArray(mdio.Wr.-ex) {2}
+set ::autoreg::vGuiArray(mdio.Wr.-f) {U}
+set ::autoreg::vGuiArray(mdio.Wr.-gloc) {0 1}
+set ::autoreg::vGuiArray(mdio.Wr.-gtype) {button}
+set ::autoreg::vGuiArray(mdio.Wr.-hi) {1}
+set ::autoreg::vGuiArray(mdio.Wr.-i) {0}
+set ::autoreg::vGuiArray(mdio.Wr.-lo) {0}
+set ::autoreg::vGuiArray(mdio.Wr.-n) {Wr}
+set ::autoreg::vGuiArray(mdio.Wr.-o) {reg}
+set ::autoreg::vGuiArray(mdio.Wr.-p) {5}
+set ::autoreg::vGuiArray(mdio.Wr.-rmw) {1}
+set ::autoreg::vGuiArray(mdio.Wr.-t) {WI}
+set ::autoreg::vGuiArray(mdio.Wr.-w) {1}
 set ::autoreg::vGuiArray(revision.-gspan) {4 8}
 set ::autoreg::vGuiArray(revision.-gupdate) {2 7}
 set ::autoreg::vGuiArray(revision.-gw) {12 8}
@@ -341,7 +497,7 @@ set ::autoreg::vGuiArray(revision.day.-o) {reg}
 set ::autoreg::vGuiArray(revision.day.-p) {0}
 set ::autoreg::vGuiArray(revision.day.-rmw) {1}
 set ::autoreg::vGuiArray(revision.day.-t) {RC}
-set ::autoreg::vGuiArray(revision.day.-v) {21}
+set ::autoreg::vGuiArray(revision.day.-v) {08}
 set ::autoreg::vGuiArray(revision.day.-w) {16}
 set ::autoreg::vGuiArray(revision.hour.-a) {4}
 set ::autoreg::vGuiArray(revision.hour.-as) {user}
@@ -361,7 +517,7 @@ set ::autoreg::vGuiArray(revision.hour.-o) {reg}
 set ::autoreg::vGuiArray(revision.hour.-p) {0}
 set ::autoreg::vGuiArray(revision.hour.-rmw) {1}
 set ::autoreg::vGuiArray(revision.hour.-t) {RC}
-set ::autoreg::vGuiArray(revision.hour.-v) {17}
+set ::autoreg::vGuiArray(revision.hour.-v) {14}
 set ::autoreg::vGuiArray(revision.hour.-w) {16}
 set ::autoreg::vGuiArray(revision.latch.-a) {9}
 set ::autoreg::vGuiArray(revision.latch.-as) {user}
@@ -400,7 +556,7 @@ set ::autoreg::vGuiArray(revision.minute.-o) {reg}
 set ::autoreg::vGuiArray(revision.minute.-p) {0}
 set ::autoreg::vGuiArray(revision.minute.-rmw) {1}
 set ::autoreg::vGuiArray(revision.minute.-t) {RC}
-set ::autoreg::vGuiArray(revision.minute.-v) {16}
+set ::autoreg::vGuiArray(revision.minute.-v) {48}
 set ::autoreg::vGuiArray(revision.minute.-w) {16}
 set ::autoreg::vGuiArray(revision.month.-a) {2}
 set ::autoreg::vGuiArray(revision.month.-as) {user}
@@ -420,7 +576,7 @@ set ::autoreg::vGuiArray(revision.month.-o) {reg}
 set ::autoreg::vGuiArray(revision.month.-p) {0}
 set ::autoreg::vGuiArray(revision.month.-rmw) {1}
 set ::autoreg::vGuiArray(revision.month.-t) {RC}
-set ::autoreg::vGuiArray(revision.month.-v) {02}
+set ::autoreg::vGuiArray(revision.month.-v) {04}
 set ::autoreg::vGuiArray(revision.month.-w) {16}
 set ::autoreg::vGuiArray(revision.rctest.-a) {12}
 set ::autoreg::vGuiArray(revision.rctest.-as) {user}
@@ -499,7 +655,7 @@ set ::autoreg::vGuiArray(revision.trunkrev.-o) {reg}
 set ::autoreg::vGuiArray(revision.trunkrev.-p) {0}
 set ::autoreg::vGuiArray(revision.trunkrev.-rmw) {1}
 set ::autoreg::vGuiArray(revision.trunkrev.-t) {RC}
-set ::autoreg::vGuiArray(revision.trunkrev.-v) {6}
+set ::autoreg::vGuiArray(revision.trunkrev.-v) {20}
 set ::autoreg::vGuiArray(revision.trunkrev.-w) {8}
 set ::autoreg::vGuiArray(revision.year.-a) {1}
 set ::autoreg::vGuiArray(revision.year.-as) {user}

@@ -2,38 +2,41 @@
 # Definition file for the mac GUI
 # *******************************
 
-group -n mac -t bank -i {revision prescale up down stepup stepdown preset setcnt max readcnt}
+group -n mac -t bank -i {TxFifo RxFifo TxCnt RxCnt TxFifoFull TxFifoEmpty RxFifoFull RxFifoEmpty LoopEn TxStart FifoRst}
 group -n mac -gspan {6 8}
 group -n mac -gw {12 8}
 group -n mac -gupdate {4 7}
 
-reg -n revision	 -gloc {0 7}
-reg -n revision	 -gtype label
+reg -n TxFifo       -gloc {0  0}
+reg -n TxFifo       -gtype entry
 
-reg -n prescale	 -gloc {0 0}
-reg -n prescale	 -gtype entry
+reg -n RxFifo	    -gloc {0  1}
+reg -n RxFifo	    -gtype label
 
-reg -n setcnt	 -gloc {0 4}
-reg -n setcnt	 -gtype entry
+reg -n TxCnt        -gloc {0  2}
+reg -n TxCnt        -gtype label
 
-reg -n readcnt   -gloc {4 0}
-reg -n readcnt   -gtype label
+reg -n RxCnt        -gloc {0  3}
+reg -n RxCnt        -gtype label
 
-reg -n max	 -gloc {0 1}
-reg -n max	 -gtype entry
+reg -n TxFifoFull   -gloc {0  4}
+reg -n TxFifoFull   -gtype label
 
-reg -n up	 -gloc {2 0}
-reg -n up	 -gtype checkbutton
+reg -n TxFifoEmpty  -gloc {0  5}
+reg -n TxFifoEmpty  -gtype label
 
-reg -n down	 -gloc {2 1}
-reg -n down	 -gtype checkbutton
+reg -n RxFifoFull   -gloc {0  6}
+reg -n RxFifoFull   -gtype label
 
-reg -n stepup	 -gloc {2 2}
-reg -n stepup	 -gtype button
+reg -n RxFifoEmpty  -gloc {0  7}
+reg -n RxFifoEmpty  -gtype label
 
-reg -n stepdown	 -gloc {2 3}
-reg -n stepdown	 -gtype button
+reg -n LoopEn       -gloc {0  8}
+reg -n LoopEn       -gtype checkbutton
 
-reg -n preset	 -gloc {2 4}
-reg -n preset	 -gtype button
+reg -n TxStart      -gloc {0  9}
+reg -n TxStart      -gtype button
+
+reg -n FifoRst      -gloc {0 10}
+reg -n FifoRst      -gtype button
 

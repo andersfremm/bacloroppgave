@@ -38,15 +38,15 @@ typedef enum{
 const autoreg_register_property i0jtag.i0demo.i0core.i0rb_revision.revision [] = {
   //    Addr   Width  BitPos     Val          Name           Type    Format  Info
    {      0,      8,      8,       0   },  // branchesrev    RC      U       "Branches revision."                                
-   {      3,     16,      0,      21   },  // day            RC      U       "Day of build"                                      
-   {      4,     16,      0,      17   },  // hour           RC      U       "Hour of build"                                     
+   {      3,     16,      0,      08   },  // day            RC      U       "Day of build"                                      
+   {      4,     16,      0,      14   },  // hour           RC      U       "Hour of build"                                     
    {      9,      1,      0,       0   },  // latch          WI      U       "Global latch"                                      
-   {      5,     16,      0,      16   },  // minute         RC      U       "Minute of build"                                   
-   {      2,     16,      0,      02   },  // month          RC      U       "Month of build"                                    
+   {      5,     16,      0,      48   },  // minute         RC      U       "Minute of build"                                   
+   {      2,     16,      0,      04   },  // month          RC      U       "Month of build"                                    
    {     12,     40,      0,   0xabc   },  // rctest         RC      U       "Test register"                                     
    {      9,     40,      3,       0   },  // rtest          R       U       "Test register"                                     
    {      6,     40,      1,       0   },  // rwtest         RW      U       "Test register"                                     
-   {      0,      8,      0,       6   },  // trunkrev       RC      U       "Trunk revision."                                   
+   {      0,      8,      0,      20   },  // trunkrev       RC      U       "Trunk revision."                                   
    {      1,     16,      0,      17   },  // year           RC      U       "Year of build"                                     
 };
 
@@ -87,29 +87,31 @@ const autoreg_register_property i0jtag.i0demo.i0core.i0rb_led.led [] = {
 };
 
 typedef enum{
-   down,
-   max,
-   prescale,
-   preset,
-   readcnt,
-   revision,
-   setcnt,
-   stepdown,
-   stepup,
-   up,
+   FifoRst,
+   LoopEn,
+   RxCnt,
+   RxFifo,
+   RxFifoEmpty,
+   RxFifoFull,
+   TxCnt,
+   TxFifo,
+   TxFifoEmpty,
+   TxFifoFull,
+   TxStart,
 } mac;
 
 const autoreg_register_property i0jtag.i0demo.i0core.i0mac.i0rb_mac.mac [] = {
   //    Addr   Width  BitPos     Val          Name           Type    Format  Info
-   {    261,      1,      1,       0   },  // down           RW      U       "Count down continuously"                           
-   {    264,     16,      0,   65535   },  // max            RW      U       "Max value before wrap to 0"                        
-   {    261,     12,      2,    1024   },  // prescale       RW      U       "Max value for prescale counter"                    
-   {    262,      1,      2,       0   },  // preset         WI      U       "Preset to SetCnt value"                            
-   {    265,     16,      0,       0   },  // readcnt        R       U       "Read value of counter"                             
-   {    260,      8,      0,       5   },  // revision       RC      U       "Trunk revision."                                   
-   {    263,     16,      0,       0   },  // setcnt         RW      U       "Value to be set by Preset"                         
-   {    262,      1,      1,       0   },  // stepdown       WI      U       "Step down one value"                               
-   {    262,      1,      0,       0   },  // stepup         WI      U       "Step up one value"                                 
-   {    261,      1,      0,       1   },  // up             RW      U       "Count up continuously"                             
+   {    265,      1,      2,       0   },  // FifoRst        WI      U       "Reset fifo logic"                                  
+   {    265,      1,      0,       0   },  // LoopEn         RW      U       "Enable looping"                                    
+   {    263,     10,      0,       0   },  // RxCnt          R       U       "RxFifo fill"                                       
+   {    261,      8,      0,       0   },  // RxFifo         FIFOR   U       "Receive fifo"                                      
+   {    264,      1,      3,       0   },  // RxFifoEmpty    R       U       "Receive fifo empty"                                
+   {    264,      1,      2,       0   },  // RxFifoFull     R       U       "Receive fifo full"                                 
+   {    262,     10,      0,       0   },  // TxCnt          R       U       "TxFifo fill"                                       
+   {    260,      8,      0,       0   },  // TxFifo         FIFOW   U       "Transmit fifo"                                     
+   {    264,      1,      1,       0   },  // TxFifoEmpty    R       U       "Transmit fifo empty"                               
+   {    264,      1,      0,       0   },  // TxFifoFull     R       U       "Transmit fifo full"                                
+   {    265,      1,      1,       0   },  // TxStart        WI      U       "Start transmitting"                                
 };
 

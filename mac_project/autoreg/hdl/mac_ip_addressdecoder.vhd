@@ -58,7 +58,7 @@ begin
          gAddLow                            => 4,                              -- integer
          gAddHigh                           => 9,                              -- integer
          gAsync                             => true,                           -- boolean
-         gRtCmdB                            => 0,                              -- integer
+         gRtCmdB                            => 1,                              -- integer
          gRtRdBB                            => 0                               -- integer
       )
       port map (
@@ -76,7 +76,7 @@ begin
          gAddLow                            => 0,                              -- integer
          gAddHigh                           => 3,                              -- integer
          gAsync                             => true,                           -- boolean
-         gRtCmdB                            => 0,                              -- integer
+         gRtCmdB                            => 1,                              -- integer
          gRtRdBB                            => 0                               -- integer
       )
       port map (

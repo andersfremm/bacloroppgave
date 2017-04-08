@@ -1,36 +1,19 @@
 # *******************************
 # Definition file for mac registers
 # *******************************
-group -n mac -t bank -i {revision prescale up down stepup stepdown preset setcnt max readcnt}
+group -n mac -t bank -i {TxFifo RxFifo TxCnt RxCnt TxFifoFull TxFifoEmpty RxFifoFull RxFifoEmpty LoopEn TxStart FifoRst}
 
-reg -n revision -t RC -f U -a 0 -w 8  -p 0 -v 5     -c "Trunk revision."
-reg -n prescale -t RW -f U -a 1 -w 12 -p 2 -v 1024  -c "Max value for prescale counter"
-reg -n up       -t RW -f U -a 1 -w 1  -p 0 -v 1     -c "Count up continuously"
-reg -n down     -t RW -f U -a 1 -w 1  -p 1          -c "Count down continuously"
-reg -n stepup   -t WI -f U -a 2 -w 1  -p 0          -c "Step up one value"
-reg -n stepdown -t WI -f U -a 2 -w 1  -p 1          -c "Step down one value"
-reg -n preset   -t WI -f U -a 2 -w 1  -p 2          -c "Preset to SetCnt value"
-reg -n setcnt   -t RW -f U -a 3 -w 16 -p 0          -c "Value to be set by Preset"
-reg -n max      -t RW -f U -a 4 -w 16 -p 0 -v 65535 -c "Max value before wrap to 0"
-reg -n readcnt  -t R  -f U -a 5 -w 16 -p 0          -c "Read value of counter"
+reg -n TxFifo       -t FIFOW -f U -a 0 -w  8  -p  0            -c "Transmit fifo"
+reg -n RxFifo       -t FIFOR -f U -a 1 -w  8  -p  0            -c "Receive fifo"
 
-# Moder Register
-reg -n ReceiveEn      -t WI -f U -a 6 -w 1  -p 0           -c "Receive Enable"
-reg -n TransmittEn    -t WI -f U -a 6 -w 1  -p 1           -c "Transmitt Enable"
-#reg -n NoPreamble    -t RW -f U -a 6 -w 1  -p 2  -v 0     -c "0 = standard operation,                    1 = no preamble"
-#reg -n Promiscuous   -t RW -f U -a 6 -w 1  -p 3  -v 0     -c "0 = check destination address,             1 = Receive regardless"
-#reg -n LoopBack      -t RW -f U -a 6 -w 1  -p 4  -v 0     -c "0 = normal opperation,                     1 = TX is looped back to RX"
-#reg -n NoBackoff     -t RW -f U -a 6 -w 1  -p 5  -v 0     -c "0 = Normal backoff algorithm,              1 = TX retransmit immediatly after collision"
-#reg -n FullDuplex    -t RW -f U -a 6 -w 1  -p 6  -v 1     -c "0 = Half Duplex,                           1 = Full Duplex"
-#reg -n DelayedCRCEn  -t RW -f U -a 6 -w 1  -p 7  -v 0     -c "0 = CRC calculation immediatly after SFD,  1 = CRC calculation starts 4 byte"
-#reg -n CRCEn         -t RW -f U -a 6 -w 1  -p 8  -v 1     -c "0 = CRC is not added,                      1 = CRC is added to the frame"
-#reg -n PaddingEn     -t RW -f U -a 6 -w 1  -p 9  -v 1     -c "0 = Padding dissabled,                     1 = Padding enabled"
-#reg -n HughPack      -t RW -f U -a 6 -w 1  -p 10 -v 0     -c "0 = All bytes above MAXFL is discarded,    1 = frames up to 64KB"
-#reg -n RecSmallPack  -t RW -f U -a 6 -w 1  -p 11 -v 0     -c "0 = Packets below MINFL is discarded,      1 = accepted"
+reg -n TxCnt        -t R     -f U -a 2 -w 10  -p  0            -c "TxFifo fill"
+reg -n RxCnt        -t R     -f U -a 3 -w 10  -p  0            -c "RxFifo fill"
 
-#Transmitter Register
-reg -n CpuTxData      -t RW -f U -a 7 -w 64 -p 0           -c "Data to the transmitter"
-reg -n CpuTxEn        -t WI -f U -a 10 -w 1  -p 0           -c "Send data to fifo"
-reg -n CpuTxFull      -t R  -f U -a 11 -w 1  -p 1           -c "FIFO Cpu interface is full"
-reg -n TxStatus       -t R  -f U -a 12 -w 7  -p 0           -c "Status TxStateMachine"
-reg -n TxStatusValid  -t R  -f U -a 13 -w 1 -p 0           -c "Staus is valid = 1"
+reg -n TxFifoFull   -t R     -f U -a 4 -w  1  -p  0            -c "Transmit fifo full"
+reg -n TxFifoEmpty  -t R     -f U -a 4 -w  1  -p  1            -c "Transmit fifo empty"
+reg -n RxFifoFull   -t R     -f U -a 4 -w  1  -p  2            -c "Receive fifo full"
+reg -n RxFifoEmpty  -t R     -f U -a 4 -w  1  -p  3            -c "Receive fifo empty"
+
+reg -n LoopEn       -t RW    -f U -a 5 -w  1  -p  0             -c "Enable looping"
+reg -n TxStart      -t WI    -f U -a 5 -w  1  -p  1             -c "Start transmitting"
+reg -n FifoRst      -t WI    -f U -a 5 -w  1  -p  2             -c "Reset fifo logic"

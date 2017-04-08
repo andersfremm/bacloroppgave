@@ -59,20 +59,20 @@ set ::autoreg::vMuxArray(mac_ip.-path) {/i0jtag/i0demo/i0core/i0mac}
 set ::autoreg::vMuxArray(mac_ip.-t) {mux}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-ba) {4}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-bh) {9}
-set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-l) {::autoreg::myTree15 ::autoreg::myTree16}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-l) {::autoreg::myTree16 ::autoreg::myTree17}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-n) {i0rb_mac}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-o) {inst}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-rtb) {0}
-set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-rtc) {0}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-rtc) {1}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-sg) {mac}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mac.-sy) {0}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-ba) {0}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-bh) {3}
-set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-l) {::autoreg::myTree14}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-l) {::autoreg::myTree14 ::autoreg::myTree15}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-n) {i0rb_mdio}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-o) {inst}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-rtb) {0}
-set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-rtc) {0}
+set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-rtc) {1}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-sg) {mdio}
 set ::autoreg::vMuxArray(mac_ip.i0rb_mdio.-sy) {0}
 

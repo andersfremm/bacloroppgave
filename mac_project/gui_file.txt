@@ -1,5 +1,5 @@
 ################# COPYRIGHT © ProgBit AS 2017 ##################################
-## gui_file.txt has been generated with ProgBit autoreg tools by user fremm
+## gui_file.txt has been generated with ProgBit autoreg tools by user User
 ################################################################################
 
 # Type      Arg0        Arg1        Arg2        etc         

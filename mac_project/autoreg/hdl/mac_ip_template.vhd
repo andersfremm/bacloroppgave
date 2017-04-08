@@ -49,15 +49,19 @@ component mac_regbank is
       Rst                                : in  std_logic;
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
-      downO                              : out std_logic;
-      maxO                               : out std_logic_vector(15 downto 0);
-      prescaleO                          : out std_logic_vector(11 downto 0);
-      presetO                            : out std_logic;
-      readcntI                           : in  std_logic_vector(15 downto 0);
-      setcntO                            : out std_logic_vector(15 downto 0);
-      stepdownO                          : out std_logic;
-      stepupO                            : out std_logic;
-      upO                                : out std_logic
+      FifoRstO                           : out std_logic;
+      LoopEnO                            : out std_logic;
+      RxCntI                             : in  std_logic_vector(9 downto 0);
+      RxFifoReO                          : out std_logic;
+      RxFifoDataI                        : in  std_logic_vector(7 downto 0);
+      RxFifoEmptyI                       : in  std_logic;
+      RxFifoFullI                        : in  std_logic;
+      TxCntI                             : in  std_logic_vector(9 downto 0);
+      TxFifoWeO                          : out std_logic;
+      TxFifoDataO                        : out std_logic_vector(7 downto 0);
+      TxFifoEmptyI                       : in  std_logic;
+      TxFifoFullI                        : in  std_logic;
+      TxStartO                           : out std_logic
    );
 end component;
 
@@ -81,15 +85,19 @@ component mdio_regbank is
    );
 end component;
 
-   signal i0rb_macdown                       : std_logic;
-   signal i0rb_macmax                        : std_logic_vector(15 downto 0);
-   signal i0rb_macprescale                   : std_logic_vector(11 downto 0);
-   signal i0rb_macpreset                     : std_logic;
-   signal i0rb_macreadcnt                    : std_logic_vector(15 downto 0) := x"0000";
-   signal i0rb_macsetcnt                     : std_logic_vector(15 downto 0);
-   signal i0rb_macstepdown                   : std_logic;
-   signal i0rb_macstepup                     : std_logic;
-   signal i0rb_macup                         : std_logic;
+   signal i0rb_macFifoRst                    : std_logic;
+   signal i0rb_macLoopEn                     : std_logic;
+   signal i0rb_macRxCnt                      : std_logic_vector(9 downto 0) := "0000000000";
+   signal i0rb_macRxFifoRe                   : std_logic;
+   signal i0rb_macRxFifoDataI                : std_logic_vector(7 downto 0);
+   signal i0rb_macRxFifoEmpty                : std_logic := '0';
+   signal i0rb_macRxFifoFull                 : std_logic := '0';
+   signal i0rb_macTxCnt                      : std_logic_vector(9 downto 0) := "0000000000";
+   signal i0rb_macTxFifoWe                   : std_logic;
+   signal i0rb_macTxFifoDataO                : std_logic_vector(7 downto 0);
+   signal i0rb_macTxFifoEmpty                : std_logic := '0';
+   signal i0rb_macTxFifoFull                 : std_logic := '0';
+   signal i0rb_macTxStart                    : std_logic;
    signal i0rb_mdioAck                       : std_logic := '0';
    signal i0rb_mdioDataI                     : std_logic_vector(15 downto 0) := x"0000";
    signal i0rb_mdioDataO                     : std_logic_vector(15 downto 0);
@@ -149,15 +157,19 @@ begin
          Rst                                => Rst,                            -- in   std_logic
          CmdBI                              => i0rb_macCmdB,                   -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
          RdBBO                              => i0rb_macRdBB,                   -- out  std_logic_vector(gDatSz+1 downto 0)
-         downO                              => i0rb_macdown,                   -- out  std_logic
-         maxO                               => i0rb_macmax,                    -- out  std_logic_vector(15 downto 0)
-         prescaleO                          => i0rb_macprescale,               -- out  std_logic_vector(11 downto 0)
-         presetO                            => i0rb_macpreset,                 -- out  std_logic
-         readcntI                           => i0rb_macreadcnt,                -- in   std_logic_vector(15 downto 0)
-         setcntO                            => i0rb_macsetcnt,                 -- out  std_logic_vector(15 downto 0)
-         stepdownO                          => i0rb_macstepdown,               -- out  std_logic
-         stepupO                            => i0rb_macstepup,                 -- out  std_logic
-         upO                                => i0rb_macup                      -- out  std_logic
+         FifoRstO                           => i0rb_macFifoRst,                -- out  std_logic
+         LoopEnO                            => i0rb_macLoopEn,                 -- out  std_logic
+         RxCntI                             => i0rb_macRxCnt,                  -- in   std_logic_vector(9 downto 0)
+         RxFifoReO                          => i0rb_macRxFifoRe,               -- out  std_logic
+         RxFifoDataI                        => i0rb_macRxFifoDataI,            -- in   std_logic_vector(7 downto 0)
+         RxFifoEmptyI                       => i0rb_macRxFifoEmpty,            -- in   std_logic
+         RxFifoFullI                        => i0rb_macRxFifoFull,             -- in   std_logic
+         TxCntI                             => i0rb_macTxCnt,                  -- in   std_logic_vector(9 downto 0)
+         TxFifoWeO                          => i0rb_macTxFifoWe,               -- out  std_logic
+         TxFifoDataO                        => i0rb_macTxFifoDataO,            -- out  std_logic_vector(7 downto 0)
+         TxFifoEmptyI                       => i0rb_macTxFifoEmpty,            -- in   std_logic
+         TxFifoFullI                        => i0rb_macTxFifoFull,             -- in   std_logic
+         TxStartO                           => i0rb_macTxStart                 -- out  std_logic
       );
 
 

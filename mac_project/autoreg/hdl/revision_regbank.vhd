@@ -189,12 +189,12 @@ begin
    -- Constant assignments
    ---------------------------------------------------------------------------
    ibranchesrev                       <= x"00";
-   iday                               <= x"0015";
-   ihour                              <= x"0011";
-   iminute                            <= x"0010";
-   imonth                             <= x"0002";
+   iday                               <= x"0008";
+   ihour                              <= x"000E";
+   iminute                            <= x"0030";
+   imonth                             <= x"0004";
    irctest                            <= x"0000000ABC";
-   itrunkrev                          <= x"06";
+   itrunkrev                          <= x"14";
    iyear                              <= x"0011";
 
    ---------------------------------------------------------------------------
