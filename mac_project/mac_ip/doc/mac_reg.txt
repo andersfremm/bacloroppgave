@@ -1,7 +1,7 @@
 # *******************************
 # Definition file for mac registers
 # *******************************
-group -n mac -t bank -i {revision prescale up down stepup stepdown preset setcnt max readcnt}
+group -n mac -t bank -i {revision prescale up down stepup stepdown preset setcnt max readcnt ReceiveEn TransmittEn CpuTxData CpuTxEn CpuTxFull TxStatus TxStatusValid Data FifoEn DataValid LastData RXStatus}
 
 reg -n revision -t RC -f U -a 0 -w 8  -p 0 -v 5     -c "Trunk revision."
 reg -n prescale -t RW -f U -a 1 -w 12 -p 2 -v 1024  -c "Max value for prescale counter"
@@ -28,9 +28,18 @@ reg -n TransmittEn    -t WI -f U -a 6 -w 1  -p 1           -c "Transmitt Enable"
 #reg -n HughPack      -t RW -f U -a 6 -w 1  -p 10 -v 0     -c "0 = All bytes above MAXFL is discarded,    1 = frames up to 64KB"
 #reg -n RecSmallPack  -t RW -f U -a 6 -w 1  -p 11 -v 0     -c "0 = Packets below MINFL is discarded,      1 = accepted"
 
-#Transmitter Register
+# transmitt Register
+
 reg -n CpuTxData      -t RW -f U -a 7 -w 64 -p 0           -c "Data to the transmitter"
 reg -n CpuTxEn        -t WI -f U -a 10 -w 1  -p 0           -c "Send data to fifo"
 reg -n CpuTxFull      -t R  -f U -a 11 -w 1  -p 1           -c "FIFO Cpu interface is full"
 reg -n TxStatus       -t R  -f U -a 12 -w 7  -p 0           -c "Status TxStateMachine"
-reg -n TxStatusValid  -t R  -f U -a 13 -w 1 -p 0           -c "Staus is valid = 1"
+reg -n TxStatusValid  -t R  -f U -a 13 -w 1 -p 0            -c "Staus is valid = 1"
+
+# Reciver Register
+
+reg -n Data      -t R -f U -a 14 -w 8 -p 0           -c "Data to the transmitter"
+reg -n FifoEn      -t R -f U -a 14 -w 1 -p 9           -c "Data to the transmitter"
+reg -n DataValid      -t R -f U -a 14 -w 1 -p 10           -c "Data to the transmitter"
+reg -n LastData      -t R -f U -a 14 -w 1 -p 11           -c "Data to the transmitter"
+reg -n RXStatus      -t R -f U -a 15 -w 4 -p 0           -c "Data to the transmitter"

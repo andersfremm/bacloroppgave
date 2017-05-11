@@ -18,6 +18,18 @@ entity mac_regbank is
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
       -- Regbank IO ports
+      CpuTxDataO                         : out std_logic_vector(63 downto 0);
+      CpuTxEnO                           : out std_logic;
+      CpuTxFullI                         : in  std_logic;
+      DataI                              : in  std_logic_vector(7 downto 0);
+      DataValidI                         : in  std_logic;
+      FifoEnI                            : in  std_logic;
+      LastDataI                          : in  std_logic;
+      RXStatusI                          : in  std_logic_vector(3 downto 0);
+      ReceiveEnO                         : out std_logic;
+      TransmittEnO                       : out std_logic;
+      TxStatusI                          : in  std_logic_vector(6 downto 0);
+      TxStatusValidI                     : in  std_logic;
       downO                              : out std_logic;
       maxO                               : out std_logic_vector(15 downto 0);
       prescaleO                          : out std_logic_vector(11 downto 0);
@@ -35,11 +47,11 @@ architecture RTL of mac_regbank is
    ---------------------------------------------------------------------------
    -- Constants defined based on address mapping and number of registers etc
    ---------------------------------------------------------------------------
-   constant cLocalAddrSize                : integer := 3;
+   constant cLocalAddrSize                : integer := 4;
    -- Please notice that cReadLatency<latencyGroup> shall be 'value of -rl' + 1 when <latencyGroup> -t is FIFOR*
    -- This is because i<latencyGroup>Re is assigned in a clocked process
    -- Otherwise cReadLatency<latencyGroup> shall be equal to 'value of -rl'. This defaults to 0.
-   constant cAddSzRegSpace                : integer := 3;
+   constant cAddSzRegSpace                : integer := 4;
    constant cReadLatencyRegSpace          : integer := 0;
 
    ---------------------------------------------------------------------------
@@ -70,6 +82,20 @@ architecture RTL of mac_regbank is
    ---------------------------------------------------------------------------
    -- Register related signals
    ---------------------------------------------------------------------------
+   signal iCpuTxData                     : std_logic_vector(63 downto 0);
+   signal iCpuTxDataSet                  : std_logic_vector(47 downto 0);
+   signal iCpuTxDataGet                  : std_logic_vector(47 downto 0);
+   signal iCpuTxEn                       : std_logic;
+   signal iCpuTxFull                     : std_logic;
+   signal iData                          : std_logic_vector(7 downto 0);
+   signal iDataValid                     : std_logic;
+   signal iFifoEn                        : std_logic;
+   signal iLastData                      : std_logic;
+   signal iRXStatus                      : std_logic_vector(3 downto 0);
+   signal iReceiveEn                     : std_logic;
+   signal iTransmittEn                   : std_logic;
+   signal iTxStatus                      : std_logic_vector(6 downto 0);
+   signal iTxStatusValid                 : std_logic;
    signal idown                          : std_logic;
    signal imax                           : std_logic_vector(15 downto 0);
    signal iprescale                      : std_logic_vector(11 downto 0);
@@ -84,7 +110,7 @@ architecture RTL of mac_regbank is
    ---------------------------------------------------------------------------
    -- Read Array and local address
    ---------------------------------------------------------------------------
-   type tRegSpaceReadArray is array (0 to 7) of std_logic_vector(gDatSz-1 downto 0);
+   type tRegSpaceReadArray is array (0 to 15) of std_logic_vector(gDatSz-1 downto 0);
    signal RegSpaceReadArray              : tRegSpaceReadArray := (others => (others => '0'));
    signal RegSpaceRead                   : std_logic_vector(gDatSz-1 downto 0) := (others => '0');
    signal LocalAddr                      : std_logic_vector(cLocalAddrSize-1 downto 0);
@@ -159,11 +185,23 @@ begin
    ---------------------------------------------------------------------------
    -- Connect inputs to internal signals
    ---------------------------------------------------------------------------
+   iCpuTxFull                          <= CpuTxFullI;
+   iData                               <= DataI;
+   iDataValid                          <= DataValidI;
+   iFifoEn                             <= FifoEnI;
+   iLastData                           <= LastDataI;
+   iRXStatus                           <= RXStatusI;
+   iTxStatus                           <= TxStatusI;
+   iTxStatusValid                      <= TxStatusValidI;
    ireadcnt                            <= readcntI;
 
    ---------------------------------------------------------------------------
    -- Connect outputs to internal register signals
    ---------------------------------------------------------------------------
+   CpuTxDataO                         <= iCpuTxData;
+   CpuTxEnO                           <= iCpuTxEn;
+   ReceiveEnO                         <= iReceiveEn;
+   TransmittEnO                       <= iTransmittEn;
    downO                              <= idown;
    maxO                               <= imax;
    prescaleO                          <= iprescale;
@@ -189,11 +227,19 @@ begin
             istepup                            <= '0';
             isetcnt                            <= x"0000";
             imax                               <= x"FFFF";
+            iReceiveEn                         <= '0';
+            iTransmittEn                       <= '0';
+            iCpuTxDataSet                      <= x"000000000000";
+            iCpuTxData                         <= x"0000000000000000";
+            iCpuTxEn                           <= '0';
          else
             -- One cycle signals are default assigned low
             ipreset                            <= '0';
             istepdown                          <= '0';
             istepup                            <= '0';
+            iReceiveEn                         <= '0';
+            iTransmittEn                       <= '0';
+            iCpuTxEn                           <= '0';
             if ActiveWrite = '1' then
                -- Write bank: only the required addresses are decoded
                case to_integer(unsigned(LocalAddr(cAddSzRegSpace-1 downto 0))) is
@@ -209,6 +255,18 @@ begin
                      isetcnt                            <= CmdBData(15 downto 0);
                   when 4 =>
                      imax                               <= CmdBData(15 downto 0);
+                  when 6 =>
+                     iReceiveEn                         <= CmdBData(0);
+                     iTransmittEn                       <= CmdBData(1);
+                  when 7 =>
+                     iCpuTxDataSet(15 downto 0)         <= CmdBData(15 downto 0);
+                  when 8 =>
+                     iCpuTxDataSet(31 downto 16)        <= CmdBData(15 downto 0);
+                  when 9 =>
+                     iCpuTxDataSet(47 downto 32)        <= CmdBData(15 downto 0);
+                  when 10 =>
+                     iCpuTxData                         <= CmdBData(15 downto 0) & iCpuTxDataSet;
+                     iCpuTxEn                           <= CmdBData(0);
                   when others =>
                      null;
                end case;
@@ -231,6 +289,7 @@ begin
    -- The read back mechanism
    ---------------------------------------------------------------------------
    -- Map multi location signals to internal "get" signals. 
+   iCpuTxDataGet                      <= iCpuTxData(63 downto 16);
 
    -- Map RegSpace signals to the Read Array(s). 
    RegSpaceReadArray(0)(7 downto 0)   <= irevision;
@@ -240,6 +299,18 @@ begin
    RegSpaceReadArray(3)(15 downto 0)  <= isetcnt;
    RegSpaceReadArray(4)(15 downto 0)  <= imax;
    RegSpaceReadArray(5)(15 downto 0)  <= ireadcnt;
+   RegSpaceReadArray(7)(15 downto 0)  <= iCpuTxData(15 downto 0);
+   RegSpaceReadArray(8)(15 downto 0)  <= iCpuTxDataGet(15 downto 0);
+   RegSpaceReadArray(9)(15 downto 0)  <= iCpuTxDataGet(31 downto 16);
+   RegSpaceReadArray(10)(-1 downto 0) <= iCpuTxDataGet(31 downto 32);
+   RegSpaceReadArray(11)(1)           <= iCpuTxFull;
+   RegSpaceReadArray(12)(6 downto 0)  <= iTxStatus;
+   RegSpaceReadArray(13)(0)           <= iTxStatusValid;
+   RegSpaceReadArray(14)(7 downto 0)  <= iData;
+   RegSpaceReadArray(14)(10)          <= iDataValid;
+   RegSpaceReadArray(14)(9)           <= iFifoEn;
+   RegSpaceReadArray(14)(11)          <= iLastData;
+   RegSpaceReadArray(15)(3 downto 0)  <= iRXStatus;
    RegSpaceRead                       <= RegSpaceReadArray(to_integer(unsigned(LocalAddr(cAddSzRegSpace-1 downto 0))))when ValidRead(0) = '1' else (others => '0');
 
    -- Mux from Read Array(s) to RdBData

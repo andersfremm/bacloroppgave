@@ -135,7 +135,7 @@ end component;
    constant cActivity_invert             : boolean := true;
    constant cTimeoutThreshold            : integer := 15;
    constant cVendor                      : string(1 to 6) := "Altera";
-   constant cJTAG_CHAIN                  : integer := 1;
+   constant cJTAG_CHAIN                  : integer := 3;
    constant cByteCntSz                   : integer := 8;
    constant cAccuCntSize                 : integer := 24;
    constant cBaudRate                    : integer := 115_200;

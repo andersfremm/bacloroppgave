@@ -58,6 +58,7 @@ set_location_assignment PIN_B18 -to TxEr
 set_location_assignment PIN_E15 -to Col
 set_location_assignment PIN_D15 -to CRS
 
+set_location_assignment PIN_Y23 -to sw17
 
 set_location_assignment PIN_A15 -to RXClk
 set_location_assignment PIN_C16 -to RXdata[0]

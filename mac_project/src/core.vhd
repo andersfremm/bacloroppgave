@@ -28,7 +28,12 @@ entity core is
       mdi                                : in  std_logic;
       mdo                                : out std_logic;
       mden                               : out std_logic;
-      mdc                                : out std_logic
+      mdc                                : out std_logic;
+      -- phy
+      TxD                            : out std_logic_vector(3 downto 0);
+      TxEn                           : out std_logic;
+      TxEr                           : out std_logic;
+      TxClk                          : in  std_logic
    );
 end entity;
 
@@ -71,7 +76,12 @@ component mac_ip is
       mdi                                : in  std_logic;
       mdo                                : out std_logic;
       mden                               : out std_logic;
-      mdc                                : out std_logic
+      mdc                                : out std_logic;
+      -- phy
+      TxD                            : out std_logic_vector(3 downto 0);
+      TxEn                           : out std_logic;
+      TxEr                           : out std_logic;
+      TxClk                          : in  std_logic
    );
 end component;
 
@@ -356,7 +366,12 @@ begin
          mdi                                => mdi,
          mdo                                => mdo,
          mden                               => mden,
-         mdc                                => mdc
+         mdc                                => mdc,
+      -- phy
+     TxD                                 => TxD,
+     TxEn                                => TxEn,
+     TxEr                                => TxEr,
+     TxClk                               => TxClk
       );
 
    pConnect: process(i0rb_revisionrwtest)

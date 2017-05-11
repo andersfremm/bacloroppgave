@@ -1,5 +1,5 @@
 ################# COPYRIGHT © ProgBit AS 2017 ##################################
-## mdio_gui.tcl has been generated with ProgBit autoreg tools by user User
+## mdio_gui.tcl has been generated with ProgBit autoreg tools by user fremm
 ################################################################################
 
 package require Tk
