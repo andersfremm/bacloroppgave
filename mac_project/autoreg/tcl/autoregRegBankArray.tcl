@@ -74,12 +74,120 @@ set ::autoreg::vRegBankArray(mac.-en) {big}
 set ::autoreg::vRegBankArray(mac.-gspan) {6 8}
 set ::autoreg::vRegBankArray(mac.-gupdate) {4 7}
 set ::autoreg::vRegBankArray(mac.-gw) {12 8}
-set ::autoreg::vRegBankArray(mac.-i) {revision prescale up down stepup stepdown preset setcnt max readcnt}
+set ::autoreg::vRegBankArray(mac.-i) {revision prescale up down stepup stepdown preset setcnt max readcnt ReceiveEn TransmittEn CpuTxData CpuTxEn CpuTxFull TxStatus TxStatusValid Data FifoEn DataValid LastData RXStatus}
 set ::autoreg::vRegBankArray(mac.-n) {mac}
 set ::autoreg::vRegBankArray(mac.-o) {group}
 set ::autoreg::vRegBankArray(mac.-path) {/i0jtag/i0demo/i0core/i0mac/i0rb_mac}
 set ::autoreg::vRegBankArray(mac.-sy) {0}
 set ::autoreg::vRegBankArray(mac.-t) {bank}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-a) {7}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-as) {user}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-c) {Data to the transmitter}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-f) {U}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-n) {CpuTxData}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-o) {reg}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-p) {0}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-t) {RW}
+set ::autoreg::vRegBankArray(mac.CpuTxData.-w) {64}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-a) {10}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-as) {user}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-c) {Send data to fifo}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-f) {U}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-n) {CpuTxEn}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-o) {reg}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-p) {0}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-t) {WI}
+set ::autoreg::vRegBankArray(mac.CpuTxEn.-w) {1}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-a) {11}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-as) {user}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-c) {FIFO Cpu interface is full}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-f) {U}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-n) {CpuTxFull}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-o) {reg}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-p) {1}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-t) {R}
+set ::autoreg::vRegBankArray(mac.CpuTxFull.-w) {1}
+set ::autoreg::vRegBankArray(mac.Data.-a) {14}
+set ::autoreg::vRegBankArray(mac.Data.-as) {user}
+set ::autoreg::vRegBankArray(mac.Data.-c) {Data to the transmitter}
+set ::autoreg::vRegBankArray(mac.Data.-f) {U}
+set ::autoreg::vRegBankArray(mac.Data.-n) {Data}
+set ::autoreg::vRegBankArray(mac.Data.-o) {reg}
+set ::autoreg::vRegBankArray(mac.Data.-p) {0}
+set ::autoreg::vRegBankArray(mac.Data.-t) {R}
+set ::autoreg::vRegBankArray(mac.Data.-w) {8}
+set ::autoreg::vRegBankArray(mac.DataValid.-a) {14}
+set ::autoreg::vRegBankArray(mac.DataValid.-as) {user}
+set ::autoreg::vRegBankArray(mac.DataValid.-c) {Data to the transmitter}
+set ::autoreg::vRegBankArray(mac.DataValid.-f) {U}
+set ::autoreg::vRegBankArray(mac.DataValid.-n) {DataValid}
+set ::autoreg::vRegBankArray(mac.DataValid.-o) {reg}
+set ::autoreg::vRegBankArray(mac.DataValid.-p) {10}
+set ::autoreg::vRegBankArray(mac.DataValid.-t) {R}
+set ::autoreg::vRegBankArray(mac.DataValid.-w) {1}
+set ::autoreg::vRegBankArray(mac.FifoEn.-a) {14}
+set ::autoreg::vRegBankArray(mac.FifoEn.-as) {user}
+set ::autoreg::vRegBankArray(mac.FifoEn.-c) {Data to the transmitter}
+set ::autoreg::vRegBankArray(mac.FifoEn.-f) {U}
+set ::autoreg::vRegBankArray(mac.FifoEn.-n) {FifoEn}
+set ::autoreg::vRegBankArray(mac.FifoEn.-o) {reg}
+set ::autoreg::vRegBankArray(mac.FifoEn.-p) {9}
+set ::autoreg::vRegBankArray(mac.FifoEn.-t) {R}
+set ::autoreg::vRegBankArray(mac.FifoEn.-w) {1}
+set ::autoreg::vRegBankArray(mac.LastData.-a) {14}
+set ::autoreg::vRegBankArray(mac.LastData.-as) {user}
+set ::autoreg::vRegBankArray(mac.LastData.-c) {Data to the transmitter}
+set ::autoreg::vRegBankArray(mac.LastData.-f) {U}
+set ::autoreg::vRegBankArray(mac.LastData.-n) {LastData}
+set ::autoreg::vRegBankArray(mac.LastData.-o) {reg}
+set ::autoreg::vRegBankArray(mac.LastData.-p) {11}
+set ::autoreg::vRegBankArray(mac.LastData.-t) {R}
+set ::autoreg::vRegBankArray(mac.LastData.-w) {1}
+set ::autoreg::vRegBankArray(mac.RXStatus.-a) {15}
+set ::autoreg::vRegBankArray(mac.RXStatus.-as) {user}
+set ::autoreg::vRegBankArray(mac.RXStatus.-c) {Data to the transmitter}
+set ::autoreg::vRegBankArray(mac.RXStatus.-f) {U}
+set ::autoreg::vRegBankArray(mac.RXStatus.-n) {RXStatus}
+set ::autoreg::vRegBankArray(mac.RXStatus.-o) {reg}
+set ::autoreg::vRegBankArray(mac.RXStatus.-p) {0}
+set ::autoreg::vRegBankArray(mac.RXStatus.-t) {R}
+set ::autoreg::vRegBankArray(mac.RXStatus.-w) {4}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-a) {6}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-as) {user}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-c) {Receive Enable}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-f) {U}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-n) {ReceiveEn}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-o) {reg}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-p) {0}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-t) {WI}
+set ::autoreg::vRegBankArray(mac.ReceiveEn.-w) {1}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-a) {6}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-as) {user}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-c) {Transmitt Enable}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-f) {U}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-n) {TransmittEn}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-o) {reg}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-p) {1}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-t) {WI}
+set ::autoreg::vRegBankArray(mac.TransmittEn.-w) {1}
+set ::autoreg::vRegBankArray(mac.TxStatus.-a) {12}
+set ::autoreg::vRegBankArray(mac.TxStatus.-as) {user}
+set ::autoreg::vRegBankArray(mac.TxStatus.-c) {Status TxStateMachine}
+set ::autoreg::vRegBankArray(mac.TxStatus.-f) {U}
+set ::autoreg::vRegBankArray(mac.TxStatus.-n) {TxStatus}
+set ::autoreg::vRegBankArray(mac.TxStatus.-o) {reg}
+set ::autoreg::vRegBankArray(mac.TxStatus.-p) {0}
+set ::autoreg::vRegBankArray(mac.TxStatus.-t) {R}
+set ::autoreg::vRegBankArray(mac.TxStatus.-w) {7}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-a) {13}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-as) {user}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-c) {Staus is valid = 1}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-f) {U}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-n) {TxStatusValid}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-o) {reg}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-p) {0}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-t) {R}
+set ::autoreg::vRegBankArray(mac.TxStatusValid.-w) {1}
 set ::autoreg::vRegBankArray(mac.down.-a) {1}
 set ::autoreg::vRegBankArray(mac.down.-as) {user}
 set ::autoreg::vRegBankArray(mac.down.-c) {Count down continuously}
@@ -199,6 +307,9 @@ set ::autoreg::vRegBankArray(mdio.-clkcpu) {ClkCpu}
 set ::autoreg::vRegBankArray(mdio.-clkpl) {Clk}
 set ::autoreg::vRegBankArray(mdio.-dw) {16}
 set ::autoreg::vRegBankArray(mdio.-en) {big}
+set ::autoreg::vRegBankArray(mdio.-gspan) {6 8}
+set ::autoreg::vRegBankArray(mdio.-gupdate) {4 7}
+set ::autoreg::vRegBankArray(mdio.-gw) {12 8}
 set ::autoreg::vRegBankArray(mdio.-i) {PhyAddr Wr Rd Ack RegAddr DataO DataI}
 set ::autoreg::vRegBankArray(mdio.-n) {mdio}
 set ::autoreg::vRegBankArray(mdio.-o) {group}
@@ -209,6 +320,8 @@ set ::autoreg::vRegBankArray(mdio.Ack.-a) {0}
 set ::autoreg::vRegBankArray(mdio.Ack.-as) {user}
 set ::autoreg::vRegBankArray(mdio.Ack.-c) {Ack when done}
 set ::autoreg::vRegBankArray(mdio.Ack.-f) {U}
+set ::autoreg::vRegBankArray(mdio.Ack.-gloc) {0 3}
+set ::autoreg::vRegBankArray(mdio.Ack.-gtype) {label}
 set ::autoreg::vRegBankArray(mdio.Ack.-n) {Ack}
 set ::autoreg::vRegBankArray(mdio.Ack.-o) {reg}
 set ::autoreg::vRegBankArray(mdio.Ack.-p) {7}
@@ -218,6 +331,8 @@ set ::autoreg::vRegBankArray(mdio.DataI.-a) {3}
 set ::autoreg::vRegBankArray(mdio.DataI.-as) {user}
 set ::autoreg::vRegBankArray(mdio.DataI.-c) {Data in from phy}
 set ::autoreg::vRegBankArray(mdio.DataI.-f) {U}
+set ::autoreg::vRegBankArray(mdio.DataI.-gloc) {0 6}
+set ::autoreg::vRegBankArray(mdio.DataI.-gtype) {label}
 set ::autoreg::vRegBankArray(mdio.DataI.-n) {DataI}
 set ::autoreg::vRegBankArray(mdio.DataI.-o) {reg}
 set ::autoreg::vRegBankArray(mdio.DataI.-p) {0}
@@ -227,6 +342,8 @@ set ::autoreg::vRegBankArray(mdio.DataO.-a) {2}
 set ::autoreg::vRegBankArray(mdio.DataO.-as) {user}
 set ::autoreg::vRegBankArray(mdio.DataO.-c) {Data out to phy}
 set ::autoreg::vRegBankArray(mdio.DataO.-f) {U}
+set ::autoreg::vRegBankArray(mdio.DataO.-gloc) {0 5}
+set ::autoreg::vRegBankArray(mdio.DataO.-gtype) {entry}
 set ::autoreg::vRegBankArray(mdio.DataO.-n) {DataO}
 set ::autoreg::vRegBankArray(mdio.DataO.-o) {reg}
 set ::autoreg::vRegBankArray(mdio.DataO.-p) {0}
@@ -236,6 +353,8 @@ set ::autoreg::vRegBankArray(mdio.PhyAddr.-a) {0}
 set ::autoreg::vRegBankArray(mdio.PhyAddr.-as) {user}
 set ::autoreg::vRegBankArray(mdio.PhyAddr.-c) {Phy address}
 set ::autoreg::vRegBankArray(mdio.PhyAddr.-f) {U}
+set ::autoreg::vRegBankArray(mdio.PhyAddr.-gloc) {0 0}
+set ::autoreg::vRegBankArray(mdio.PhyAddr.-gtype) {entry}
 set ::autoreg::vRegBankArray(mdio.PhyAddr.-n) {PhyAddr}
 set ::autoreg::vRegBankArray(mdio.PhyAddr.-o) {reg}
 set ::autoreg::vRegBankArray(mdio.PhyAddr.-p) {0}
@@ -245,6 +364,8 @@ set ::autoreg::vRegBankArray(mdio.Rd.-a) {0}
 set ::autoreg::vRegBankArray(mdio.Rd.-as) {user}
 set ::autoreg::vRegBankArray(mdio.Rd.-c) {Read}
 set ::autoreg::vRegBankArray(mdio.Rd.-f) {U}
+set ::autoreg::vRegBankArray(mdio.Rd.-gloc) {0 2}
+set ::autoreg::vRegBankArray(mdio.Rd.-gtype) {button}
 set ::autoreg::vRegBankArray(mdio.Rd.-n) {Rd}
 set ::autoreg::vRegBankArray(mdio.Rd.-o) {reg}
 set ::autoreg::vRegBankArray(mdio.Rd.-p) {6}
@@ -254,6 +375,8 @@ set ::autoreg::vRegBankArray(mdio.RegAddr.-a) {1}
 set ::autoreg::vRegBankArray(mdio.RegAddr.-as) {user}
 set ::autoreg::vRegBankArray(mdio.RegAddr.-c) {Register address}
 set ::autoreg::vRegBankArray(mdio.RegAddr.-f) {U}
+set ::autoreg::vRegBankArray(mdio.RegAddr.-gloc) {0 4}
+set ::autoreg::vRegBankArray(mdio.RegAddr.-gtype) {entry}
 set ::autoreg::vRegBankArray(mdio.RegAddr.-n) {RegAddr}
 set ::autoreg::vRegBankArray(mdio.RegAddr.-o) {reg}
 set ::autoreg::vRegBankArray(mdio.RegAddr.-p) {0}
@@ -263,6 +386,8 @@ set ::autoreg::vRegBankArray(mdio.Wr.-a) {0}
 set ::autoreg::vRegBankArray(mdio.Wr.-as) {user}
 set ::autoreg::vRegBankArray(mdio.Wr.-c) {Write}
 set ::autoreg::vRegBankArray(mdio.Wr.-f) {U}
+set ::autoreg::vRegBankArray(mdio.Wr.-gloc) {0 1}
+set ::autoreg::vRegBankArray(mdio.Wr.-gtype) {button}
 set ::autoreg::vRegBankArray(mdio.Wr.-n) {Wr}
 set ::autoreg::vRegBankArray(mdio.Wr.-o) {reg}
 set ::autoreg::vRegBankArray(mdio.Wr.-p) {5}
@@ -337,7 +462,7 @@ set ::autoreg::vRegBankArray(revision.day.-n) {day}
 set ::autoreg::vRegBankArray(revision.day.-o) {reg}
 set ::autoreg::vRegBankArray(revision.day.-p) {0}
 set ::autoreg::vRegBankArray(revision.day.-t) {RC}
-set ::autoreg::vRegBankArray(revision.day.-v) {21}
+set ::autoreg::vRegBankArray(revision.day.-v) {02}
 set ::autoreg::vRegBankArray(revision.day.-w) {16}
 set ::autoreg::vRegBankArray(revision.hour.-a) {4}
 set ::autoreg::vRegBankArray(revision.hour.-as) {user}
@@ -349,7 +474,7 @@ set ::autoreg::vRegBankArray(revision.hour.-n) {hour}
 set ::autoreg::vRegBankArray(revision.hour.-o) {reg}
 set ::autoreg::vRegBankArray(revision.hour.-p) {0}
 set ::autoreg::vRegBankArray(revision.hour.-t) {RC}
-set ::autoreg::vRegBankArray(revision.hour.-v) {17}
+set ::autoreg::vRegBankArray(revision.hour.-v) {01}
 set ::autoreg::vRegBankArray(revision.hour.-w) {16}
 set ::autoreg::vRegBankArray(revision.latch.-a) {9}
 set ::autoreg::vRegBankArray(revision.latch.-as) {user}
@@ -372,7 +497,7 @@ set ::autoreg::vRegBankArray(revision.minute.-n) {minute}
 set ::autoreg::vRegBankArray(revision.minute.-o) {reg}
 set ::autoreg::vRegBankArray(revision.minute.-p) {0}
 set ::autoreg::vRegBankArray(revision.minute.-t) {RC}
-set ::autoreg::vRegBankArray(revision.minute.-v) {16}
+set ::autoreg::vRegBankArray(revision.minute.-v) {10}
 set ::autoreg::vRegBankArray(revision.minute.-w) {16}
 set ::autoreg::vRegBankArray(revision.month.-a) {2}
 set ::autoreg::vRegBankArray(revision.month.-as) {user}
@@ -384,7 +509,7 @@ set ::autoreg::vRegBankArray(revision.month.-n) {month}
 set ::autoreg::vRegBankArray(revision.month.-o) {reg}
 set ::autoreg::vRegBankArray(revision.month.-p) {0}
 set ::autoreg::vRegBankArray(revision.month.-t) {RC}
-set ::autoreg::vRegBankArray(revision.month.-v) {02}
+set ::autoreg::vRegBankArray(revision.month.-v) {05}
 set ::autoreg::vRegBankArray(revision.month.-w) {16}
 set ::autoreg::vRegBankArray(revision.rctest.-a) {12}
 set ::autoreg::vRegBankArray(revision.rctest.-as) {user}
@@ -431,7 +556,7 @@ set ::autoreg::vRegBankArray(revision.trunkrev.-n) {trunkrev}
 set ::autoreg::vRegBankArray(revision.trunkrev.-o) {reg}
 set ::autoreg::vRegBankArray(revision.trunkrev.-p) {0}
 set ::autoreg::vRegBankArray(revision.trunkrev.-t) {RC}
-set ::autoreg::vRegBankArray(revision.trunkrev.-v) {6}
+set ::autoreg::vRegBankArray(revision.trunkrev.-v) {16}
 set ::autoreg::vRegBankArray(revision.trunkrev.-w) {8}
 set ::autoreg::vRegBankArray(revision.year.-a) {1}
 set ::autoreg::vRegBankArray(revision.year.-as) {user}

@@ -1,0 +1,153 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus Prime License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+# Date created = 01:16:03  May 02, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		demo_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY demo
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 14.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:25:34  SEPTEMBER 01, 2015"
+set_global_assignment -name LAST_QUARTUS_VERSION 14.1.0
+set_global_assignment -name SEARCH_PATH unisim
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id demo
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_1.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_2.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_3.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_4.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_5.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_6.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_7.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_8.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_9.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_10.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_11.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_12.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_13.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_14.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_15.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_16.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_17.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_18.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1.5/src/obfuscated/xfr_hdl_19.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1/src/cyclone_v/bscan_altera.vhd"
+set_global_assignment -name QIP_FILE "C:/autoreg/autoregRelease1.0.1/src/cyclone_v/bscan_cyclonev.qip"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1/src/dummy/bscan_spartan6_empty.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1/src/dummy/bufg.vhd"
+set_global_assignment -name VHDL_FILE "C:/autoreg/autoregRelease1.0.1/src/dummy/unisim_VCOMP.vhd"
+set_global_assignment -name VHDL_FILE ../mac_ip/src/mac_ip.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/MDIO.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Tx_mac/TxEthernetMAC.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Tx_mac/TXStateMachine.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Tx_mac/TXFifoInterface.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Tx_mac/TXFifoSynk.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Tx_mac/TxCrcGen.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Tx_mac/TXDataMux.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Tx_mac/TxFrameLengthCounter.vhd
+set_global_assignment -name VHDL_FILE ../src/dp_mem_altera.vhd
+set_global_assignment -name VHDL_FILE ../src/dp_mem_xilinx.vhd
+set_global_assignment -name VHDL_FILE ../src/demo_test_RAM.vhd
+set_global_assignment -name VHDL_FILE ../src/core.vhd
+set_global_assignment -name VHDL_FILE ../src/demo.vhd
+set_global_assignment -name VHDL_FILE ../src/tb_demo.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/core_addressdecoder.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/mac_ip_addressdecoder.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/led_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/mem_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/revision_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/mac_regbank.vhd
+set_global_assignment -name VHDL_FILE ../autoreg/hdl/mdio_regbank.vhd
+set_global_assignment -name SDC_FILE ./demo.sdc
+set_location_assignment PIN_Y2 -to ClkCpu
+set_location_assignment PIN_G12 -to serial0RxI
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to serial0RxI
+set_location_assignment PIN_G9 -to serial0TxO
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to serial0TxO
+set_location_assignment PIN_J13 -to serial0TxEnO
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to serial0TxEnO
+set_location_assignment PIN_E21 -to i0rb_ledled0O
+set_instance_assignment -name FAST_OUTPUT_REGISTER OFF -to i0rb_ledled0O
+set_location_assignment PIN_E22 -to i0rb_ledled1O
+set_location_assignment PIN_E25 -to i0rb_ledled2O
+set_location_assignment PIN_E24 -to i0rb_ledled3O
+set_location_assignment PIN_G19 -to Cpu0ActiveO
+set_location_assignment PIN_F19 -to Cpu1ActiveO
+set_location_assignment PIN_D22 -to nRstO
+set_location_assignment PIN_D25 -to MdioIO
+set_location_assignment PIN_D23 -to Mdc
+set_location_assignment PIN_B17 -to TxClk
+set_location_assignment PIN_C18 -to TxD[0]
+set_location_assignment PIN_D19 -to TxD[1]
+set_location_assignment PIN_A19 -to TxD[2]
+set_location_assignment PIN_B19 -to TxD[3]
+set_location_assignment PIN_A18 -to TxEn
+set_location_assignment PIN_B18 -to TxEr
+set_location_assignment PIN_E15 -to Col
+set_location_assignment PIN_D15 -to CRS
+set_location_assignment PIN_A15 -to RXClk
+set_location_assignment PIN_C16 -to RXdata[0]
+set_location_assignment PIN_D16 -to RXdata[1]
+set_location_assignment PIN_D17 -to RXdata[2]
+set_location_assignment PIN_C15 -to RXdata[3]
+set_location_assignment PIN_C17 -to RXdv
+set_location_assignment PIN_D18 -to RXErr
+set_location_assignment PIN_AH23 -to DebugO[0]
+set_location_assignment PIN_AF20 -to DebugO[1]
+set_location_assignment PIN_AE20 -to DebugO[2]
+set_location_assignment PIN_AH22 -to DebugO[3]
+set_location_assignment PIN_AG26 -to DebugO[4]
+set_location_assignment PIN_AH26 -to DebugO[5]
+set_location_assignment PIN_AG23 -to DebugO[6]
+set_location_assignment PIN_AF26 -to DebugO[7]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to serial0RxI
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to serial0TxO
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to serial0TxEnO
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id demo
+set_location_assignment PIN_Y23 -to sw17
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Rx_mac/Receiver.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Rx_mac/RXAddressMatching.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Rx_mac/Rxbuffer.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Rx_mac/RXFCSCheck.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Rx_mac/RXSFDdetector.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Rx_mac/RXStateMachine.vhd
+set_global_assignment -name VHDL_FILE ../mac_ip/src/Rx_mac/RxSyncBuffer.vhd

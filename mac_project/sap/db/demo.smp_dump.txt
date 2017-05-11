@@ -1,0 +1,109 @@
+
+State Machine - |demo|core:i0core|mac_ip:i0mac_ip|Receiver:Receiver_i|RXStateMachine:pRXStateMachine|state
+Name state.sValidation state.sDetectSFD state.sIdle 
+state.sIdle 0 0 0 
+state.sDetectSFD 0 1 1 
+state.sValidation 1 0 1 
+
+State Machine - |demo|core:i0core|mac_ip:i0mac_ip|TxEthernetMAC:i0rb_TxEthernetMAC|TXStateMachine:i0TXStateMachine|TxSm
+Name TxSm.smCrc TxSm.smFrame TxSm.smSfd TxSm.smPre TxSm.smStart 
+TxSm.smStart 0 0 0 0 0 
+TxSm.smPre 0 0 0 1 1 
+TxSm.smSfd 0 0 1 0 1 
+TxSm.smFrame 0 1 0 0 1 
+TxSm.smCrc 1 0 0 0 1 
+
+State Machine - |demo|core:i0core|mac_ip:i0mac_ip|MDIO:i0MDIO|State
+Name State.sAck State.sRd State.sWr State.sRdSync State.sWrSync State.sIdle 
+State.sIdle 0 0 0 0 0 0 
+State.sWrSync 0 0 0 0 1 1 
+State.sRdSync 0 0 0 1 0 1 
+State.sWr 0 0 1 0 0 1 
+State.sRd 0 1 0 0 0 1 
+State.sAck 1 0 0 0 0 1 
+
+State Machine - |demo|JTAG_WRAPPER:i0jtag_wrapper|xfr_usr288:xfr_usr218|xfr_usr252.R.xfr_usr400
+Name xfr_usr252.R.xfr_usr400.xfr_usr372 xfr_usr252.R.xfr_usr400.xfr_usr405 xfr_usr252.R.xfr_usr400.xfr_usr386 xfr_usr252.R.xfr_usr400.xfr_usr385 xfr_usr252.R.xfr_usr400.xfr_usr363 xfr_usr252.R.xfr_usr400.xfr_usr397 xfr_usr252.R.xfr_usr400.xfr_usr418 xfr_usr252.R.xfr_usr400.xfr_usr412 xfr_usr252.R.xfr_usr400.xfr_usr415 xfr_usr252.R.xfr_usr400.xfr_usr417 xfr_usr252.R.xfr_usr400.xfr_usr390 xfr_usr252.R.xfr_usr400.xfr_usr362 xfr_usr252.R.xfr_usr400.xfr_usr361 xfr_usr252.R.xfr_usr400.xfr_usr396 xfr_usr252.R.xfr_usr400.xfr_usr391 xfr_usr252.R.xfr_usr400.xfr_usr392 xfr_usr252.R.xfr_usr400.xfr_usr394 xfr_usr252.R.xfr_usr400.xfr_usr360 xfr_usr252.R.xfr_usr400.xfr_usr413 xfr_usr252.R.xfr_usr400.xfr_usr414 xfr_usr252.R.xfr_usr400.xfr_usr411 xfr_usr252.R.xfr_usr400.xfr_usr358 xfr_usr252.R.xfr_usr400.xfr_usr356 xfr_usr252.R.xfr_usr400.xfr_usr364 
+xfr_usr252.R.xfr_usr400.xfr_usr364 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+xfr_usr252.R.xfr_usr400.xfr_usr356 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+xfr_usr252.R.xfr_usr400.xfr_usr358 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr414 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr413 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr360 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr394 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr392 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr391 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr396 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr361 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr362 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr390 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr417 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr415 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr412 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr418 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr397 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr363 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr385 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr386 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr405 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr372 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |demo|JTAG_WRAPPER:i0jtag_wrapper|xfr_usr233:xfr_usr215|xfr_usr236.xfr_usr269
+Name xfr_usr236.xfr_usr269.Status xfr_usr236.xfr_usr269.xfr_usr321 xfr_usr236.xfr_usr269.xfr_usr120 xfr_usr236.xfr_usr269.Write xfr_usr236.xfr_usr269.xfr_usr201 xfr_usr236.xfr_usr269.xfr_usr10 
+xfr_usr236.xfr_usr269.xfr_usr10 0 0 0 0 0 0 
+xfr_usr236.xfr_usr269.xfr_usr201 0 0 0 0 1 1 
+xfr_usr236.xfr_usr269.Write 0 0 0 1 0 1 
+xfr_usr236.xfr_usr269.xfr_usr120 0 0 1 0 0 1 
+xfr_usr236.xfr_usr269.xfr_usr321 0 1 0 0 0 1 
+xfr_usr236.xfr_usr269.Status 1 0 0 0 0 1 
+
+State Machine - |demo|JTAG_WRAPPER:i0jtag_wrapper|xfr_usr233:xfr_usr215|xfr_usr236.xfr_usr158
+Name xfr_usr236.xfr_usr158.xfr_usr406 xfr_usr236.xfr_usr158.Config xfr_usr236.xfr_usr158.xfr_usr546 xfr_usr236.xfr_usr158.xfr_usr329 xfr_usr236.xfr_usr158.xfr_usr250 xfr_usr236.xfr_usr158.xfr_usr1 xfr_usr236.xfr_usr158.xfr_usr245 xfr_usr236.xfr_usr158.Idle 
+xfr_usr236.xfr_usr158.Idle 0 0 0 0 0 0 0 0 
+xfr_usr236.xfr_usr158.xfr_usr245 0 0 0 0 0 0 1 1 
+xfr_usr236.xfr_usr158.xfr_usr1 0 0 0 0 0 1 0 1 
+xfr_usr236.xfr_usr158.xfr_usr250 0 0 0 0 1 0 0 1 
+xfr_usr236.xfr_usr158.xfr_usr329 0 0 0 1 0 0 0 1 
+xfr_usr236.xfr_usr158.xfr_usr546 0 0 1 0 0 0 0 1 
+xfr_usr236.xfr_usr158.Config 0 1 0 0 0 0 0 1 
+xfr_usr236.xfr_usr158.xfr_usr406 1 0 0 0 0 0 0 1 
+
+State Machine - |demo|SERIAL_WRAPPER:i0serial_wrapper|xfr_usr288:xfr_usr218|xfr_usr252.R.xfr_usr400
+Name xfr_usr252.R.xfr_usr400.xfr_usr372 xfr_usr252.R.xfr_usr400.xfr_usr405 xfr_usr252.R.xfr_usr400.xfr_usr386 xfr_usr252.R.xfr_usr400.xfr_usr385 xfr_usr252.R.xfr_usr400.xfr_usr363 xfr_usr252.R.xfr_usr400.xfr_usr397 xfr_usr252.R.xfr_usr400.xfr_usr418 xfr_usr252.R.xfr_usr400.xfr_usr412 xfr_usr252.R.xfr_usr400.xfr_usr415 xfr_usr252.R.xfr_usr400.xfr_usr417 xfr_usr252.R.xfr_usr400.xfr_usr390 xfr_usr252.R.xfr_usr400.xfr_usr362 xfr_usr252.R.xfr_usr400.xfr_usr361 xfr_usr252.R.xfr_usr400.xfr_usr396 xfr_usr252.R.xfr_usr400.xfr_usr391 xfr_usr252.R.xfr_usr400.xfr_usr392 xfr_usr252.R.xfr_usr400.xfr_usr394 xfr_usr252.R.xfr_usr400.xfr_usr360 xfr_usr252.R.xfr_usr400.xfr_usr413 xfr_usr252.R.xfr_usr400.xfr_usr414 xfr_usr252.R.xfr_usr400.xfr_usr411 xfr_usr252.R.xfr_usr400.xfr_usr358 xfr_usr252.R.xfr_usr400.xfr_usr356 xfr_usr252.R.xfr_usr400.xfr_usr364 
+xfr_usr252.R.xfr_usr400.xfr_usr364 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+xfr_usr252.R.xfr_usr400.xfr_usr356 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+xfr_usr252.R.xfr_usr400.xfr_usr358 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr411 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr414 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr413 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr360 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr394 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr392 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr391 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr396 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr361 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr362 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr390 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr417 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr415 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr412 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr418 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr397 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr363 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr385 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr386 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr405 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+xfr_usr252.R.xfr_usr400.xfr_usr372 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |demo|SERIAL_WRAPPER:i0serial_wrapper|xfr_usr506:xfr_usr231|xfr_usr502:xfr_usr230|xfr_usr501:xfr_usr229|xfr_usr400
+Name xfr_usr400.xfr_usr407 xfr_usr400.xfr_usr389 xfr_usr400.xfr_usr384 
+xfr_usr400.xfr_usr384 0 0 0 
+xfr_usr400.xfr_usr389 0 1 1 
+xfr_usr400.xfr_usr407 1 0 1 
+
+State Machine - |demo|SERIAL_WRAPPER:i0serial_wrapper|xfr_usr506:xfr_usr231|xfr_usr502:xfr_usr230|xfr_usr500:xfr_usr228|xfr_usr402
+Name xfr_usr402.xfr_usr405 xfr_usr402.xfr_usr395 xfr_usr402.xfr_usr384 
+xfr_usr402.xfr_usr384 0 0 0 
+xfr_usr402.xfr_usr395 0 1 1 
+xfr_usr402.xfr_usr405 1 0 1 

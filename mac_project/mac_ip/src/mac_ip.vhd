@@ -1,4 +1,4 @@
------------------ COPYRIGHT © ProgBit AS 2017 ----------------------------------
+----------------- COPYRIGHT ï¿½ ProgBit AS 2017 ----------------------------------
 -- This file has been generated using ProgBit autoreg tools
 --------------------------------------------------------------------------------
 
@@ -23,7 +23,17 @@ entity mac_ip is
       mdi                            : in  std_logic;
       mdo                            : out std_logic;
       mden                           : out std_logic;
-      mdc                            : out std_logic
+      mdc                            : out std_logic;
+      -- phy
+      TxD                            : out std_logic_vector(3 downto 0);
+      TxEn                           : out std_logic;
+      TxEr                           : out std_logic;
+      TxClk                          : in  std_logic;
+
+      RXdv      : in  std_logic;
+      RXErr     : in  std_logic;
+      RXdata    : in  std_logic_vector(3 downto 0);
+      RXClk     : in std_logic
    );
 end entity;
 
@@ -55,6 +65,18 @@ component mac_regbank is
       Rst                                : in  std_logic;
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
+      CpuTxDataO                         : out std_logic_vector(63 downto 0);
+      CpuTxEnO                           : out std_logic;
+      CpuTxFullI                         : in  std_logic;
+      DataI                              : in  std_logic_vector(7 downto 0);
+      DataValidI                         : in  std_logic;
+      FifoEnI                            : in  std_logic;
+      LastDataI                          : in  std_logic;
+      RXStatusI                          : in  std_logic_vector(3 downto 0);
+      ReceiveEnO                         : out std_logic;
+      TransmittEnO                       : out std_logic;
+      TxStatusI                          : in  std_logic_vector(6 downto 0);
+      TxStatusValidI                     : in  std_logic;
       downO                              : out std_logic;
       maxO                               : out std_logic_vector(15 downto 0);
       prescaleO                          : out std_logic_vector(11 downto 0);
@@ -65,7 +87,7 @@ component mac_regbank is
       stepupO                            : out std_logic;
       upO                                : out std_logic
    );
-end component;
+   end component;
 
 component mdio_regbank is
    generic (
@@ -111,6 +133,56 @@ port (
 );
 end component;
 
+component TxEthernetMAC is
+port (
+  Clk                : in  std_logic;
+  Rst                : in  std_logic;
+  CpuTxDataO         : in  std_logic_vector(63 downto 0);
+  CpuTxEnO           : in  std_logic;
+  CpuTxFullI         : out std_logic;
+  TransmittEnO       : in  std_logic;
+  TxStatusI          : out std_logic_vector(6 downto 0);
+  TxStatusValidI     : out std_logic;
+  TxD                : out std_logic_vector(3 downto 0);
+  TxEn               : out std_logic;
+  TxEr               : out std_logic;
+  TxClk              : in  std_logic;
+  TestData           : out std_logic_vector(3 downto 0);
+  TestTransmitEnable : out std_logic;
+  TestTransmitError  : out std_logic
+);
+end component TxEthernetMAC;
+
+component Receiver
+generic (
+  gDatSz : integer := 8
+);
+port (
+  Clk       : in  std_logic;
+  Clk25     : in  std_logic;
+  nRstO     : in  std_logic;
+  RXdv      : in  std_logic;
+  RXErr     : in  std_logic;
+  FifoEn    : out std_logic;
+  RXdata    : in  std_logic_vector(3 downto 0);
+  Data      : out std_logic_vector(gDatSz-1 downto 0);
+  DataValid : out std_logic;
+  LastData  : out std_logic;
+  RXStatus  : out std_logic_vector(3 downto 0)     --See design spec
+);
+end component Receiver;
+
+
+
+
+signal nRstO   : std_logic;
+
+signal DataI                       : std_logic_vector(7 downto 0);
+signal FifoEnI                       : std_logic;
+signal DataValidI                       : std_logic;
+signal LastDataI                       : std_logic;
+signal RXStatusI                       : std_logic_vector(3 downto 0);
+
    signal i0rb_macdown                       : std_logic;
    signal i0rb_macmax                        : std_logic_vector(15 downto 0);
    signal i0rb_macprescale                   : std_logic_vector(11 downto 0);
@@ -135,7 +207,13 @@ end component;
    signal MdioDataI                          : std_logic;
    signal MdioDataO                          : std_logic;
    signal MdioEnO                            : std_logic;
-   
+
+   signal i0rb_CpuTxDataO                    : std_logic_vector(63 downto 0);
+   signal i0rb_CpuTxEnO                      : std_logic;
+   signal i0rb_CpuTxFullI                    : std_logic;
+   signal i0rb_TransmittEnO                  : std_logic;
+   signal i0rb_TxStatusI                     : std_logic_vector(6 downto 0);
+   signal i0rb_TxStatusValidI                : std_logic;
 
 begin
 
@@ -165,17 +243,17 @@ begin
 
          PhyAddrI                           => i0rb_mdioPhyAddr,
          RegAddrI                           => i0rb_mdioRegAddr,
-         WrI                                => i0rb_mdioWr, 
+         WrI                                => i0rb_mdioWr,
          RdI                                => i0rb_mdioRd,
          DataI                              => i0rb_mdioDataO,
          AckO                               => i0rb_mdioAck,
-         DataO                              => i0rb_mdioDataI, 
+         DataO                              => i0rb_mdioDataI,
 
          -- MDIO interface
-         SerialClkO                         => mdc,   
-         SerialDataI                        => mdi,  
-         SerialDataO                        => mdo,  
-         SerialEnO                          => mden  
+         SerialClkO                         => mdc,
+         SerialDataI                        => mdi,
+         SerialDataO                        => mdo,
+         SerialEnO                          => mden
       );
 
    i0rb_mdio : mdio_regbank
@@ -207,6 +285,18 @@ begin
          Rst                                => Rst,                            -- in   std_logic
          CmdBI                              => i0rb_macCmdB,                   -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
          RdBBO                              => i0rb_macRdBB,                   -- out  std_logic_vector(gDatSz+1 downto 0)
+         CpuTxDataO                         => i0rb_CpuTxDataO,
+         CpuTxEnO                           => i0rb_CpuTxEnO,
+         ReceiveEnO                         => open,
+         TransmittEnO                       => i0rb_TransmittEnO,
+         CpuTxFullI                         => i0rb_CpuTxFullI,              -- in   std_logic
+         DataI                              => DataI,                   -- in   std_logic_vector(7 downto 0)
+         DataValidI                         => DataValidI,              -- in   std_logic
+         FifoEnI                            => FifoEnI,                 -- in   std_logic
+         LastDataI                          => LastDataI,               -- in   std_logic
+         RXStatusI                          => RXStatusI,
+         TxStatusI                          => i0rb_TxStatusI,
+         TxStatusValidI                     => i0rb_TxStatusValidI,
          downO                              => i0rb_macdown,                   -- out  std_logic
          maxO                               => i0rb_macmax,                    -- out  std_logic_vector(15 downto 0)
          prescaleO                          => i0rb_macprescale,               -- out  std_logic_vector(11 downto 0)
@@ -217,6 +307,48 @@ begin
          stepupO                            => i0rb_macstepup,                 -- out  std_logic
          upO                                => i0rb_macup                      -- out  std_logic
       );
+
+   i0rb_TxEthernetMAC : TxEthernetMAC
+   port map (
+      Clk                                => Clk,
+      Rst                                => Rst,
+     CpuTxDataO                          => i0rb_CpuTxDataO,
+     CpuTxEnO                            => i0rb_CpuTxEnO,
+     CpuTxFullI                          => i0rb_CpuTxFullI,
+     TransmittEnO                        => i0rb_TransmittEnO,
+     TxStatusI                           => i0rb_TxStatusI,
+     TxStatusValidI                      => i0rb_TxStatusValidI,
+     --phy interface
+     TxD                                 => TxD,
+     TxEn                                => TxEn,
+     TxEr                                => TxEr,
+     TxClk                               => TxClk,
+     --phy interface end
+     TestData                            => open,
+     TestTransmitEnable                  => open,
+     TestTransmitError                   => open
+   );
+
+nRstO <= not(rst);
+
+Receiver_i : Receiver
+generic map (
+  gDatSz => 8
+)
+port map (
+  Clk       => Clk,
+  Clk25     => RXClk,
+  nRstO     => nRstO,
+  RXdv      => RXdv,
+  RXErr     => RXErr,
+  RXdata    => RXdata,
+  Data      => DataI,
+  FifoEn    => FifoEnI,
+  DataValid => DataValidI,
+  LastData  => LastDataI,
+  RXStatus  => RXStatusI
+);
+
 
 
 end RTL;

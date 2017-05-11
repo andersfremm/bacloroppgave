@@ -1,0 +1,121 @@
+{
+	"partitions" : [
+		{
+			"name" : "demo",
+			"pins" : [
+				{
+					"name" : "Cpu0ActiveO",
+					"strict" : false
+				},
+				{
+					"name" : "Cpu1ActiveO",
+					"strict" : false
+				},
+				{
+					"name" : "serial0TxO",
+					"strict" : false
+				},
+				{
+					"name" : "i0rb_ledled0O",
+					"strict" : false
+				},
+				{
+					"name" : "i0rb_ledled1O",
+					"strict" : false
+				},
+				{
+					"name" : "i0rb_ledled2O",
+					"strict" : false
+				},
+				{
+					"name" : "i0rb_ledled3O",
+					"strict" : false
+				},
+				{
+					"name" : "nRstO",
+					"strict" : false
+				},
+				{
+					"name" : "mdc",
+					"strict" : false
+				},
+				{
+					"name" : "TxD[0]",
+					"strict" : false
+				},
+				{
+					"name" : "TxD[1]",
+					"strict" : false
+				},
+				{
+					"name" : "TxD[2]",
+					"strict" : false
+				},
+				{
+					"name" : "TxD[3]",
+					"strict" : false
+				},
+				{
+					"name" : "TxEn",
+					"strict" : false
+				},
+				{
+					"name" : "DebugO[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DebugO[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DebugO[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DebugO[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DebugO[7]",
+					"strict" : false
+				},
+				{
+					"name" : "mdioIO",
+					"strict" : false
+				},
+				{
+					"name" : "ClkCpu",
+					"strict" : false
+				},
+				{
+					"name" : "sw17",
+					"strict" : false
+				},
+				{
+					"name" : "TxClk",
+					"strict" : false
+				},
+				{
+					"name" : "serial0RxI",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

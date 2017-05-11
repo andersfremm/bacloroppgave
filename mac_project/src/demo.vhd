@@ -1,4 +1,4 @@
------------------ COPYRIGHT © ProgBit AS 2017 ----------------------------------
+----------------- COPYRIGHT ï¿½ ProgBit AS 2017 ----------------------------------
 -- This file has been generated using ProgBit autoreg tools
 --------------------------------------------------------------------------------
 
@@ -18,11 +18,18 @@ port (
    i0rb_ledled1O                      : out std_logic;
    i0rb_ledled2O                      : out std_logic;
    i0rb_ledled3O                      : out std_logic;
-   
+   --I/O
+   sw17                                : in std_logic;
    --mdio
    nRstO                              : out std_logic; -- Active low reset to PHY
-   mdioIO                             : inout std_logic; 
+   mdioIO                             : inout std_logic;
    mdc                                : out std_logic;
+
+   -- phy
+   TxD                            : out std_logic_vector(3 downto 0);
+   TxEn                           : out std_logic;
+   TxEr                           : out std_logic;
+   TxClk                          : in  std_logic;
 
    -- Debug
    DebugO                             : out std_logic_vector(7 downto 0)
@@ -31,7 +38,7 @@ end entity;
 
 architecture RTL of demo is
 
--- NB! Please beware that template clock and reset connections have to be 
+-- NB! Please beware that template clock and reset connections have to be
 -- NB! manually edited when more than one clock shall be used in the design!
 
 component serial_wrapper is
@@ -118,31 +125,34 @@ component reg_main is
    );
 end component;
 
-component core is
-   generic (
-      gAddSz                             : integer   := 16;
-      gDatSz                             : integer   := 16;
-      gVendor                            : string    := "Xilinx"
-   );
-   port (
-      Clk                                : in  std_logic;
-      Rst                                : in  std_logic;
-      ClkCpu                             : in  std_logic;
-      CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
-      RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
-      i0rb_ledled0O                      : out std_logic;
-      i0rb_ledled1O                      : out std_logic;
-      i0rb_ledled2O                      : out std_logic;
-      i0rb_ledled3O                      : out std_logic;
-      
-      -- MDIO
-      nRstO                              : out std_logic; -- Active low reset to PHY
-      mdi                                : in  std_logic;
-      mdo                                : out std_logic;
-      mden                               : out std_logic;
-      mdc                                : out std_logic
-   );
-end component;
+component core
+generic (
+  gAddSz  : integer := 16;
+  gDatSz  : integer := 16;
+  gVendor : string
+);
+port (
+  Clk           : in  std_logic;
+  Rst           : in  std_logic;
+  ClkCpu        : in  std_logic;
+  CmdBI         : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
+  RdBBO         : out std_logic_vector(gDatSz+1 downto 0);
+  i0rb_ledled0O : out std_logic;
+  i0rb_ledled1O : out std_logic;
+  i0rb_ledled2O : out std_logic;
+  i0rb_ledled3O : out std_logic;
+  nRstO         : out std_logic;
+  mdi           : in  std_logic;
+  mdo           : out std_logic;
+  mden          : out std_logic;
+  mdc           : out std_logic;
+  TxD           : out std_logic_vector(3 downto 0);
+  TxEn          : out std_logic;
+  TxEr          : out std_logic;
+  TxClk         : in  std_logic
+);
+end component core;
+
 
    constant cAddSz                       : integer := 16;
    constant cDatSz                       : integer := 16;
@@ -302,8 +312,13 @@ begin
          mdi                                => CoreMdi,
          mdo                                => CoreMdo,
          mden                               => CoreMden,
-         mdc                                => CoreMdc
-      );
+         mdc                                => CoreMdc,
+         --phy
+         TxD                                => TxD,
+         TxEn                               => TxEn,
+         TxEr                               => TxEr,
+         TxClk                              => TxClk
+);
 
       mdioIO <= CoreMdo when CoreMden = '1' else 'Z';
       CoreMdi <= mdioIO;
@@ -312,6 +327,8 @@ begin
       i0rb_ledled1O <= CoreLed(1);
       i0rb_ledled2O <= CoreLed(2);
       i0rb_ledled3O <= CoreLed(3);
+
+      RstLogic <= sw17;
 
       mdc <= CoreMdc;
 

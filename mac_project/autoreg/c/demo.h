@@ -38,15 +38,15 @@ typedef enum{
 const autoreg_register_property i0jtag.i0demo.i0core.i0rb_revision.revision [] = {
   //    Addr   Width  BitPos     Val          Name           Type    Format  Info
    {      0,      8,      8,       0   },  // branchesrev    RC      U       "Branches revision."                                
-   {      3,     16,      0,      21   },  // day            RC      U       "Day of build"                                      
-   {      4,     16,      0,      17   },  // hour           RC      U       "Hour of build"                                     
+   {      3,     16,      0,      02   },  // day            RC      U       "Day of build"                                      
+   {      4,     16,      0,      01   },  // hour           RC      U       "Hour of build"                                     
    {      9,      1,      0,       0   },  // latch          WI      U       "Global latch"                                      
-   {      5,     16,      0,      16   },  // minute         RC      U       "Minute of build"                                   
-   {      2,     16,      0,      02   },  // month          RC      U       "Month of build"                                    
+   {      5,     16,      0,      10   },  // minute         RC      U       "Minute of build"                                   
+   {      2,     16,      0,      05   },  // month          RC      U       "Month of build"                                    
    {     12,     40,      0,   0xabc   },  // rctest         RC      U       "Test register"                                     
    {      9,     40,      3,       0   },  // rtest          R       U       "Test register"                                     
    {      6,     40,      1,       0   },  // rwtest         RW      U       "Test register"                                     
-   {      0,      8,      0,       6   },  // trunkrev       RC      U       "Trunk revision."                                   
+   {      0,      8,      0,      16   },  // trunkrev       RC      U       "Trunk revision."                                   
    {      1,     16,      0,      17   },  // year           RC      U       "Year of build"                                     
 };
 
@@ -87,6 +87,18 @@ const autoreg_register_property i0jtag.i0demo.i0core.i0rb_led.led [] = {
 };
 
 typedef enum{
+   CpuTxData,
+   CpuTxEn,
+   CpuTxFull,
+   Data,
+   DataValid,
+   FifoEn,
+   LastData,
+   RXStatus,
+   ReceiveEn,
+   TransmittEn,
+   TxStatus,
+   TxStatusValid,
    down,
    max,
    prescale,
@@ -101,6 +113,18 @@ typedef enum{
 
 const autoreg_register_property i0jtag.i0demo.i0core.i0mac.i0rb_mac.mac [] = {
   //    Addr   Width  BitPos     Val          Name           Type    Format  Info
+   {    267,     64,      0,       0   },  // CpuTxData      RW      U       "Data to the transmitter"                           
+   {    270,      1,      0,       0   },  // CpuTxEn        WI      U       "Send data to fifo"                                 
+   {    271,      1,      1,       0   },  // CpuTxFull      R       U       "FIFO Cpu interface is full"                        
+   {    274,      8,      0,       0   },  // Data           R       U       "Data to the transmitter"                           
+   {    274,      1,     10,       0   },  // DataValid      R       U       "Data to the transmitter"                           
+   {    274,      1,      9,       0   },  // FifoEn         R       U       "Data to the transmitter"                           
+   {    274,      1,     11,       0   },  // LastData       R       U       "Data to the transmitter"                           
+   {    275,      4,      0,       0   },  // RXStatus       R       U       "Data to the transmitter"                           
+   {    266,      1,      0,       0   },  // ReceiveEn      WI      U       "Receive Enable"                                    
+   {    266,      1,      1,       0   },  // TransmittEn    WI      U       "Transmitt Enable"                                  
+   {    272,      7,      0,       0   },  // TxStatus       R       U       "Status TxStateMachine"                             
+   {    273,      1,      0,       0   },  // TxStatusValid  R       U       "Staus is valid = 1"                                
    {    261,      1,      1,       0   },  // down           RW      U       "Count down continuously"                           
    {    264,     16,      0,   65535   },  // max            RW      U       "Max value before wrap to 0"                        
    {    261,     12,      2,    1024   },  // prescale       RW      U       "Max value for prescale counter"                    

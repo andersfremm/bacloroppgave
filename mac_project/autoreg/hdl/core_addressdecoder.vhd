@@ -62,7 +62,7 @@ begin
          gAddSz                             => gAddSz,                         -- integer
          gDatSz                             => gDatSz,                         -- integer
          gAddLow                            => 256,                            -- integer
-         gAddHigh                           => 265,                            -- integer
+         gAddHigh                           => 275,                            -- integer
          gAsync                             => false,                          -- boolean
          gRtCmdB                            => 0,                              -- integer
          gRtRdBB                            => 0                               -- integer

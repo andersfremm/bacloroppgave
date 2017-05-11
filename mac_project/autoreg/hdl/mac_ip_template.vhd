@@ -49,6 +49,18 @@ component mac_regbank is
       Rst                                : in  std_logic;
       CmdBI                              : in  std_logic_vector(gAddSz+gDatSz+2 downto 0);
       RdBBO                              : out std_logic_vector(gDatSz+1 downto 0);
+      CpuTxDataO                         : out std_logic_vector(63 downto 0);
+      CpuTxEnO                           : out std_logic;
+      CpuTxFullI                         : in  std_logic;
+      DataI                              : in  std_logic_vector(7 downto 0);
+      DataValidI                         : in  std_logic;
+      FifoEnI                            : in  std_logic;
+      LastDataI                          : in  std_logic;
+      RXStatusI                          : in  std_logic_vector(3 downto 0);
+      ReceiveEnO                         : out std_logic;
+      TransmittEnO                       : out std_logic;
+      TxStatusI                          : in  std_logic_vector(6 downto 0);
+      TxStatusValidI                     : in  std_logic;
       downO                              : out std_logic;
       maxO                               : out std_logic_vector(15 downto 0);
       prescaleO                          : out std_logic_vector(11 downto 0);
@@ -81,6 +93,18 @@ component mdio_regbank is
    );
 end component;
 
+   signal i0rb_macCpuTxData                  : std_logic_vector(63 downto 0);
+   signal i0rb_macCpuTxEn                    : std_logic;
+   signal i0rb_macCpuTxFull                  : std_logic := '0';
+   signal i0rb_macData                       : std_logic_vector(7 downto 0) := x"00";
+   signal i0rb_macDataValid                  : std_logic := '0';
+   signal i0rb_macFifoEn                     : std_logic := '0';
+   signal i0rb_macLastData                   : std_logic := '0';
+   signal i0rb_macRXStatus                   : std_logic_vector(3 downto 0) := x"0";
+   signal i0rb_macReceiveEn                  : std_logic;
+   signal i0rb_macTransmittEn                : std_logic;
+   signal i0rb_macTxStatus                   : std_logic_vector(6 downto 0) := "0000000";
+   signal i0rb_macTxStatusValid              : std_logic := '0';
    signal i0rb_macdown                       : std_logic;
    signal i0rb_macmax                        : std_logic_vector(15 downto 0);
    signal i0rb_macprescale                   : std_logic_vector(11 downto 0);
@@ -149,6 +173,18 @@ begin
          Rst                                => Rst,                            -- in   std_logic
          CmdBI                              => i0rb_macCmdB,                   -- in   std_logic_vector(gAddSz+gDatSz+2 downto 0)
          RdBBO                              => i0rb_macRdBB,                   -- out  std_logic_vector(gDatSz+1 downto 0)
+         CpuTxDataO                         => i0rb_macCpuTxData,              -- out  std_logic_vector(63 downto 0)
+         CpuTxEnO                           => i0rb_macCpuTxEn,                -- out  std_logic
+         CpuTxFullI                         => i0rb_macCpuTxFull,              -- in   std_logic
+         DataI                              => i0rb_macData,                   -- in   std_logic_vector(7 downto 0)
+         DataValidI                         => i0rb_macDataValid,              -- in   std_logic
+         FifoEnI                            => i0rb_macFifoEn,                 -- in   std_logic
+         LastDataI                          => i0rb_macLastData,               -- in   std_logic
+         RXStatusI                          => i0rb_macRXStatus,               -- in   std_logic_vector(3 downto 0)
+         ReceiveEnO                         => i0rb_macReceiveEn,              -- out  std_logic
+         TransmittEnO                       => i0rb_macTransmittEn,            -- out  std_logic
+         TxStatusI                          => i0rb_macTxStatus,               -- in   std_logic_vector(6 downto 0)
+         TxStatusValidI                     => i0rb_macTxStatusValid,          -- in   std_logic
          downO                              => i0rb_macdown,                   -- out  std_logic
          maxO                               => i0rb_macmax,                    -- out  std_logic_vector(15 downto 0)
          prescaleO                          => i0rb_macprescale,               -- out  std_logic_vector(11 downto 0)
